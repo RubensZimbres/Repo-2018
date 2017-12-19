@@ -1,2 +1,3 @@
 # Repo-2018
-2018 Repository
+
+Python Codes + Tensorflow algorithms for regression, classification and LSTM
