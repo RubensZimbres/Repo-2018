@@ -1,0 +1,128 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from keras.datasets import mnist
+import random
+import pandas as pd
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+x_train = x_train.astype('float32') / 255.
+x_test = x_test.astype('float32') / 255.
+x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
+x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+
+n=100
+
+x_train=x_train[0:n]
+x_test=x_test[n:n+n]
+
+noise_factor = 0.1
+x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
+x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+
+
+x_train_noisy = np.clip(x_train_noisy, 0., 1.)
+x_test_noisy = np.clip(x_test_noisy, 0., 1.)
+
+x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy])
+x_train=np.concatenate([x_train,x_train])
+
+np.random.seed(200)
+sel=random.sample(range(0,x_train.shape[0]), 100)
+x_train_noisy=x_train_noisy[sel]
+x_train=x_train[sel]
+
+x_train=np.array(x_train.astype(np.float64))
+x_train_noisy=x_train_noisy.astype(np.float64)
+
+learning_rate = 0.008
+num_steps = 10000
+batch_size = 100
+
+display_step = 10
+examples_to_show = 10
+
+num_hidden_1 = 256
+num_hidden_2 = 256 
+num_input = 784 
+
+X = tf.placeholder("float", [None, num_input])
+Y = tf.placeholder("float", [None, num_input])
+
+weights = {
+    'encoder_h1': tf.Variable(tf.random_normal([num_input, num_hidden_1])),
+    'encoder_h2': tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2])),
+    'decoder_h1': tf.Variable(tf.random_normal([num_hidden_2, num_hidden_1])),
+    'decoder_h2': tf.Variable(tf.random_normal([num_hidden_1, num_input])),
+}
+biases = {
+    'encoder_b1': tf.Variable(tf.random_normal([num_hidden_1])),
+    'encoder_b2': tf.Variable(tf.random_normal([num_hidden_2])),
+    'decoder_b1': tf.Variable(tf.random_normal([num_hidden_1])),
+    'decoder_b2': tf.Variable(tf.random_normal([num_input])),
+}
+
+def encoder(x):
+    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights['encoder_h1']),
+                                   biases['encoder_b1']))
+    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights['encoder_h2']),
+                                   biases['encoder_b2']))
+    return layer_2
+
+
+def decoder(x):
+    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights['decoder_h1']),
+                                   biases['decoder_b1']))
+    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights['decoder_h2']),
+                                   biases['decoder_b2']))
+    return layer_2
+
+encoder_op = encoder(X)
+decoder_op = decoder(encoder_op)
+
+y_pred = decoder_op
+y_true = Y
+
+loss = tf.reduce_mean(tf.pow(y_true - y_pred, 2))
+optimizer = tf.train.RMSPropOptimizer(learning_rate).minimize(loss)
+
+init = tf.global_variables_initializer()
+
+def next_batch(num, data, labels):
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+    return np.asarray(data_shuffle), np.asarray(labels_shuffle)
+
+
+with tf.Session() as sess:
+    sess.run(init)
+    for i in range(1, num_steps+1):
+        total_batch = int(len(y_train)/batch_size)
+        Xt, Yt = next_batch(batch_size, x_train_noisy, x_train)
+        batch_x, batch_y = Xt,Yt
+        _, l = sess.run([optimizer, loss], feed_dict={X: batch_x,
+                        Y:batch_y})
+        if i % display_step == 0 or i == 1:
+            print('Step %i: Denoising Loss: %f' % (i, l))
+        output = sess.run([decoder_op],feed_dict={X: x_train})
+    
+pred0=output
+
+np.where(np.array(sel)<100)
+
+plt.figure(figsize=(5, 5))
+ax = plt.subplot(1, 2, 1)
+plt.imshow(x_train_noisy[2].reshape(28, 28))
+plt.gray()
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+ax = plt.subplot(1, 2, 2)
+plt.imshow(np.array(pred0)[0].reshape(100,28, 28)[2])
+plt.gray()
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+plt.show()
