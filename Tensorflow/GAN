@@ -1,0 +1,217 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from keras.datasets import mnist
+import random
+import pandas as pd
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+x_train = x_train.astype('float32') / 255.
+x_test = x_test.astype('float32') / 255.
+x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
+x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+
+n=100
+
+x_train=x_train[0:n]
+x_test=x_test[n:n+n]
+
+noise_factor = 0.1
+x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
+x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+
+
+x_train_noisy = np.clip(x_train_noisy, 0., 1.)
+x_test_noisy = np.clip(x_test_noisy, 0., 1.)
+
+x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy])
+x_train=np.concatenate([x_train,x_train])
+
+np.random.seed(200)
+sel=random.sample(range(0,x_train.shape[0]), 100)
+y_train=pd.get_dummies(y_train[sel])
+x_train_noisy=x_train_noisy[sel]
+x_train=x_train[sel]
+
+y_train=y_train[0:n]
+y_train=np.concatenate([y_train,y_train])[sel]
+
+
+x_train=np.array(x_train.astype(np.float64))
+x_train_noisy=x_train_noisy.astype(np.float64)
+
+learning_rate = 0.0001
+num_steps = 5000
+batch_size = 100
+
+display_step = 10
+examples_to_show = 10
+
+num_hidden_1 = 256
+num_hidden_2 = 256 
+num_input = 784 
+
+X = tf.placeholder("float", [None, num_input])
+Y = tf.placeholder("float", [None, num_input])
+
+weights = {
+    'encoder_h1': tf.Variable(tf.random_normal([num_input, num_hidden_1])),
+    'encoder_h2': tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2])),
+    'decoder_h1': tf.Variable(tf.random_normal([num_hidden_2, num_hidden_1])),
+    'decoder_h2': tf.Variable(tf.random_normal([num_hidden_1, num_input])),
+}
+biases = {
+    'encoder_b1': tf.Variable(tf.random_normal([num_hidden_1])),
+    'encoder_b2': tf.Variable(tf.random_normal([num_hidden_2])),
+    'decoder_b1': tf.Variable(tf.random_normal([num_hidden_1])),
+    'decoder_b2': tf.Variable(tf.random_normal([num_input])),
+}
+
+def encoder(x):
+    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights['encoder_h1']),
+                                   biases['encoder_b1']))
+    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights['encoder_h2']),
+                                   biases['encoder_b2']))
+    return layer_2
+
+
+def decoder(x):
+    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights['decoder_h1']),
+                                   biases['decoder_b1']))
+    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights['decoder_h2']),
+                                   biases['decoder_b2']))
+    return layer_2
+
+encoder_op = encoder(X)
+decoder_op = decoder(encoder_op)
+
+y_pred = decoder_op
+y_true = Y
+
+loss = tf.reduce_mean(tf.pow(y_true - y_pred, 2))
+optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
+
+init = tf.global_variables_initializer()
+
+def next_batch(num, data, labels):
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+    return np.asarray(data_shuffle), np.asarray(labels_shuffle)
+
+
+with tf.Session() as sess:
+    sess.run(init)
+    for i in range(1, num_steps+1):
+        total_batch = int(len(y_train)/batch_size)
+        Xt, Yt = next_batch(batch_size, x_train_noisy, x_train)
+        batch_x, batch_y = Xt,Yt
+        _, l = sess.run([optimizer, loss], feed_dict={X: batch_x,
+                        Y:batch_y})
+        if i % display_step == 0 or i == 1:
+            print('Step %i: Denoising Loss: %f' % (i, l))
+        output = sess.run([decoder_op],feed_dict={X: x_train})
+    
+pred0=output
+
+np.where(np.array(sel)<100)
+
+
+plt.figure(figsize=(7, 7))
+ax = plt.subplot(1, 2, 1)
+plt.imshow(x_train_noisy[2].reshape(28, 28))
+plt.gray()
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+ax = plt.subplot(1, 2, 2)
+plt.imshow(np.array(pred0)[0].reshape(100,28, 28)[2])
+plt.gray()
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+plt.show()
+
+plt.imshow(x_train[0].reshape(28,28))
+plt.imshow(x_train_noisy[0].reshape(28,28))
+
+
+
+### LINK AUTOENCODER + CNN asynchronous update
+
+
+
+
+num_classes=10
+dropout = 0.75
+
+keep_prob = tf.placeholder(tf.float32) # dropout
+
+Y = tf.placeholder("float", [None, num_classes])
+
+def conv2d(x, W, b, strides=1):
+    x = tf.nn.conv2d(x, W, strides=[1, strides, strides, 1], padding='SAME')
+    x = tf.nn.bias_add(x, b)
+    return tf.nn.relu(x)
+
+
+def maxpool2d(x, k=2):
+    return tf.nn.max_pool(x, ksize=[1, k, k, 1], strides=[1, k, k, 1],
+                          padding='SAME')
+
+def conv_net(x, weights, biases, dropout):
+    x = tf.reshape(x, shape=[-1, 28, 28, 1])
+    conv1 = conv2d(x, weights['wc1'], biases['bc1'])
+    conv1 = maxpool2d(conv1, k=2)
+    conv2 = conv2d(conv1, weights['wc2'], biases['bc2'])
+    conv2 = maxpool2d(conv2, k=2)
+    fc1 = tf.reshape(conv2, [-1, weights['wd1'].get_shape().as_list()[0]])
+    fc1 = tf.add(tf.matmul(fc1, weights['wd1']), biases['bd1'])
+    fc1 = tf.nn.relu(fc1)
+    fc1 = tf.nn.dropout(fc1, dropout)
+    out = tf.add(tf.matmul(fc1, weights['out']), biases['out'])
+    return out
+
+weights = {
+    'wc1': tf.Variable(tf.random_normal([5, 5, 1, 32])),
+    'wc2': tf.Variable(tf.random_normal([5, 5, 32, 64])),
+    'wd1': tf.Variable(tf.random_normal([7*7*64, 1024])),
+    'out': tf.Variable(tf.random_normal([1024, num_classes]))
+}
+
+biases = {
+    'bc1': tf.Variable(tf.random_normal([32])),
+    'bc2': tf.Variable(tf.random_normal([64])),
+    'bd1': tf.Variable(tf.random_normal([1024])),
+    'out': tf.Variable(tf.random_normal([num_classes]))
+}
+
+logits = conv_net(X, weights, biases, keep_prob)
+prediction = tf.nn.softmax(logits)
+
+loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+    logits=logits, labels=Y))
+optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+train_op = optimizer.minimize(loss_op)
+
+correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+init = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(init)
+
+    for step in range(1, num_steps+1):
+        total_batch = int(len(y_train)/batch_size)
+        Xt, Yt = next_batch(batch_size, x_train, y_train)
+        batch_x, batch_y = Xt,Yt
+        sess.run(train_op, feed_dict={X: batch_x, Y: batch_y, keep_prob: 0.8})
+        if step % display_step == 0 or step == 1:
+            loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x,
+                                                                 Y: batch_y,
+                                                                 keep_prob: 1.0})
+            print("Epoch " + str(step) + ", CNN Loss= " + \
+                  "{:.4f}".format(loss) + ", Training Accuracy= " + \
+"{:.3f}".format(acc))
