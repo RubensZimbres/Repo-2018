@@ -12,7 +12,7 @@ x_test = x_test.astype('float32') / 255.
 x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
 x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
 
-n=100
+n=90
 
 x_train=x_train[0:n]
 x_test=x_test[n:n+n]
@@ -29,7 +29,7 @@ x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy])
 x_train=np.concatenate([x_train,x_train])
 
 np.random.seed(200)
-sel=random.sample(range(0,x_train.shape[0]), 100)
+sel=random.sample(range(0,x_train.shape[0]), n)
 y_train=pd.get_dummies(y_train[sel])
 x_train_noisy=x_train_noisy[sel]
 x_train=x_train[sel]
@@ -38,12 +38,12 @@ y_train=y_train[0:n]
 y_train=np.concatenate([y_train,y_train])[sel]
 
 
-x_train=np.array(x_train.astype(np.float64))
+x_train=np.array(x_train).astype(np.float64)
 x_train_noisy=x_train_noisy.astype(np.float64)
 
 learning_rate = 0.006
-num_steps = 20
-batch_size = 100
+num_steps = 1000
+batch_size = n
 
 display_step = 10
 examples_to_show = 10
@@ -92,7 +92,6 @@ y_true = Y
 loss = tf.reduce_mean(tf.pow(y_true - y_pred, 2))
 optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
 
-init = tf.global_variables_initializer()
 
 def next_batch(num, data, labels):
     idx = np.arange(0 , len(data))
@@ -100,7 +99,7 @@ def next_batch(num, data, labels):
     idx = idx[:num]
     data_shuffle = [data[ i] for i in idx]
     labels_shuffle = [labels[ i] for i in idx]
-    return np.asarray(data_shuffle), np.asarray(labels_shuffle)
+    return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
 
 
 
@@ -197,21 +196,19 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
     for i in range(1, num_steps+1):
-        Xt, Yt = next_batch(batch_size, x_train_noisy, x_train)
-        batch_x, batch_y = Xt,Yt
-        _, l = sess.run([optimizer, loss], feed_dict={X: batch_x.reshape(100,784),
+        batch_x, batch_y=next_batch(batch_size, x_train_noisy, x_train)        
+        _, l = sess.run([optimizer, loss], feed_dict={X: batch_x.reshape(n,784),
                         Y:batch_y})
         if i % display_step == 0 or i == 1:
             print('Step %i: Denoising Loss: %f' % (i, l))
         output=sess.run([decoder_op],feed_dict={X: x_train})
         x_train2=np.array(output).reshape(n,784).astype(np.float64)
-        Xt2, Yt2 = next_batch(batch_size, x_train2, y_train)
-        batch_x2, batch_y2 = Xt2,Yt2
+        batch_x2, batch_y2 = next_batch(batch_size, x_train2, y_train)
         sess.run(train_op, feed_dict={X2: batch_x2.reshape(n,784), Y2: batch_y2, keep_prob: 0.8})
         if i % display_step == 0 or i == 1:
-            loss, acc = sess.run([loss_op2, accuracy], feed_dict={X2: batch_x2,
+            loss3, acc = sess.run([loss_op2, accuracy], feed_dict={X2: batch_x2,
                                                                  Y2: batch_y2,
                                                                  keep_prob: 1.0})
             print("Epoch " + str(i) + ", CNN Loss= " + \
-                  "{:.4f}".format(loss) + ", Training Accuracy= " + \
+                  "{:.4f}".format(loss3) + ", Training Accuracy= " + \
 "{:.3f}".format(acc))
