@@ -42,7 +42,7 @@ x_train=np.array(x_train.astype(np.float64))
 x_train_noisy=x_train_noisy.astype(np.float64)
 
 learning_rate = 0.0001
-num_steps = 5000
+num_steps = 1000
 batch_size = 100
 
 display_step = 10
@@ -138,7 +138,7 @@ plt.imshow(x_train_noisy[0].reshape(28,28))
 
 
 
-### LINK AUTOENCODER + CNN asynchronous update
+### LINK AUTOENCODER + CNN
 
 
 
@@ -148,7 +148,7 @@ dropout = 0.75
 
 keep_prob = tf.placeholder(tf.float32) # dropout
 
-Y = tf.placeholder("float", [None, num_classes])
+Y2 = tf.placeholder("float", [None, num_classes])
 
 def conv2d(x, W, b, strides=1):
     x = tf.nn.conv2d(x, W, strides=[1, strides, strides, 1], padding='SAME')
@@ -191,11 +191,11 @@ logits = conv_net(X, weights, biases, keep_prob)
 prediction = tf.nn.softmax(logits)
 
 loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
-    logits=logits, labels=Y))
+    logits=logits, labels=Y2))
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 train_op = optimizer.minimize(loss_op)
 
-correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
+correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y2, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 init = tf.global_variables_initializer()
@@ -207,10 +207,10 @@ with tf.Session() as sess:
         total_batch = int(len(y_train)/batch_size)
         Xt, Yt = next_batch(batch_size, x_train, y_train)
         batch_x, batch_y = Xt,Yt
-        sess.run(train_op, feed_dict={X: batch_x, Y: batch_y, keep_prob: 0.8})
+        sess.run(train_op, feed_dict={X: batch_x, Y2: batch_y, keep_prob: 0.8})
         if step % display_step == 0 or step == 1:
             loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x,
-                                                                 Y: batch_y,
+                                                                 Y2: batch_y,
                                                                  keep_prob: 1.0})
             print("Epoch " + str(step) + ", CNN Loss= " + \
                   "{:.4f}".format(loss) + ", Training Accuracy= " + \
