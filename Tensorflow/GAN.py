@@ -44,6 +44,9 @@ y_test=np.concatenate([y_test,y_test])[sel]
 x_train=np.array(x_train).astype(np.float64)
 x_train_noisy=x_train_noisy.astype(np.float64)
 
+learning_rate = 0.008
+num_steps = 5000
+batch_size = n
 
 display_step = 50
 examples_to_show = 10
@@ -188,9 +191,6 @@ accuracy = tf.reduce_mean(tf.cast(correct_pred2, tf.float32))
 
 init = tf.global_variables_initializer()
 
-learning_rate = 0.008
-num_steps = 5000
-batch_size = n
 
 (x_tt, y_train), (x_tttt, y_test) = mnist.load_data()
 y_train=y_train[0:n]
