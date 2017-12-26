@@ -41,8 +41,8 @@ y_train=np.concatenate([y_train,y_train])[sel]
 x_train=np.array(x_train.astype(np.float64))
 x_train_noisy=x_train_noisy.astype(np.float64)
 
-learning_rate = 0.0001
-num_steps = 1000
+learning_rate = 0.006
+num_steps = 20
 batch_size = 100
 
 display_step = 10
@@ -103,21 +103,8 @@ def next_batch(num, data, labels):
     return np.asarray(data_shuffle), np.asarray(labels_shuffle)
 
 
-with tf.Session() as sess:
-    sess.run(init)
-    for i in range(1, num_steps+1):
-        total_batch = int(len(y_train)/batch_size)
-        Xt, Yt = next_batch(batch_size, x_train_noisy, x_train)
-        batch_x, batch_y = Xt,Yt
-        _, l = sess.run([optimizer, loss], feed_dict={X: batch_x,
-                        Y:batch_y})
-        if i % display_step == 0 or i == 1:
-            print('Step %i: Denoising Loss: %f' % (i, l))
-        output = sess.run([decoder_op],feed_dict={X: x_train})
-    
-pred0=output
 
-np.where(np.array(sel)<100)
+'''np.where(np.array(sel)<100)
 
 
 plt.figure(figsize=(7, 7))
@@ -135,11 +122,10 @@ plt.show()
 
 plt.imshow(x_train[0].reshape(28,28))
 plt.imshow(x_train_noisy[0].reshape(28,28))
-
+''' 
 
 
 ### LINK AUTOENCODER + CNN
-
 
 
 
@@ -148,6 +134,7 @@ dropout = 0.75
 
 keep_prob = tf.placeholder(tf.float32) # dropout
 
+X2 = tf.placeholder("float", [None, num_input])
 Y2 = tf.placeholder("float", [None, num_classes])
 
 def conv2d(x, W, b, strides=1):
@@ -162,56 +149,69 @@ def maxpool2d(x, k=2):
 
 def conv_net(x, weights, biases, dropout):
     x = tf.reshape(x, shape=[-1, 28, 28, 1])
-    conv1 = conv2d(x, weights['wc1'], biases['bc1'])
+    conv1 = conv2d(x, weights['wc12'], biases['bc12'])
     conv1 = maxpool2d(conv1, k=2)
-    conv2 = conv2d(conv1, weights['wc2'], biases['bc2'])
+    conv2 = conv2d(conv1, weights['wc22'], biases['bc22'])
     conv2 = maxpool2d(conv2, k=2)
-    fc1 = tf.reshape(conv2, [-1, weights['wd1'].get_shape().as_list()[0]])
-    fc1 = tf.add(tf.matmul(fc1, weights['wd1']), biases['bd1'])
+    fc1 = tf.reshape(conv2, [-1, weights['wd12'].get_shape().as_list()[0]])
+    fc1 = tf.add(tf.matmul(fc1, weights['wd12']), biases['bd12'])
     fc1 = tf.nn.relu(fc1)
     fc1 = tf.nn.dropout(fc1, dropout)
-    out = tf.add(tf.matmul(fc1, weights['out']), biases['out'])
+    out = tf.add(tf.matmul(fc1, weights['out2']), biases['out2'])
     return out
 
-weights = {
-    'wc1': tf.Variable(tf.random_normal([5, 5, 1, 32])),
-    'wc2': tf.Variable(tf.random_normal([5, 5, 32, 64])),
-    'wd1': tf.Variable(tf.random_normal([7*7*64, 1024])),
-    'out': tf.Variable(tf.random_normal([1024, num_classes]))
+weights2 = {
+    'wc12': tf.Variable(tf.random_normal([5, 5, 1, 32])),
+    'wc22': tf.Variable(tf.random_normal([5, 5, 32, 64])),
+    'wd12': tf.Variable(tf.random_normal([7*7*64, 1024])),
+    'out2': tf.Variable(tf.random_normal([1024, num_classes]))
 }
 
-biases = {
-    'bc1': tf.Variable(tf.random_normal([32])),
-    'bc2': tf.Variable(tf.random_normal([64])),
-    'bd1': tf.Variable(tf.random_normal([1024])),
-    'out': tf.Variable(tf.random_normal([num_classes]))
+biases2 = {
+    'bc12': tf.Variable(tf.random_normal([32])),
+    'bc22': tf.Variable(tf.random_normal([64])),
+    'bd12': tf.Variable(tf.random_normal([1024])),
+    'out2': tf.Variable(tf.random_normal([num_classes]))
 }
 
-logits = conv_net(X, weights, biases, keep_prob)
-prediction = tf.nn.softmax(logits)
+logits = conv_net(X2, weights2, biases2, keep_prob)
+prediction2 = tf.nn.softmax(logits)
 
-loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+loss_op2 = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
     logits=logits, labels=Y2))
-optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
-train_op = optimizer.minimize(loss_op)
+optimizer2 = tf.train.AdamOptimizer(learning_rate=learning_rate)
+train_op = optimizer2.minimize(loss_op2)
 
-correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y2, 1))
-accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+correct_pred2 = tf.equal(tf.argmax(prediction2, 1), tf.argmax(Y2, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_pred2, tf.float32))
+
+
+(x_tt, y_train), (x_tttt, y_test) = mnist.load_data()
+y_train=y_train[0:n]
+y_train=np.concatenate([y_train,y_train])[sel]
+y_train=np.array(pd.get_dummies(y_train)).astype(np.float32)
 
 init = tf.global_variables_initializer()
 
+
 with tf.Session() as sess:
     sess.run(init)
-
-    for step in range(1, num_steps+1):
-        total_batch = int(len(y_train)/batch_size)
-        Xt, Yt = next_batch(batch_size, x_train, y_train)
+    for i in range(1, num_steps+1):
+        Xt, Yt = next_batch(batch_size, x_train_noisy, x_train)
         batch_x, batch_y = Xt,Yt
-        sess.run(train_op, feed_dict={X: batch_x, Y2: batch_y, keep_prob: 0.8})
-        if step % display_step == 0 or step == 1:
-            loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x,
-                                                                 Y2: batch_y,
+        _, l = sess.run([optimizer, loss], feed_dict={X: batch_x.reshape(100,784),
+                        Y:batch_y})
+        if i % display_step == 0 or i == 1:
+            print('Step %i: Denoising Loss: %f' % (i, l))
+        output=sess.run([decoder_op],feed_dict={X: x_train})
+        x_train2=np.array(output).reshape(n,784).astype(np.float64)
+        Xt2, Yt2 = next_batch(batch_size, x_train2, y_train)
+        batch_x2, batch_y2 = Xt2,Yt2
+        sess.run(train_op, feed_dict={X2: batch_x2.reshape(n,784), Y2: batch_y2, keep_prob: 0.8})
+        if i % display_step == 0 or i == 1:
+            loss, acc = sess.run([loss_op2, accuracy], feed_dict={X2: batch_x2,
+                                                                 Y2: batch_y2,
                                                                  keep_prob: 1.0})
-            print("Epoch " + str(step) + ", CNN Loss= " + \
+            print("Epoch " + str(i) + ", CNN Loss= " + \
                   "{:.4f}".format(loss) + ", Training Accuracy= " + \
 "{:.3f}".format(acc))
