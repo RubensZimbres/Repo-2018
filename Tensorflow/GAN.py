@@ -45,7 +45,6 @@ x_train=np.array(x_train).astype(np.float64)
 x_train_noisy=x_train_noisy.astype(np.float64)
 
 learning_rate = 0.008
-num_steps = 5000
 batch_size = n
 
 display_step = 50
@@ -94,6 +93,9 @@ y_true = Y
 
 loss = tf.reduce_mean(tf.pow(y_true - y_pred, 2))
 optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
+
+logits0 = decoder(encoder(X))
+prediction0 = tf.nn.sigmoid(logits0)
 
 
 def next_batch(num, data, labels):
@@ -197,8 +199,11 @@ y_train=y_train[0:n]
 y_train=np.concatenate([y_train,y_train])[sel]
 y_train=np.array(pd.get_dummies(y_train)).astype(np.float32)
 y_test=y_test[0:n]
-y_test=np.concatenate([y_test,y_test])[sel]
-y_test=np.array(pd.get_dummies(y_test))
+y_test0=np.concatenate([y_test,y_test])[sel]
+y_test=np.array(pd.get_dummies(y_test0))
+
+num_steps = 2000
+
 
 with tf.Session() as sess:
     sess.run(init)
@@ -208,7 +213,7 @@ with tf.Session() as sess:
                         Y:batch_y})
         if i % display_step == 0 or i == 1:
             print('Epoch %i: Denoising Loss: %f' % (i, l))
-        output=sess.run([decoder_op],feed_dict={X: x_train})
+        output=sess.run([decoder_op],feed_dict={X: x_train_noisy})
         x_train2=np.array(output).reshape(n,784).astype(np.float64)
         batch_x2, batch_y2 = next_batch(batch_size, x_train2, y_train)
         sess.run(train_op, feed_dict={X2: batch_x2.reshape(n,784), Y2: batch_y2, keep_prob: 0.8})
@@ -219,12 +224,11 @@ with tf.Session() as sess:
             print("Epoch " + str(i) + ", CNN Loss= " + \
                   "{:.4f}".format(loss3) + ", Training Accuracy= " + "{:.3f}".format(acc))
     print('\n','Accuracy Train:',acc)
-    _, l = sess.run([optimizer, loss], feed_dict={X: x_test_noisy.reshape(n,784),
-                    Y:x_test})
+
     output3=sess.run([decoder_op],feed_dict={X: x_test_noisy})
     x_test22=np.array(output3).reshape(n,784).astype(np.float64)
-    sess.run(train_op, feed_dict={X2:x_test22.reshape(n,784), Y2: y_test, keep_prob: 0.8})
-    loss32, acc2 = sess.run([loss_op2, accuracy], feed_dict={X2: x_test22,
-                                                         Y2: y_test,
-                                                         keep_prob: 1.0})
-    print('\n','Accuracy Test:',acc2)
+
+    output33 = sess.run([prediction2],feed_dict={X2:x_test22,keep_prob: 1})
+    pred0=np.argmax(output33,axis=2)[0]
+
+print('Accuracy Test:',1-np.count_nonzero(y_test0-pred0)/n)
