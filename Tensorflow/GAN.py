@@ -12,7 +12,7 @@ x_test = x_test.astype('float32') / 255.
 x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
 x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
 
-n=90
+n=120
 
 x_train=x_train[0:n]
 x_test=x_test[n:n+n]
@@ -37,13 +37,12 @@ x_train=x_train[sel]
 y_train=y_train[0:n]
 y_train=np.concatenate([y_train,y_train])[sel]
 
+y_test=y_test[0:n]
+y_test=np.concatenate([y_test,y_test])[sel]
 
 x_train=np.array(x_train).astype(np.float64)
 x_train_noisy=x_train_noisy.astype(np.float64)
 
-learning_rate = 0.006
-num_steps = 1000
-batch_size = n
 
 display_step = 10
 examples_to_show = 10
@@ -192,6 +191,13 @@ y_train=np.array(pd.get_dummies(y_train)).astype(np.float32)
 
 init = tf.global_variables_initializer()
 
+learning_rate = 0.006
+num_steps = 2
+batch_size = n
+
+y_test=y_test[0:n]
+y_test=np.concatenate([y_test,y_test])[sel]
+y_test=np.array(pd.get_dummies(y_test))
 
 with tf.Session() as sess:
     sess.run(init)
@@ -210,5 +216,17 @@ with tf.Session() as sess:
                                                                  Y2: batch_y2,
                                                                  keep_prob: 1.0})
             print("Epoch " + str(i) + ", CNN Loss= " + \
-                  "{:.4f}".format(loss3) + ", Training Accuracy= " + \
-"{:.3f}".format(acc))
+                  "{:.4f}".format(loss3) + ", Training Accuracy= " + "{:.3f}".format(acc))
+    print('\n','Accuracy Train:',acc)
+
+    batch_x, batch_y=next_batch(batch_size, x_test_noisy, x_test)        
+    _, l = sess.run([optimizer, loss], feed_dict={X: batch_x.reshape(n,784),
+                    Y:batch_y})
+    output3=sess.run([decoder_op],feed_dict={X: x_test})
+    x_test22=np.array(output3).reshape(n,784).astype(np.float64)
+    batch_x2, batch_y2 = next_batch(batch_size, x_test22, y_test)
+    sess.run(train_op, feed_dict={X2: batch_x2.reshape(n,784), Y2: batch_y2, keep_prob: 0.8})
+    loss32, acc2 = sess.run([loss_op2, accuracy], feed_dict={X2: batch_x2,
+                                                         Y2: y_test,
+                                                         keep_prob: 1.0})
+    print('\n','Accuracy Test:',acc2)
