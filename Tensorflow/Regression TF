@@ -18,18 +18,19 @@ Y0=np.array(df.iloc[:,30]).astype(np.float32)
 
 X0=np.array(df.iloc[:,range(12,29)]).astype(np.float32)
 vars_num=4
-X0=SelectKBest(chi2, k=vars_num).fit_transform(X0, Y000)
+X0=SelectKBest(chi2, k=vars_num).fit_transform(X0, Y0)
 X0=norm(X0)[14:98]
 
 import tensorflow as tf
 tf.reset_default_graph()
 
-lr = 0.00001
+lr = 0.001
 training_epochs = 100000
 batch_size = 84
-display_step = 10
+display_step = 100
 
-n_hidden_1 = 50
+n_hidden_1 = 6
+n_hidden_2 = 6
 n_input = 4 
 n_classes = 1 
 
@@ -38,17 +39,20 @@ Y2 = tf.placeholder("float", [None, n_classes])
 
 weights = {
     'h1': tf.Variable(tf.random_uniform([n_input, n_hidden_1])),
-    'out': tf.Variable(tf.random_uniform([n_hidden_1, n_classes]))
+    'h2': tf.Variable(tf.random_uniform([n_hidden_1, n_hidden_2])),
+    'out': tf.Variable(tf.random_uniform([n_hidden_2, n_classes]))
 }
 biases = {
     'b1': tf.Variable(tf.random_uniform([n_hidden_1])),
+    'b2': tf.Variable(tf.random_uniform([n_hidden_2])),
     'out': tf.Variable(tf.random_uniform([n_classes]))
 }
 
 
 def multilayer_perceptron(x):
     layer_1 = tf.add(tf.matmul(x, weights['h1']), biases['b1'])
-    out_layer = tf.matmul(layer_1, weights['out']) + biases['out']
+    layer_2 = tf.add(tf.matmul(layer_1, weights['h2']), biases['b2'])
+    out_layer = tf.matmul(layer_2, weights['out']) + biases['out']
     return out_layer
 
 def next_batch(num, data, labels):
