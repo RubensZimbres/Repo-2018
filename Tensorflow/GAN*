@@ -1,0 +1,164 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from keras.datasets import mnist
+import random
+import pandas as pd
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+x_train = x_train.astype('float32') / 255.
+x_test = x_test.astype('float32') / 255.
+x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
+x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+
+n=60
+
+x_train=x_train[0:n]
+x_test=x_test[n:n+n]
+
+noise_factor = 0.05
+x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
+x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+
+def norm(x):
+    return(x-np.min(x))/(np.max(x)-np.min(x))
+
+
+x_train = norm(x_train)
+x_train_noisy = norm(x_train_noisy)
+x_test_noisy = norm(x_test_noisy)
+
+x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy])
+x_test_noisy=np.concatenate([x_test_noisy,x_test_noisy])
+x_train=norm(np.concatenate([x_train,x_train]))
+
+np.random.seed(200)
+sel=random.sample(range(0,x_train.shape[0]), n)
+x_train_noisy=x_train_noisy[sel]
+x_test_noisy=x_test_noisy[sel]
+x_train=x_train[sel]
+
+y_train=y_train[0:n]
+y_train=np.concatenate([y_train,y_train])[sel]
+y_train=np.array(pd.get_dummies(y_train)).astype(np.float32)
+y_test=y_test[0:n]
+y_test0=np.concatenate([y_test,y_test])[sel]
+y_test=np.array(pd.get_dummies(y_test0))
+
+x_train=np.array(x_train).astype(np.float64)
+x_train_noisy=x_train_noisy.astype(np.float64)
+
+def next_batch(num, data, labels):
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+    return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
+
+num_steps = 5000
+batch_size = n
+learning_rate1=0.0001
+show_steps=100
+
+image_dim = 784 
+gen_hidden_dim = 80
+disc_hidden_dim = 80
+noise_dim = n 
+def glorot_init(shape):
+    return tf.random_normal(shape=shape, stddev=1. / tf.sqrt(shape[0] / 2.))
+
+weights = {
+    'gen_hidden1': tf.Variable(glorot_init([784, gen_hidden_dim])),
+    'gen_out': tf.Variable(glorot_init([gen_hidden_dim, image_dim])),
+    'disc_hidden1': tf.Variable(glorot_init([image_dim, disc_hidden_dim])),
+    'disc_out': tf.Variable(glorot_init([disc_hidden_dim, 784])),
+}
+biases = {
+    'gen_hidden1': tf.Variable(tf.zeros([gen_hidden_dim])),
+    'gen_out': tf.Variable(tf.zeros([image_dim])),
+    'disc_hidden1': tf.Variable(tf.zeros([disc_hidden_dim])),
+    'disc_out': tf.Variable(tf.zeros(784)),
+}
+
+
+def generator(x):
+    hidden_layer = tf.matmul(x, weights['gen_hidden1'])
+    hidden_layer = tf.add(hidden_layer, biases['gen_hidden1'])
+    hidden_layer = tf.nn.relu(hidden_layer)
+    out_layer = tf.matmul(hidden_layer, weights['gen_out'])
+    out_layer = tf.add(out_layer, biases['gen_out'])
+    out_layer = tf.nn.relu(out_layer)
+    return out_layer
+
+
+def discriminator(x):
+    hidden_layer = tf.matmul(x, weights['disc_hidden1'])
+    hidden_layer = tf.add(hidden_layer, biases['disc_hidden1'])
+    hidden_layer = tf.nn.relu(hidden_layer)
+    out_layer = tf.matmul(hidden_layer, weights['disc_out'])
+    out_layer = tf.add(out_layer, biases['disc_out'])
+    out_layer = tf.nn.relu(out_layer)
+    return out_layer
+
+gen_input = tf.placeholder(tf.float32, shape=[None, 784], name='input_noise')
+disc_input = tf.placeholder(tf.float32, shape=[None, image_dim], name='disc_input')
+
+gen_sample = generator(gen_input)
+
+disc_real = discriminator(disc_input)
+disc_fake = discriminator(gen_sample)
+
+'''EQUALS
+DISC(DISC_INPUT) == DISC(REAL)
+DISC(GENERATOR(GEN_INPUT)) == DISC(FAKE)
+
+'''
+
+gen_loss = tf.reduce_mean(tf.losses.mean_squared_error(
+    disc_input,generator(gen_input)))
+disc_loss = tf.reduce_mean(tf.losses.mean_squared_error(
+    disc_input,discriminator(generator(gen_input))))
+
+optimizer_gen = tf.train.AdamOptimizer(learning_rate=learning_rate1)
+optimizer_disc = tf.train.AdamOptimizer(learning_rate=learning_rate1)
+
+gen_vars = [weights['gen_hidden1'], weights['gen_out'],
+            biases['gen_hidden1'], biases['gen_out']]
+disc_vars = [weights['disc_hidden1'], weights['disc_out'],
+            biases['disc_hidden1'], biases['disc_out']]
+
+train_gen = optimizer_gen.minimize(gen_loss)
+train_disc = optimizer_disc.minimize(disc_loss)
+
+init = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(init)
+    for i in range(1, num_steps+1):
+        batch_x, batch_y=next_batch(batch_size, x_train, x_train_noisy)        
+        feed_dict = {disc_input: batch_x, gen_input: batch_y}
+        _, _, gl, dl = sess.run([train_gen, train_disc, gen_loss, disc_loss],
+                                feed_dict=feed_dict)
+        g = sess.run([disc_fake], feed_dict={gen_input: x_train_noisy})
+        h = sess.run([disc_real], feed_dict={disc_input: x_train})
+        if i % show_steps == 0 or i == 1:
+            print('Step %i: Generator Loss: %f - Discriminator Loss: %f' % (i, gl, dl))
+
+f, a = plt.subplots(4, 10, figsize=(10, 4))
+for i in range(10):
+    h = np.reshape(h, newshape=(n, 28, 28, 1))
+    for j in range(4):
+        img = np.reshape(np.repeat(h[j][:, :, np.newaxis], 3, axis=2),
+                         newshape=(28, 28, 3))
+        a[j][i].imshow(img)
+
+
+f, a = plt.subplots(4, 10, figsize=(10, 4))
+for i in range(10):
+    g = np.reshape(g, newshape=(n, 28, 28, 1))
+    for j in range(4):
+        img = np.reshape(np.repeat(g[j][:, :, np.newaxis], 3, axis=2),
+                         newshape=(28, 28, 3))
+        a[j][i].imshow(img)
