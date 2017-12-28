@@ -9,4 +9,4 @@ Repo-2017 using Keras==1.1.0
 
 Datasets available at Repo-2017
 
-<imgsrc=https://github.com/RubensZimbres/Repo-2018/blob/master/Deep%20Learning%20Summer%20School/GANs.jpg?raw=true>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Deep%20Learning%20Summer%20School/GANs.jpg>
