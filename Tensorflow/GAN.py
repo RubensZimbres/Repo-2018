@@ -85,10 +85,10 @@ def decoder(x):
                                    biases['decoder_b2']))
     return layer_2
 
-encoder_op = encoder(X)
-decoder_op = decoder(encoder_op)
+encoder_1 = encoder(X)
+decoder_1 = decoder(encoder_1)
 
-y_pred = decoder_op
+y_pred = decoder_1
 y_true = Y
 
 loss = tf.reduce_mean(tf.pow(y_true - y_pred, 2))
@@ -159,10 +159,10 @@ biases2 = {
 logits = conv_net(X2, weights2, biases2, keep_prob)
 prediction2 = tf.nn.softmax(logits)
 
-loss_op2 = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+loss1 = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
     logits=logits, labels=Y2))
 optimizer2 = tf.train.AdamOptimizer(learning_rate=learning_rate)
-train_op = optimizer2.minimize(loss_op2)
+train_1 = optimizer2.minimize(loss1)
 
 correct_pred2 = tf.equal(tf.argmax(prediction2, 1), tf.argmax(Y2, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred2, tf.float32))
@@ -180,19 +180,19 @@ with tf.Session() as sess:
                         Y:batch_y})
         if i % display_step == 0 or i == 1:
             print('Epoch %i: Denoising Loss: %f' % (i, l))
-        output=sess.run([decoder_op],feed_dict={X: x_train_noisy})
+        output=sess.run([decoder_1],feed_dict={X: x_train_noisy})
         x_train2=np.array(output).reshape(n,784).astype(np.float64)
         batch_x2, batch_y2 = next_batch(batch_size, x_train2, y_train)
-        sess.run(train_op, feed_dict={X2: batch_x2.reshape(n,784), Y2: batch_y2, keep_prob: 0.8})
+        sess.run(train_1, feed_dict={X2: batch_x2.reshape(n,784), Y2: batch_y2, keep_prob: 0.8})
         if i % display_step == 0 or i == 1:
-            loss3, acc = sess.run([loss_op2, accuracy], feed_dict={X2: batch_x2,
+            loss3, acc = sess.run([loss1, accuracy], feed_dict={X2: batch_x2,
                                                                  Y2: batch_y2,
                                                                  keep_prob: 1.0})
             print("Epoch " + str(i) + ", CNN Loss= " + \
                   "{:.4f}".format(loss3) + ", Training Accuracy= " + "{:.3f}".format(acc))
     print('\n','Accuracy Train:',acc)
 
-    output3=sess.run([decoder_op],feed_dict={X: x_test_noisy})
+    output3=sess.run([decoder_1],feed_dict={X: x_test_noisy})
     x_test22=np.array(output3).reshape(n,784).astype(np.float64)
 
     output33 = sess.run([prediction2],feed_dict={X2:x_test22,keep_prob: 1.0})
@@ -215,4 +215,3 @@ plt.gray()
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
 plt.show()
-
