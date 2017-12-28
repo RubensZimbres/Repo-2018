@@ -17,7 +17,7 @@ n=100
 x_train=x_train[0:n]
 x_test=x_test[n:n+n]
 
-noise_factor = 0.1
+noise_factor = .08
 x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
 x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
 
@@ -29,7 +29,7 @@ x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy])
 x_train=np.concatenate([x_train,x_train])
 
 np.random.seed(200)
-sel=random.sample(range(0,x_train.shape[0]), 100)
+sel=random.sample(range(0,x_train.shape[0]), n)
 y_train=pd.get_dummies(y_train[sel])
 x_train_noisy=x_train_noisy[sel]
 x_train=x_train[sel]
@@ -116,7 +116,7 @@ with tf.Session() as sess:
                         Y:batch_y})
         if i % display_step == 0 or i == 1:
             print('Step %i: Denoising Loss: %f' % (i, l))
-        output = sess.run([decoder_op],feed_dict={X: x_train})
+        output = sess.run([decoder_op],feed_dict={X: x_train_noisy})
     
 pred0=output
 
