@@ -4,6 +4,9 @@ Deep Learning Summer School files -  GANs
 
 Python Codes -- Tensorflow algorithms for Supervised Learning (regression, classification), Unsupervised Learning and LSTM
 
-Keras==2.0.8
+Repo-2018 using Keras==2.0.8
+Repo-2017 using Keras==1.1.0
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Deep%20Learning%20Summer%20School/GANs.jpg?raw=true>
+Datasets available at Repo-2017
+
+<imgsrc=https://github.com/RubensZimbres/Repo-2018/blob/master/Deep%20Learning%20Summer%20School/GANs.jpg?raw=true>
