@@ -1,0 +1,156 @@
+import keras
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+from keras.layers import Input, Dense, Lambda, Merge
+from keras.models import Model
+from keras import backend as K
+from keras import objectives
+from keras.datasets import mnist
+from keras.layers.core import Reshape
+from __future__ import print_function
+import numpy as np
+from keras.datasets import mnist
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers.convolutional import Conv2D, MaxPooling2D, ZeroPadding2D, UpSampling2D
+from keras.utils import np_utils
+from keras.layers.normalization import BatchNormalization
+from keras.callbacks import ModelCheckpoint,LearningRateScheduler
+import os, random
+from keras.optimizers import SGD
+import pandas as pd
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+x_train = x_train.astype('float32') / 255.
+x_test = x_test.astype('float32') / 255.
+x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
+x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+
+n=100
+
+x_train=x_train[0:n]
+x_test=x_test[n:n+n]
+
+noise_factor = 0.1
+x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
+x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+
+x_train_noisy = np.clip(x_train_noisy, 0., 1.)
+x_test_noisy = np.clip(x_test_noisy, 0., 1.)
+
+x_train=x_train.reshape((n,28,28,1))
+x_test=x_test.reshape((n,28,28,1))
+x_train_noisy = x_train_noisy.reshape((n,28,28,1))
+x_test_noisy = x_test_noisy.reshape((n,28,28,1))
+
+x_train_noisy=np.concatenate([x_train_noisy,x_train]).reshape(2*n,28,28,1)
+x_train=np.concatenate([x_train,x_train]).reshape(2*n,28,28,1)
+
+np.random.seed(200)
+sel=random.sample(range(0,x_train.shape[0]), 100)
+y_train=pd.get_dummies(y_train[sel])
+x_train_noisy=x_train_noisy[sel]
+
+batch_size = 30
+nb_classes = 10
+img_rows, img_cols = 28, 28
+nb_filters = 32
+pool_size = (2, 2)
+kernel_size = (3, 3)
+input_shape=(28,28,1)
+
+learning_rate = 0.008
+decay_rate = 5e-5
+momentum = 0.9
+
+sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
+
+
+input_img = Input(shape=(28, 28, 1))  # adapt this if using `channels_first` image data format
+
+x = Conv2D(32, (3, 3), activation='relu', padding='same')(input_img)
+x = MaxPooling2D((2, 2), padding='same')(x)
+x = Conv2D(32, (3, 3), activation='relu', padding='same')(x)
+encoded = MaxPooling2D((2, 2), padding='same')(x)
+
+# at this point the representation is (7, 7, 32)
+
+x = Conv2D(32, (3, 3), activation='relu', padding='same')(encoded)
+x = UpSampling2D((2, 2))(x)
+x = Conv2D(32, (3, 3), activation='relu', padding='same')(x)
+x = UpSampling2D((2, 2))(x)
+decoded = Conv2D(1, (3, 3), activation='sigmoid', padding='same')(x)
+
+sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
+generator = Model(input_img, decoded)
+generator.compile(optimizer='adadelta', loss='binary_crossentropy')
+
+generator.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
+generator.summary()
+
+
+
+discriminator = Sequential()
+
+discriminator.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                        border_mode='valid',
+                        input_shape=input_shape))
+discriminator.add(Activation('relu'))
+discriminator.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1]))
+discriminator.add(Activation('relu'))
+discriminator.add(MaxPooling2D(pool_size=pool_size))
+discriminator.add(Dropout(0.25))
+
+discriminator.add(Flatten())
+discriminator.add(Dense(128))
+discriminator.add(Activation('relu'))
+discriminator.add(Dropout(0.5))
+discriminator.add(Dense(10))
+discriminator.add(Activation('softmax'))
+discriminator.compile(loss='categorical_crossentropy', optimizer=sgd,metrics = ['accuracy'])
+discriminator.summary()
+
+
+
+################## GAN
+
+def not_train(net, val):
+    net.trainable = val
+    for k in net.layers:
+       k.trainable = val
+not_train(generator, False)
+
+gan_input = Input(batch_shape=(None, 28,28,1))
+
+gan_level2 = discriminator(generator([gan_input]))
+
+GAN = Model(gan_input, gan_level2)
+GAN.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
+
+nb_epochs=1000
+
+n=1000
+rate=5
+for i in range(0,n):
+    print('Discriminator epoch', i)
+    discriminator.fit(x_train_noisy,np.array(y_train),
+                    epochs=1,
+                    batch_size=30,verbose=1)
+    print('Generator')
+    GAN.fit(x_train_noisy,np.array(y_train),
+            batch_size=30, epochs=1,verbose=1)
+    
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+y_train=y_train[0:n]
+y_train=np.concatenate([y_train,y_train])[sel]
+y_test=y_test[0:n]
+y_test=np.concatenate([y_test,y_test])[sel]
+x_test_noisy=x_test_noisy[0:n]
+x_test_noisy=np.concatenate([x_test_noisy,x_test_noisy])[sel]
+
+print('Accuracy Train:',1-np.count_nonzero(y_train-np.argmax(GAN.predict(x_train_noisy),axis=1))/n)
+
+print('Accuracy Test:',1-np.count_nonzero(y_test-np.argmax(GAN.predict(x_test_noisy),axis=1))/n)
