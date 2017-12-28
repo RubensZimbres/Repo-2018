@@ -1,0 +1,92 @@
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+from __future__ import print_function
+df=pd.read_csv('DadosTeseLogit3.csv',sep=',',header=0)
+
+def norm(x):
+    return(x-np.min(x))/(np.max(x)-np.min(x))
+
+timesteps = 14
+
+X0=np.array(df.iloc[:,[18,29]]).astype(np.float32)
+X0=norm(X0)
+X0=[X0[i:i+timesteps] for i in range(0,84)]
+
+
+
+np.array(X0).shape
+Y000=np.array(df.iloc[:,30]).astype(np.float32)
+Y0=np.array(pd.get_dummies(Y000))[timesteps:98]
+np.array(Y0).shape
+
+
+import tensorflow as tf
+from tensorflow.contrib import rnn
+tf.reset_default_graph()
+
+learning_rate = 0.001
+training_epochs = 500
+batch_size = 20
+display_step = 10
+num_input = 2 
+timesteps = 14
+num_hidden = 128 
+num_classes = 3 
+
+X = tf.placeholder("float", [None, timesteps, num_input])
+Y = tf.placeholder("float", [None, num_classes])
+
+weights = {
+    'out': tf.Variable(tf.random_normal([num_hidden, num_classes]))
+}
+biases = {
+    'out': tf.Variable(tf.random_normal([num_classes]))
+}
+
+
+def RNN(x, weights, biases):
+    x = tf.unstack(x, timesteps, 1)
+    lstm_cell = rnn.BasicLSTMCell(num_hidden, forget_bias=1.0)
+    outputs, states = rnn.static_rnn(lstm_cell, x, dtype=tf.float32)
+    return tf.matmul(outputs[-1], weights['out']) + biases['out']
+
+logits = RNN(X, weights, biases)
+prediction = tf.nn.softmax(logits)
+
+loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+    logits=logits, labels=Y))
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate)
+train_op = optimizer.minimize(loss_op)
+
+correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+init = tf.global_variables_initializer()
+
+def next_batch(num, data, labels):
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+
+    return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
+
+
+with tf.Session() as sess:
+    sess.run(init)
+    for epoch in range(training_epochs):
+        avg_cost = 0.
+        total_batch = int(len(Y0)/batch_size)
+        Xt, Yt = next_batch(batch_size, X0, Y0)
+        for i in range(total_batch):
+            batch_x, batch_y = Xt,Yt
+            _, c = sess.run([train_op, loss_op], feed_dict={X: batch_x,
+            avg_cost += c / total_batch
+        if epoch % display_step == 0:
+            print("Epoch:", '%04d' % (epoch+1), "cost={:.9f}".format(avg_cost))
+    print("Optimization Finished!")
+    output = sess.run([prediction],feed_dict={X: X0})
+
+print('Accuracy:',1-np.sum((1+np.argmax(output,axis=2)-Y000[14:98])[0])/84)
