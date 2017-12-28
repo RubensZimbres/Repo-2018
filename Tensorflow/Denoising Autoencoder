@@ -41,8 +41,8 @@ y_train=np.concatenate([y_train,y_train])[sel]
 x_train=np.array(x_train.astype(np.float64))
 x_train_noisy=x_train_noisy.astype(np.float64)
 
-learning_rate = 0.001
-num_steps = 5000
+learning_rate = 0.00045
+num_steps = 20000
 batch_size = 100
 
 display_step = 100
