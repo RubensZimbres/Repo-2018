@@ -48,13 +48,13 @@ y_test=np.array(pd.get_dummies(y_test0))
 x_train=np.array(x_train).astype(np.float64)
 x_train_noisy=x_train_noisy.astype(np.float64)
 
-num_steps = 2
+num_steps = 1000
 batch_size = n
 show_steps=50
-learning_rate1=0.00001
+learning_rate1=0.0001
 image_dim = 784 
-gen_hidden_dim = 256
-disc_hidden_dim = 256
+gen_hidden_dim = 80
+disc_hidden_dim = 80
 noise_dim = 10 
 
 tf.reset_default_graph() 
@@ -80,7 +80,7 @@ def discriminator(x, reuse=False):
         x = tf.layers.average_pooling2d(x, 8, 8)
         x = tf.contrib.layers.flatten(x)
         x = tf.layers.dense(x, 784)
-        x = tf.nn.relu(x)
+        x = tf.nn.sigmoid(x)
     return x
 
 noise_input = tf.placeholder(tf.float32, shape=[None, 784])
