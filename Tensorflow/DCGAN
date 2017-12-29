@@ -1,0 +1,152 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from keras.datasets import mnist
+import random
+import pandas as pd
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+x_train = x_train.astype('float32') / 255.
+x_test = x_test.astype('float32') / 255.
+x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
+x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+
+n=60
+
+x_train=x_train[0:n]
+x_test=x_test[n:n+n]
+
+noise_factor = 0.05
+x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
+x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+
+def norm(x):
+    return(x-np.min(x))/(np.max(x)-np.min(x))
+
+
+x_train_noisy = norm(x_train_noisy)
+x_test_noisy = norm(x_test_noisy)
+
+x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy])
+x_test_noisy=np.concatenate([x_test_noisy,x_test_noisy])
+x_train=norm(np.concatenate([x_train,x_train]))
+
+np.random.seed(200)
+sel=random.sample(range(0,x_train.shape[0]), n)
+x_train_noisy=x_train_noisy[sel]
+x_test_noisy=x_test_noisy[sel]
+x_train=x_train[sel]
+
+y_train=y_train[0:n]
+y_train=np.concatenate([y_train,y_train])[sel]
+y_train=np.array(pd.get_dummies(y_train)).astype(np.float32)
+y_test=y_test[0:n]
+y_test0=np.concatenate([y_test,y_test])[sel]
+y_test=np.array(pd.get_dummies(y_test0))
+
+x_train=np.array(x_train).astype(np.float64)
+x_train_noisy=x_train_noisy.astype(np.float64)
+
+num_steps = 5000
+batch_size = n
+show_steps=50
+learning_rate1=0.00001
+image_dim = 784 
+gen_hidden_dim = 256
+disc_hidden_dim = 256
+noise_dim = 10 
+
+tf.reset_default_graph() 
+def generator(x, reuse=False):
+    with tf.variable_scope('Generator', reuse=reuse):
+        x = tf.layers.dense(x, units=6 * 6 * 64)
+        x = tf.nn.tanh(x)
+        x = tf.reshape(x, shape=[-1, 6, 6, 64])
+        x = tf.layers.conv2d_transpose(x, 32, 4, strides=2)
+        x = tf.layers.conv2d_transpose(x, 1, 2, strides=2)
+        x = tf.nn.sigmoid(x)
+        return x
+
+def discriminator(x, reuse=False):
+    with tf.variable_scope('Discriminator', reuse=reuse):
+        x = tf.layers.conv2d(x, 32, 5)
+        x = tf.nn.tanh(x)
+        x = tf.layers.average_pooling2d(x, 2, 2)
+        x = tf.layers.conv2d(x, 64, 5)
+        x = tf.nn.tanh(x)
+        x = tf.layers.average_pooling2d(x, 2, 2)
+        x = tf.contrib.layers.flatten(x)
+        x = tf.layers.dense(x, 256)
+        x = tf.nn.tanh(x)
+        x = tf.layers.dense(x, 2)
+    return x
+
+noise_input = tf.placeholder(tf.float32, shape=[None, noise_dim])
+real_image_input = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])
+
+gen_sample = generator(noise_input)
+
+disc_real = discriminator(real_image_input)
+disc_fake = discriminator(gen_sample, reuse=True)
+disc_concat = tf.concat([disc_real, disc_fake], axis=0)
+
+stacked_gan = discriminator(gen_sample, reuse=True)
+
+disc_target = tf.placeholder(tf.int32, shape=[None])
+gen_target = tf.placeholder(tf.int32, shape=[None])
+
+disc_loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+    logits=disc_concat, labels=disc_target))
+gen_loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+    logits=stacked_gan, labels=gen_target))
+
+optimizer_gen = tf.train.AdamOptimizer(learning_rate=learning_rate1)
+optimizer_disc = tf.train.AdamOptimizer(learning_rate=learning_rate1)
+
+gen_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='Generator')
+disc_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='Discriminator')
+
+train_gen = optimizer_gen.minimize(gen_loss, var_list=gen_vars)
+train_disc = optimizer_disc.minimize(disc_loss, var_list=disc_vars)
+
+init = tf.global_variables_initializer()
+
+def next_batch(num, data, labels):
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+    return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
+
+with tf.Session() as sess:
+    sess.run(init)
+    for i in range(1, num_steps+1):
+        batch_x, batch_y=next_batch(batch_size, x_train_noisy, x_train)        
+        batch_x = np.reshape(batch_x, newshape=[-1, 28, 28, 1])
+        z = np.random.uniform(-1., 1., size=[batch_size, noise_dim])
+
+        batch_disc_y = np.concatenate(
+            [np.ones([batch_size]), np.zeros([batch_size])], axis=0)
+        batch_gen_y = np.ones([batch_size])
+        feed_dict = {real_image_input: batch_x, noise_input: z,
+                     disc_target: batch_disc_y, gen_target: batch_gen_y}
+        _, _, gl, dl = sess.run([train_gen, train_disc, gen_loss, disc_loss],
+                                feed_dict=feed_dict)
+        if i % show_steps == 0 or i == 1:
+            print('Epoch %i: Generator Loss: %f, Discriminator Loss: %f' % (i, gl, dl))
+
+
+    f, a = plt.subplots(4, 10, figsize=(10, 4))
+    for i in range(10):
+        z = np.random.uniform(-1., 1., size=[4, noise_dim])
+        g = sess.run([gen_sample], feed_dict={noise_input: z})
+        g = np.reshape(g, newshape=(4, 28, 28, 1))
+        g = -1 * (g - 1)
+        for j in range(4):
+            img = np.reshape(np.repeat(g[j][:, :, np.newaxis], 3, axis=2),
+                             newshape=(28, 28, 3))
+            a[j][i].imshow(img)
+
+    f.show()
