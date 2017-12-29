@@ -48,7 +48,7 @@ y_test=np.array(pd.get_dummies(y_test0))
 x_train=np.array(x_train).astype(np.float64)
 x_train_noisy=x_train_noisy.astype(np.float64)
 
-num_steps = 5000
+num_steps = 2
 batch_size = n
 show_steps=50
 learning_rate1=0.00001
@@ -61,45 +61,56 @@ tf.reset_default_graph()
 def generator(x, reuse=False):
     with tf.variable_scope('Generator', reuse=reuse):
         x = tf.layers.dense(x, units=6 * 6 * 64)
-        x = tf.nn.tanh(x)
+        x = tf.nn.relu(x)
         x = tf.reshape(x, shape=[-1, 6, 6, 64])
         x = tf.layers.conv2d_transpose(x, 32, 4, strides=2)
         x = tf.layers.conv2d_transpose(x, 1, 2, strides=2)
-        x = tf.nn.sigmoid(x)
+        x = tf.nn.relu(x)
+        x = tf.reshape(x, [n,784])
         return x
 
 def discriminator(x, reuse=False):
     with tf.variable_scope('Discriminator', reuse=reuse):
+        x = tf.reshape(x, [n,28,28,1])
         x = tf.layers.conv2d(x, 32, 5)
-        x = tf.nn.tanh(x)
-        x = tf.layers.average_pooling2d(x, 2, 2)
-        x = tf.layers.conv2d(x, 64, 5)
-        x = tf.nn.tanh(x)
-        x = tf.layers.average_pooling2d(x, 2, 2)
+        x = tf.nn.relu(x)
+        x = tf.layers.average_pooling2d(x, 2, 2,padding='same')
+        x = tf.layers.conv2d(x, 64, 5,padding='same')
+        x = tf.nn.relu(x)
+        x = tf.layers.average_pooling2d(x, 8, 8)
         x = tf.contrib.layers.flatten(x)
-        x = tf.layers.dense(x, 256)
-        x = tf.nn.tanh(x)
-        x = tf.layers.dense(x, 2)
+        x = tf.layers.dense(x, 784)
+        x = tf.nn.relu(x)
     return x
 
-noise_input = tf.placeholder(tf.float32, shape=[None, noise_dim])
-real_image_input = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])
+noise_input = tf.placeholder(tf.float32, shape=[None, 784])
+real_image_input = tf.placeholder(tf.float32, shape=[None, 784])
 
 gen_sample = generator(noise_input)
 
+
 disc_real = discriminator(real_image_input)
+
+
 disc_fake = discriminator(gen_sample, reuse=True)
 disc_concat = tf.concat([disc_real, disc_fake], axis=0)
 
 stacked_gan = discriminator(gen_sample, reuse=True)
 
-disc_target = tf.placeholder(tf.int32, shape=[None])
-gen_target = tf.placeholder(tf.int32, shape=[None])
+disc_target = tf.placeholder(tf.int32, shape=[None,784])
+gen_target = tf.placeholder(tf.int32, shape=[None,784])
 
-disc_loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
-    logits=disc_concat, labels=disc_target))
-gen_loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
-    logits=stacked_gan, labels=gen_target))
+
+
+gen_loss = tf.reduce_mean(tf.losses.mean_squared_error(
+    gen_sample,noise_input))
+
+'''ate aqui ok'''
+
+
+disc_loss = tf.reduce_mean(tf.losses.mean_squared_error(
+    stacked_gan,disc_target))
+
 
 optimizer_gen = tf.train.AdamOptimizer(learning_rate=learning_rate1)
 optimizer_disc = tf.train.AdamOptimizer(learning_rate=learning_rate1)
@@ -107,8 +118,12 @@ optimizer_disc = tf.train.AdamOptimizer(learning_rate=learning_rate1)
 gen_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='Generator')
 disc_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='Discriminator')
 
-train_gen = optimizer_gen.minimize(gen_loss, var_list=gen_vars)
-train_disc = optimizer_disc.minimize(disc_loss, var_list=disc_vars)
+train_disc = optimizer_disc.minimize(disc_loss)
+
+
+train_gen = optimizer_gen.minimize(gen_loss)
+
+
 
 init = tf.global_variables_initializer()
 
@@ -120,33 +135,31 @@ def next_batch(num, data, labels):
     labels_shuffle = [labels[ i] for i in idx]
     return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
 
+
+
+
+
 with tf.Session() as sess:
     sess.run(init)
     for i in range(1, num_steps+1):
-        batch_x, batch_y=next_batch(batch_size, x_train_noisy, x_train)        
-        batch_x = np.reshape(batch_x, newshape=[-1, 28, 28, 1])
-        z = np.random.uniform(-1., 1., size=[batch_size, noise_dim])
-
-        batch_disc_y = np.concatenate(
-            [np.ones([batch_size]), np.zeros([batch_size])], axis=0)
-        batch_gen_y = np.ones([batch_size])
-        feed_dict = {real_image_input: batch_x, noise_input: z,
-                     disc_target: batch_disc_y, gen_target: batch_gen_y}
+        batch_x, batch_y=next_batch(batch_size, x_train
+                                    , x_train_noisy)        
+        feed_dict = {real_image_input: batch_x, noise_input: batch_y,
+                     disc_target: batch_x, gen_target: batch_y}
         _, _, gl, dl = sess.run([train_gen, train_disc, gen_loss, disc_loss],
                                 feed_dict=feed_dict)
+        g = sess.run([stacked_gan], feed_dict={noise_input: batch_y})
         if i % show_steps == 0 or i == 1:
             print('Epoch %i: Generator Loss: %f, Discriminator Loss: %f' % (i, gl, dl))
 
 
-    f, a = plt.subplots(4, 10, figsize=(10, 4))
-    for i in range(10):
-        z = np.random.uniform(-1., 1., size=[4, noise_dim])
-        g = sess.run([gen_sample], feed_dict={noise_input: z})
-        g = np.reshape(g, newshape=(4, 28, 28, 1))
-        g = -1 * (g - 1)
-        for j in range(4):
-            img = np.reshape(np.repeat(g[j][:, :, np.newaxis], 3, axis=2),
-                             newshape=(28, 28, 3))
-            a[j][i].imshow(img)
-
-    f.show()
+plt.figure(figsize=(6, 6))
+ax = plt.subplot(1, 2, 1)
+plt.imshow(x_train_noisy[2].reshape(28, 28))
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+ax = plt.subplot(1, 2, 2)
+plt.imshow(np.array(g)[0].reshape(28, 28))
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+plt.show()
