@@ -74,7 +74,7 @@ x = Dense(6*6*64,activation='relu')
 x = Conv2DTranspose(32, (4, 4),  padding='same')(input_img)
 x = Conv2DTranspose(1, (2, 2), activation='relu', padding='same')(x)
 x = Conv2D(1,(1,1),padding='same')(x)
-x = Dense(1,activation='sigmoid')(x)
+x = Dense(1,activation='relu')(x)
 sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
 generator = Model(input_img, x)
 
@@ -123,7 +123,7 @@ GAN.fit(x_train_noisy,x_train,
 g=GAN.predict(x_train_noisy)
 
 
-h=12
+h=19
 plt.figure(figsize=(6, 6))
 ax = plt.subplot(1, 2, 1)
 plt.imshow(x_train_noisy[h].reshape(28, 28))
