@@ -12,8 +12,8 @@ from __future__ import print_function
 import numpy as np
 from keras.datasets import mnist
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Dense, Dropout, Activation, Flatten,Conv2DTranspose
+from keras.layers import Convolution2D, AveragePooling2D
 from keras.layers.convolutional import Conv2D, MaxPooling2D, ZeroPadding2D, UpSampling2D
 from keras.utils import np_utils
 from keras.layers.normalization import BatchNormalization
@@ -62,7 +62,7 @@ pool_size = (2, 2)
 kernel_size = (3, 3)
 input_shape=(28,28,1)
 
-learning_rate = 0.0013
+learning_rate = 0.013
 decay_rate = 5e-5
 momentum = 0.9
 
@@ -70,22 +70,14 @@ sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=True)
 
 
 input_img = Input(shape=(28, 28, 1))  # adapt this if using `channels_first` image data format
-
-x = Conv2D(32, (3, 3), activation='relu', padding='same')(input_img)
-x = MaxPooling2D((2, 2), padding='same')(x)
-x = Conv2D(32, (3, 3), activation='relu', padding='same')(x)
-encoded = MaxPooling2D((2, 2), padding='same')(x)
-
-# at this point the representation is (7, 7, 32)
-
-x = Conv2D(32, (3, 3), activation='sigmoid', padding='same')(encoded)
-x = UpSampling2D((2, 2))(x)
-x = Conv2D(32, (3, 3), activation='sigmoid', padding='same')(x)
-x = UpSampling2D((2, 2))(x)
-decoded = Conv2D(1, (3, 3), activation='sigmoid', padding='same')(x)
+x=Dense(6*6*64,activation='relu')
+x = Conv2DTranspose(32, (3, 3),  padding='same')(input_img)
+x = Conv2DTranspose(32, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(32, (3, 3),  padding='same')(x)
+x = Conv2D(1, (1, 1), activation='relu', padding='same')(x)
 
 sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
-generator = Model(input_img, decoded)
+generator = Model(input_img, x)
 
 generator.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
 generator.summary()
@@ -93,18 +85,16 @@ generator.summary()
 
 
 discriminator = Sequential()
-
-discriminator.add(Convolution2D(nb_filters, (kernel_size[0], kernel_size[1]),
+discriminator.add(Convolution2D(32, (5, 5),
                         padding='same',
                         input_shape=input_shape))
-discriminator.add(Convolution2D(nb_filters, (kernel_size[0], kernel_size[1]),padding='same'))
-discriminator.add(Activation('sigmoid'))
-discriminator.add(Convolution2D(32, (kernel_size[0], kernel_size[1]),padding='same'))
-discriminator.add(MaxPooling2D(pool_size=(2,2)))
-discriminator.add(Reshape((28,28,8)))
-discriminator.add(Activation('sigmoid'))
-discriminator.add(Convolution2D(1, (1,1),padding='same'))
-
+discriminator.add(AveragePooling2D(pool_size=(2,2)))
+discriminator.add(Convolution2D(64, (5, 5),padding='same'))
+discriminator.add(AveragePooling2D(pool_size=(2,2)))
+discriminator.add(Activation('relu'))
+discriminator.add(Convolution2D(64, (5,5),padding='same'))
+discriminator.add(Convolution2D(16, (1,1),activation='sigmoid',padding='same'))
+discriminator.add(Reshape((28,28,1)))
 discriminator.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
 discriminator.summary()
 
@@ -125,7 +115,7 @@ gan_level2 = discriminator(generator([gan_input]))
 GAN = Model(gan_input, gan_level2)
 GAN.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
 
-nb_epochs=5000
+nb_epochs=2000
 
 GAN.fit(x_train_noisy,x_train,
         batch_size=10, epochs=nb_epochs,verbose=1)
