@@ -70,10 +70,12 @@ sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=True)
 
 
 input_img = Input(shape=(28, 28, 1))  
-x=Dense(6*6*64,activation='relu')
+x=Dense(120,activation='relu')
 x = Conv2DTranspose(32, (3, 3),  padding='same')(input_img)
+x = BatchNormalization()(x)
 x = Conv2DTranspose(32, (3, 3), activation='relu', padding='same')(x)
 x = Conv2D(32, (3, 3),  padding='same')(x)
+x = BatchNormalization()(x)
 x = Conv2D(1, (1, 1), activation='relu', padding='same')(x)
 
 sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
@@ -90,9 +92,11 @@ discriminator.add(Convolution2D(32, (5, 5),
                         input_shape=input_shape))
 discriminator.add(AveragePooling2D(pool_size=(2,2)))
 discriminator.add(Convolution2D(64, (5, 5),padding='same'))
+discriminator.add(BatchNormalization())
 discriminator.add(AveragePooling2D(pool_size=(2,2)))
 discriminator.add(Activation('relu'))
 discriminator.add(Convolution2D(64, (5,5),padding='same'))
+discriminator.add(BatchNormalization())
 discriminator.add(Convolution2D(16, (1,1),activation='sigmoid',padding='same'))
 discriminator.add(Reshape((28,28,1)))
 discriminator.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
@@ -102,11 +106,11 @@ discriminator.summary()
 
 ################## GAN
 
-def not_train(net, val):
+def train(net, val):
     net.trainable = val
     for k in net.layers:
        k.trainable = val
-not_train(generator, True)
+train(generator, True)
 
 gan_input = Input(batch_shape=(None, 28,28,1))
 
