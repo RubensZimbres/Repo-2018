@@ -69,7 +69,7 @@ momentum = 0.9
 sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=True)
 
 
-input_img = Input(shape=(28, 28, 1))  # adapt this if using `channels_first` image data format
+input_img = Input(shape=(28, 28, 1))  
 x=Dense(6*6*64,activation='relu')
 x = Conv2DTranspose(32, (3, 3),  padding='same')(input_img)
 x = Conv2DTranspose(32, (3, 3), activation='relu', padding='same')(x)
