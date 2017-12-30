@@ -62,7 +62,7 @@ pool_size = (2, 2)
 kernel_size = (3, 3)
 input_shape=(28,28,1)
 
-learning_rate = 0.013
+learning_rate = 0.0013
 decay_rate = 5e-5
 momentum = 0.9
 
