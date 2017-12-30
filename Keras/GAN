@@ -66,7 +66,7 @@ learning_rate = 0.0013
 decay_rate = 5e-5
 momentum = 0.9
 
-sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
+sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=True)
 
 
 input_img = Input(shape=(28, 28, 1))  # adapt this if using `channels_first` image data format
