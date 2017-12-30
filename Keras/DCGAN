@@ -33,7 +33,7 @@ n=60
 x_train=x_train[0:n]
 x_test=x_test[n:n+n]
 
-noise_factor = 0.1
+noise_factor = 0.4
 x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
 x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
 
@@ -45,7 +45,7 @@ x_test=x_test.reshape((n,28,28,1))
 x_train_noisy = x_train_noisy.reshape((n,28,28,1))
 x_test_noisy = x_test_noisy.reshape((n,28,28,1))
 
-x_train_noisy=np.concatenate([x_train_noisy,x_train]).reshape(2*n,28,28,1)
+x_train_noisy=np.concatenate([x_train_noisy,x_train_noisy]).reshape(2*n,28,28,1)
 x_train=np.concatenate([x_train,x_train]).reshape(2*n,28,28,1)
 
 np.random.seed(200)
@@ -62,23 +62,20 @@ pool_size = (2, 2)
 kernel_size = (3, 3)
 input_shape=(28,28,1)
 
-learning_rate = 0.013
+learning_rate = 0.004
 decay_rate = 5e-5
 momentum = 0.9
 
 sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=True)
 
 
-input_img = Input(shape=(28, 28, 1))  
-x=Dense(120,activation='relu')
-x = Conv2DTranspose(32, (3, 3),  padding='same')(input_img)
+input_img = Input(shape=(28, 28, 1))  # adapt this if using `channels_first` image data format
+x = Dense(120,activation='relu')
+x = Conv2DTranspose(16, (4, 4), activation='relu', padding='same')(input_img)
 x = BatchNormalization()(x)
-x = Conv2DTranspose(32, (3, 3), activation='relu', padding='same')(x)
-x = Conv2D(32, (3, 3),  padding='same')(x)
-x = BatchNormalization()(x)
-x = Conv2D(1, (1, 1), activation='relu', padding='same')(x)
-
-sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
+x = Conv2DTranspose(16, (2, 2), activation='relu', padding='same')(x)
+x = Conv2D(1,(1,1),padding='same',activation='sigmoid')(x)
+sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=True)
 generator = Model(input_img, x)
 
 generator.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
@@ -119,23 +116,25 @@ gan_level2 = discriminator(generator([gan_input]))
 GAN = Model(gan_input, gan_level2)
 GAN.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
 
-nb_epochs=2000
+nb_epochs=3000
 
 GAN.fit(x_train_noisy,x_train,
-        batch_size=10, epochs=nb_epochs,verbose=1)
+        batch_size=30, epochs=nb_epochs,verbose=1)
     
 
 g=GAN.predict(x_train_noisy)
 
 
-h=32
+h=19
 plt.figure(figsize=(6, 6))
 ax = plt.subplot(1, 2, 1)
 plt.imshow(x_train_noisy[h].reshape(28, 28))
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
+plt.gray()
 ax = plt.subplot(1, 2, 2)
 plt.imshow(np.array(g).reshape(60,28, 28)[h])
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
+plt.gray()
 plt.show()
