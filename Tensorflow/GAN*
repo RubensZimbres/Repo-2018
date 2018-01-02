@@ -99,7 +99,7 @@ def discriminator(x):
     hidden_layer = tf.nn.relu(hidden_layer)
     out_layer = tf.matmul(hidden_layer, weights['disc_out'])
     out_layer = tf.add(out_layer, biases['disc_out'])
-    out_layer = tf.nn.relu(out_layer)
+    out_layer = tf.nn.sigmoid(out_layer)
     return out_layer
 
 gen_input = tf.placeholder(tf.float32, shape=[None, 784], name='input_noise')
@@ -117,9 +117,9 @@ DISC(GENERATOR(GEN_INPUT)) == DISC(FAKE)
 '''
 
 gen_loss = tf.reduce_mean(tf.losses.mean_squared_error(
-    disc_input,generator(gen_input)))
+    gen_input,generator(gen_input)))
 disc_loss = tf.reduce_mean(tf.losses.mean_squared_error(
-    disc_input,discriminator(generator(gen_input))))
+    generator(gen_input),discriminator(generator(gen_input))))
 
 optimizer_gen = tf.train.AdamOptimizer(learning_rate=learning_rate1)
 optimizer_disc = tf.train.AdamOptimizer(learning_rate=learning_rate1)
@@ -146,19 +146,15 @@ with tf.Session() as sess:
         if i % show_steps == 0 or i == 1:
             print('Step %i: Generator Loss: %f - Discriminator Loss: %f' % (i, gl, dl))
 
-f, a = plt.subplots(4, 10, figsize=(10, 4))
-for i in range(10):
-    h = np.reshape(h, newshape=(n, 28, 28, 1))
-    for j in range(4):
-        img = np.reshape(np.repeat(h[j][:, :, np.newaxis], 3, axis=2),
-                         newshape=(28, 28, 3))
-        a[j][i].imshow(img)
 
-
-f, a = plt.subplots(4, 10, figsize=(10, 4))
-for i in range(10):
-    g = np.reshape(g, newshape=(n, 28, 28, 1))
-    for j in range(4):
-        img = np.reshape(np.repeat(g[j][:, :, np.newaxis], 3, axis=2),
-                         newshape=(28, 28, 3))
-        a[j][i].imshow(img)
+p=11
+plt.figure(figsize=(6, 6))
+ax = plt.subplot(1, 2, 1)
+plt.imshow(x_train_noisy[p].reshape(28, 28))
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+ax = plt.subplot(1, 2, 2)
+plt.imshow(np.array(g).reshape(60,28, 28)[p])
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+plt.show()
