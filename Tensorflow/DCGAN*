@@ -97,8 +97,8 @@ disc_concat = tf.concat([disc_real, disc_fake], axis=0)
 
 stacked_gan = discriminator(gen_sample, reuse=True)
 
-disc_target = tf.placeholder(tf.int32, shape=[None,784])
-gen_target = tf.placeholder(tf.int32, shape=[None,784])
+disc_target = tf.placeholder(tf.float32, shape=[None,784])
+gen_target = tf.placeholder(tf.float32, shape=[None,784])
 
 
 
@@ -152,14 +152,14 @@ with tf.Session() as sess:
         if i % show_steps == 0 or i == 1:
             print('Epoch %i: Generator Loss: %f, Discriminator Loss: %f' % (i, gl, dl))
 
-
+p=35
 plt.figure(figsize=(6, 6))
 ax = plt.subplot(1, 2, 1)
-plt.imshow(x_train_noisy[2].reshape(28, 28))
+plt.imshow(x_train_noisy[p].reshape(28, 28))
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
 ax = plt.subplot(1, 2, 2)
-plt.imshow(np.array(g).reshape(60,28, 28)[2])
+plt.imshow(np.array(g).reshape(60,28, 28)[p])
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
 plt.show()
