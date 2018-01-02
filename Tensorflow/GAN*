@@ -57,7 +57,7 @@ def next_batch(num, data, labels):
     labels_shuffle = [labels[ i] for i in idx]
     return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
 
-num_steps = 5000
+num_steps = 1000
 batch_size = n
 learning_rate1=0.0001
 show_steps=100
@@ -89,7 +89,7 @@ def generator(x):
     hidden_layer = tf.nn.relu(hidden_layer)
     out_layer = tf.matmul(hidden_layer, weights['gen_out'])
     out_layer = tf.add(out_layer, biases['gen_out'])
-    out_layer = tf.nn.relu(out_layer)
+    out_layer = tf.nn.sigmoid(out_layer)
     return out_layer
 
 
@@ -110,6 +110,8 @@ gen_sample = generator(gen_input)
 disc_real = discriminator(disc_input)
 disc_fake = discriminator(gen_sample)
 
+disc_concat=tf.add(disc_real,disc_fake)
+
 '''EQUALS
 DISC(DISC_INPUT) == DISC(REAL)
 DISC(GENERATOR(GEN_INPUT)) == DISC(FAKE)
@@ -119,7 +121,7 @@ DISC(GENERATOR(GEN_INPUT)) == DISC(FAKE)
 gen_loss = tf.reduce_mean(tf.losses.mean_squared_error(
     gen_input,generator(gen_input)))
 disc_loss = tf.reduce_mean(tf.losses.mean_squared_error(
-    generator(gen_input),discriminator(generator(gen_input))))
+    gen_input,discriminator(generator(gen_input))))
 
 optimizer_gen = tf.train.AdamOptimizer(learning_rate=learning_rate1)
 optimizer_disc = tf.train.AdamOptimizer(learning_rate=learning_rate1)
@@ -147,7 +149,7 @@ with tf.Session() as sess:
             print('Step %i: Generator Loss: %f - Discriminator Loss: %f' % (i, gl, dl))
 
 
-p=11
+p=4
 plt.figure(figsize=(6, 6))
 ax = plt.subplot(1, 2, 1)
 plt.imshow(x_train_noisy[p].reshape(28, 28))
