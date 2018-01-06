@@ -9,13 +9,15 @@ I am a Data Scientist and I code in R, Python and Wolfram Mathematica. Here you 
 <b> Outputs of the models can be seen at my portfolio: </b> https://drive.google.com/file/d/0B0RLknmL54khdjRQWVBKeTVxSHM/view?usp=sharing
 
 ----------------
+
 Keras version used in models: keras==2.0.8
 
-<b> Deep Learning Summer School files </b> -  GANs
+
+<p><b> DEEP LEARNING SUMMER SCHOOL </b> -  GANs
+</p>
 
 
-
-<b> Keras </b>
+<b> KERAS </b>
 
 <b> GANs </b> Generative Adversarial Networks
 
@@ -23,7 +25,7 @@ Keras version used in models: keras==2.0.8
 
 
 
-<b> Tensorflow </b> 
+<b> TENSORFLOW </b> 
 
 <b> Model for Regression </b>
 
