@@ -11,9 +11,36 @@ I am a Data Scientist and I code in R, Python and Wolfram Mathematica. Here you 
 ----------------
 Keras version used in models: keras==2.0.8
 
-Deep Learning Summer School files -  GANs
+<b> Deep Learning Summer School files </b> -  GANs
 
-Python Codes -- Tensorflow algorithms for Supervised Learning (regression, classification), Unsupervised Learning and LSTM
+
+
+<b> Keras </b>
+
+<b> GANs </b> Generative Adversarial Networks
+
+<b> DCGANs </b> Deep Convolutional Generative Adversarial Networks
+
+
+
+<b> Tensorflow </b> 
+
+<b> Model for Regression </b>
+
+<b> Model for Classification </b> 
+
+<b> LSTM </b> Long Short Term Memory Neural Networks
+
+<b> GANs </b> Generative Adversarial Networks
+
+<b> DCGANs </b> Deep Convolutional Generative Adversarial Networks
+
+<b> InfoGANs </b> Mutual Information Adversarial Networks where loss function is customized. 
+Mutual Info = H(B)-Sum(P(B=b).H(A|B=b)
+
+
+
+<b> SMOTE </b> : Synthetic Minority Oversampling Technique for imbalanced classes
 
 Datasets available at Repo-2017
 
