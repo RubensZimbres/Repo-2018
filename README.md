@@ -13,8 +13,8 @@ I am a Data Scientist and I code in R, Python and Wolfram Mathematica. Here you 
 Keras version used in models: keras==2.0.8
 
 
-<b> DEEP LEARNING SUMMER SCHOOL </b> -  GANs
-<br/> 
+<b> DEEP LEARNING SUMMER SCHOOL </b> -  GANs <br/>
+ 
  
 <b> KERAS </b>
  
