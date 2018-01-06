@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn import cross_validation
+from sklearn.metrics import accuracy_score
+
+df=pd.read_csv('DadosTeseLogit.csv',sep=',',header=0)
+
+X=np.array(df.iloc[0:96,[12,18,29]])
+Y=np.array(df.iloc[0:96,30])
+
+from imblearn.over_sampling import SMOTE
+from imblearn.combine import SMOTEENN
+
+sm = SMOTEENN()
+x, y = sm.fit_sample(X, Y)
+
+
+x_train, x_test, y_train, y_test = cross_validation.train_test_split(x,y, test_size=.2, random_state=4)
+
+
+model=GradientBoostingClassifier(
+init= None,
+learning_rate= 0.1,
+loss='deviance',
+max_depth= 8,
+max_features=2,
+max_leaf_nodes=10,
+min_samples_leaf= 1,
+min_samples_split= 2,
+min_weight_fraction_leaf= .2,
+n_estimators= 100,
+presort= 'auto',
+random_state= None,
+subsample= 1.0,
+verbose=1,
+warm_start= False)
+
+a=model.fit(x_train,y_train)
+print(model)
+
+model.get_params()
+
+model.score(x,y)
+
+pred=model.predict(x_test)
+
+sum(x==0 for x in pred-y_test)/len(pred)
+
+accuracy = accuracy_score(y_test, pred)
+print('Accuracy:',accuracy)
+
