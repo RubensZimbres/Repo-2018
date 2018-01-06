@@ -14,7 +14,7 @@ Keras version used in models: keras==2.0.8
 
 
 <b> DEEP LEARNING SUMMER SCHOOL </b> -  GANs
- 
+<br/> 
  
 <b> KERAS </b>
  
