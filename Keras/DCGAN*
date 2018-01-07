@@ -33,7 +33,7 @@ n=60
 x_train=x_train[0:n]
 x_test=x_test[n:n+n]
 
-noise_factor = 0.4
+noise_factor = 0.15
 x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
 x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
 
@@ -62,7 +62,7 @@ pool_size = (2, 2)
 kernel_size = (3, 3)
 input_shape=(28,28,1)
 
-learning_rate = 0.004
+learning_rate = 0.008
 decay_rate = 5e-5
 momentum = 0.9
 
@@ -89,11 +89,9 @@ discriminator.add(Convolution2D(32, (5, 5),
                         input_shape=input_shape))
 discriminator.add(AveragePooling2D(pool_size=(2,2)))
 discriminator.add(Convolution2D(64, (5, 5),padding='same'))
-discriminator.add(BatchNormalization())
 discriminator.add(AveragePooling2D(pool_size=(2,2)))
 discriminator.add(Activation('relu'))
 discriminator.add(Convolution2D(64, (5,5),padding='same'))
-discriminator.add(BatchNormalization())
 discriminator.add(Convolution2D(16, (1,1),activation='sigmoid',padding='same'))
 discriminator.add(Reshape((28,28,1)))
 discriminator.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
@@ -119,22 +117,24 @@ GAN.compile(loss='mean_squared_error', optimizer=sgd,metrics = ['accuracy'])
 nb_epochs=3000
 
 GAN.fit(x_train_noisy,x_train,
-        batch_size=30, epochs=nb_epochs,verbose=1)
+        batch_size=30, epochs=nb_epochs,verbose=2)
     
 
 g=GAN.predict(x_train_noisy)
 
 
-h=19
-plt.figure(figsize=(6, 6))
-ax = plt.subplot(1, 2, 1)
-plt.imshow(x_train_noisy[h].reshape(28, 28))
-ax.get_xaxis().set_visible(False)
-ax.get_yaxis().set_visible(False)
-plt.gray()
-ax = plt.subplot(1, 2, 2)
-plt.imshow(np.array(g).reshape(60,28, 28)[h])
-ax.get_xaxis().set_visible(False)
-ax.get_yaxis().set_visible(False)
-plt.gray()
+plt.figure(figsize=(10, 10))
+for i in range(11,18):
+    ax = plt.subplot(1, 8, i-10)
+    plt.imshow(x_train_noisy[i].reshape(28, 28))
+    plt.gray()
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
+plt.figure(figsize=(10, 10))
+for i in range(11,18):
+    ax = plt.subplot(1, 8, i-10)
+    plt.imshow(np.array(g).reshape(60,28, 28)[i])
+    plt.gray()
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
 plt.show()
