@@ -38,6 +38,8 @@ DCGANs: Deep Convolutional Generative Adversarial Networks
  
 InfoGANs </b> Mutual Information Adversarial Networks where loss function is customized. 
 Mutual Info = H(B)-Sum(P(B=b).H(A|B=b)
+
+Tensorboard: visualization of Tensorflow models' training
  
  
  
