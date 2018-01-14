@@ -1,0 +1,12 @@
+c = get_config()
+
+# Kernel config
+c.IPKernelApp.pylab = 'inline'
+
+# Notebook config
+c.NotebookApp.certfile = '/home/ec2-user/certs/mycert.pem'
+c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False  
+c.NotebookApp.password = 'sha1:49d9a3c06898:20ce3bbca0ccf25117653aec............'
+# This is the port we opened in Step 3.
+c.NotebookApp.port = 8888
