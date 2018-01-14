@@ -15,7 +15,11 @@ Keras version used in models: keras==2.0.8
 
 <b> DEEP LEARNING SUMMER SCHOOL </b> -  GANs <br/>
  
- 
+
+<b> EC2 INSTANCE SETUP </b>
+
+A set up Manual I developed to create EC2 instances in Amazon AWS
+
 <b> KERAS </b>
  
 GANs: Generative Adversarial Networks
