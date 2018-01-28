@@ -46,6 +46,7 @@ Mutual Info = H(B)-Sum(P(B=b).H(A|B=b)
 Tensorboard: visualization of Tensorflow models' training
  
  
+<b> SEG-NET </b> : Image Segmentation with SEG-NET
  
 <b> SMOTE </b> : Synthetic Minority Oversampling Technique for imbalanced classes
  
