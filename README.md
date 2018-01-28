@@ -8,6 +8,10 @@ I am a Data Scientist and I code in Python. Here you will find some Machine Lear
 
 <b> Outputs of the models can be seen at my portfolio: </b> https://drive.google.com/file/d/0B0RLknmL54khdjRQWVBKeTVxSHM/view?usp=sharing
 
+Data for models available at:
+
+https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing
+
 ----------------
  
 Keras version used in models: keras==2.0.8
