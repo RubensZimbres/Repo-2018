@@ -4,12 +4,10 @@ import cv2
 import keras
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import norm
 from keras.layers import Input, Dense, Lambda, Merge
 from keras.models import Model
 from keras import backend as K
 from keras import objectives
-from keras.datasets import mnist
 from keras.layers.core import Reshape
 from __future__ import print_function
 import numpy as np
@@ -19,10 +17,7 @@ from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D, UpSampling2D
 from keras.utils import np_utils
 from keras.layers.normalization import BatchNormalization
-from keras.callbacks import ModelCheckpoint,LearningRateScheduler
-import os
 from keras.optimizers import SGD
-from sklearn.preprocessing import MinMaxScaler
 
 img = cv2.imread('Seg-Net_Train.png')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -30,7 +25,6 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 import matplotlib.pyplot as plt
 plt.imshow(gray,cmap=plt.get_cmap('gray'))
 
-scaler = MinMaxScaler(feature_range=(0, 1))
 
 def norm(x):
     return (x-np.min(x))/(np.max(x)-np.min(x))    
