@@ -1,10 +1,10 @@
 # Python Codes in Data Science including Tensorflow
 
-Codes in Machine Learning, Deep Learning, Reinforcement Learning and Artificial Intelligence
+Codes in Machine Learning, Deep Learning, Reinforcement Learning, Artificial Intelligence and Computer Vision
 
 <b> Welcome to my GitHub repo. </b>
 
-I am a Data Scientist and I code in Python. Here you will find some Machine Learning, Deep Learning, Natural Language Processing and Artificial Intelligence models I developed.
+I am a Data Scientist and I code in Python. Here you will find some Machine Learning, Deep Learning, Natural Language Processing, Artificial Intelligence and Computer Vision models I developed.
 
 <b> Outputs of the models can be seen at my portfolio: </b> https://drive.google.com/file/d/0B0RLknmL54khdjRQWVBKeTVxSHM/view?usp=sharing
 
@@ -15,10 +15,12 @@ https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing
 ----------------
  
 Keras version used in models: keras==2.0.8
+Tensorflow version used in models: keras==1.3.0
 
 
 <b> DEEP LEARNING SUMMER SCHOOL </b> -  GANs <br/>
- 
+
+In this folder you will find Tensorflow and Keras codes and also a Powerpoint presentation about GANs I developed for my lecture and workshop at the first Deep Learning Summer School in Brazil, at Goiás.
 
 <b> EC2 INSTANCE SETUP </b>
 
@@ -30,6 +32,9 @@ GANs: Generative Adversarial Networks
  
 DCGANs: Deep Convolutional Generative Adversarial Networks
  
+<b> OPENCV </b>
+ 
+In this folder you will find a guide to create your own haarcascade.xml so that you can identify any object using OpenCV.
  
  
 <b> TENSORFLOW </b> 
