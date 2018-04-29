@@ -36,7 +36,23 @@ CUDA_VISIBLE_DEVICES=0 python main.py --dataset_dir=painter --phase=test --which
 
 Models are saved to ./checkpoint
 
-In this task I transferred styles between Vincent van Gogh and Pablo Picasso
+In this task I transferred styles between Vincent van Gogh (B) and Pablo Picasso (A)
 
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/cycle_GAN_ok.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/A2BScreenshot%20from%202018-04-28%2023-24-48.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/A2BScreenshot%20from%202018-04-28%2023-25-44.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/AtoBScreenshot%20from%202018-04-28%2023-25-19.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/Screenshot%20from%202018-04-28%2023-16-06.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/Screenshot%20from%202018-04-28%2023-16-54.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/Screenshot%20from%202018-04-28%2023-17-23.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/Screenshot%20from%202018-04-28%2023-17-51.png>
+
+<img src= https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/Screenshot%20from%202018-04-28%2023-18-26.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/Screenshot%20from%202018-04-28%2023-19-43.png>
