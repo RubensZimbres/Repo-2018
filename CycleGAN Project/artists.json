@@ -1,0 +1,89 @@
+[{
+        "contentId": 186729,
+        "artistName": "Pieter Bruegel the Elder",
+        "url": "pieter-bruegel-the-elder",
+        "lastNameFirst": "Bruegel the Elder Pieter",
+        "birthDay": "/Date(-14042854800000)/",
+        "deathDay": "/Date(-61861456800000)/",
+        "birthDayAsString": "1525",
+        "deathDayAsString": "09 September 1569",
+        "image": "https://uploads3.wikiart.org/images/pieter-bruegel-the-elder.jpg!Portrait.jpg",
+        "wikipediaUrl": "http://en.wikipedia.org/wiki/Pieter_Bruegel_the_Elder",
+        "dictonaries": [
+            305,
+            6535,
+            10791,
+            2743
+        ]
+    },
+
+{
+        "contentId": 223667,
+        "artistName": "Pablo Picasso",
+        "url": "pablo-picasso",
+        "lastNameFirst": "Picasso Pablo",
+        "birthDay": "/Date(-2782864800000)/",
+        "deathDay": "/Date(-61906298400000)/",
+        "birthDayAsString": "25 October 1881",
+        "deathDayAsString": "08 April 1973",
+        "image": "https://uploads1.wikiart.org/images/pablo-picasso.jpg!Portrait.jpg",
+        "wikipediaUrl": "http://en.wikipedia.org/wiki/Pablo_Picasso",
+        "dictonaries": [
+            322,
+            876,
+            2165
+        ]
+    },
+
+ {
+        "contentId": 220740,
+        "artistName": "Salvador Dali",
+        "url": "salvador-dali",
+        "lastNameFirst": "Dali Salvador",
+        "birthDay": "/Date(-2071533600000)/",
+        "deathDay": "/Date(-61439475600000)/",
+        "birthDayAsString": "11 May 1904",
+        "deathDayAsString": "23 January 1989",
+        "image": "https://uploads1.wikiart.org/images/salvador-dali.jpg!Portrait.jpg",
+        "wikipediaUrl": "http://en.wikipedia.org/wiki/Salvador_Dal%C3%AD",
+        "dictonaries": [
+            336,
+            2165
+        ]
+    },
+{
+        "contentId": 204915,
+        "artistName": "Vincent van Gogh",
+        "url": "vincent-van-gogh",
+        "lastNameFirst": "van Gogh Vincent ",
+        "birthDay": "/Date(-3684535200000)/",
+        "deathDay": "/Date(-61233933600000)/",
+        "birthDayAsString": "30 March 1853",
+        "deathDayAsString": "29 July 1890",
+        "image": "https://uploads4.wikiart.org/images/vincent-van-gogh.jpg!Portrait.jpg",
+        "wikipediaUrl": "http://en.wikipedia.org/wiki/Vincent_van_Gogh",
+        "dictonaries": [
+            317,
+            16743
+        ]
+    },
+{
+        "contentId": 213888,
+        "artistName": "Henri Matisse",
+        "url": "henri-matisse",
+        "lastNameFirst": "Matisse Henri",
+        "birthDay": "/Date(-3155763600000)/",
+        "deathDay": "/Date(-62046090000000)/",
+        "birthDayAsString": "31 December 1869",
+        "deathDayAsString": "03 November 1954",
+        "image": "https://uploads1.wikiart.org/images/henri-matisse.jpg!Portrait.jpg",
+        "wikipediaUrl": "http://en.wikipedia.org/wiki/Henri_Matisse",
+        "dictonaries": [
+            316,
+            317,
+            876,
+            6665,
+            1221
+        ]
+    }
+]
