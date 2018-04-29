@@ -78,3 +78,4 @@ Datasets available at Repo-2017
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Deep%20Learning%20Summer%20School/TensorBoard_Structure.PNG>
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/OpenCV/Training_Haar.png>
+
