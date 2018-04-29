@@ -8,7 +8,7 @@ git clone https://github.com/lucasdavid/wikiart
 
 python3 wikiart.py --datadir ./wikiart-saved/ fetch --only artists
 
-Edit .JSON file to the artists you want (see example in this repo)
+Edit .JSON file to the artists you want (see .json example in this folder)
 
 Download datasets
 
@@ -24,11 +24,11 @@ git clone https://github.com/xhujoy/CycleGAN-tensorflow
 
 cd CycleGAN-tensorflow
 
-Upload your dataset
+Upload your dataset (painter) to datasets dir
 
 Train the model: CUDA_VISIBLE_DEVICES=0 python main.py --dataset_dir=painter
 
-(This will take 83 hours in a Tesla K-80 GPU (Amazon AWS p2.xlarge) 200 epochs, batch_size=1
+(This will take 83 hours in a Tesla K-80 GPU (Amazon AWS p2.xlarge) 200 epochs, batch_size=1, 994 images)
 
 Test your model:
 
