@@ -36,5 +36,7 @@ CUDA_VISIBLE_DEVICES=0 python main.py --dataset_dir=painter --phase=test --which
 
 Models are saved to ./checkpoint
 
+In this task I transferred styles between Vincent van Gogh and Pablo Picasso
+
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CycleGAN%20Project/cycle_GAN_ok.png>
