@@ -28,7 +28,7 @@ Upload your dataset (painter) to datasets dir
 
 Train the model: CUDA_VISIBLE_DEVICES=0 python main.py --dataset_dir=painter
 
-(This will take 83 hours in a Tesla K-80 GPU (Amazon AWS p2.xlarge) 200 epochs, batch_size=1, 994 images)
+(This will take 32 hours in a Tesla K-80 GPU (Amazon AWS p2.xlarge) 200 epochs, batch_size=1, 994 images)
 
 Test your model:
 
