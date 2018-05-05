@@ -428,6 +428,11 @@ with tf.Session(graph=graph, config=config) as sess:
     pred00 = sess.run([prediction],feed_dict={X: x_test_ok, is_training: False})
 
 
+with tf.Session(graph=graph, config=config) as session:
+    ckpt = "/home/theone/anaconda3/Dados/model.ckpt"
+    saver.restore(session, ckpt)
+    pred00 = session.run([prediction], feed_dict={X: x_test_ok, is_training: False})
+
 pred0=np.argmax(pred00[0],axis=1)
 Y=y_test_ok2
 
