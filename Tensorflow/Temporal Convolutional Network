@@ -394,8 +394,6 @@ def next_batch(num, data, labels):
     labels_shuffle = [labels[ i] for i in idx]
     return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
 
-
-batch_size=100
 log_dir = "/home/theone/anaconda3/Dados/"
 tb_writer = tf.summary.FileWriter(log_dir, graph)
 config = tf.ConfigProto()
