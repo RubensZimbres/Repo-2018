@@ -1,0 +1,441 @@
+from matplotlib import pyplot as plt
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv('sensor_NASA.csv',sep=',',header=0)
+
+df2=df[df.iloc[:,0]==403458736].iloc[40000:162679,1:]
+
+df2
+
+## REMOVER OUTLIERS
+from pandas.tools.plotting import autocorrelation_plot
+from statsmodels.tsa.arima_model import ARIMA
+from scipy.stats import gaussian_kde
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+autocorrelation_plot(df2.iloc[:,5])
+
+plt.figure(figsize=(8,8))
+for i in range(2,10):
+    plt.subplot(4,2,i-1)
+    model00 = ARIMA(np.array(df2.iloc[:,i]), dates=None,order=(2,1,0))
+    model11 = model00.fit(disp=1)
+    plt.title(df2.columns.values[i])
+    plt.plot(model11.resid)
+    plt.tight_layout()
+plt.show()
+
+## DADOS PUROS
+plt.figure(figsize=(8,8))
+for i in range(2,10):
+    plt.subplot(4,2,i-1)
+    plt.title(df2.columns.values[i])
+    plt.plot(df2.iloc[:,i])
+    plt.tight_layout()
+plt.show()
+
+df2.shape
+df3=df2.drop('Sensor1',axis=1)
+
+df3.iloc[:,1][df3.iloc[:,1]>27]=0
+df3.iloc[:,1][df3.iloc[:,1]<22]=0
+
+df3.iloc[:,2][df3.iloc[:,2]>80]=0
+df3.iloc[:,2][df3.iloc[:,2]<50]=0
+
+df3.iloc[:,3][df3.iloc[:,3]>1500]=0
+df3.iloc[:,3][df3.iloc[:,3]<1000]=0
+
+df3.iloc[:,4][df3.iloc[:,4]>25]=0
+df3.iloc[:,4][df3.iloc[:,4]<17]=0
+
+df3.iloc[:,5][df3.iloc[:,5]>25]=0
+df3.iloc[:,5][df3.iloc[:,5]<20]=0
+
+df3.iloc[:,6][df3.iloc[:,6]>52.7]=0
+df3.iloc[:,6][df3.iloc[:,6]<52]=0
+
+df3.iloc[:,8][df3.iloc[:,8]>56]=0
+df3.iloc[:,8][df3.iloc[:,8]<55]=0
+
+df3.iloc[:,7][df3.iloc[:,8]>56]=0
+df3.iloc[:,7][df3.iloc[:,8]<55]=0
+
+df3.iloc[:,1][df3.iloc[:,1]>0]=1
+
+df3.iloc[:,2][df3.iloc[:,2]>0]=1
+
+df3.iloc[:,3][df3.iloc[:,3]>0]=1
+
+df3.iloc[:,4][df3.iloc[:,4]>0]=1
+
+df3.iloc[:,5][df3.iloc[:,5]>0]=1
+
+df3.iloc[:,6][df3.iloc[:,6]>0]=1
+
+df3.iloc[:,8][df3.iloc[:,8]>0]=1
+
+
+
+df2['Sensor6'][df2['Sensor6']>35]=np.mean(df2['Sensor6'])
+df2['Sensor6'][df2['Sensor6']<10]=np.mean(df2['Sensor6'])
+
+df2['Sensor7'][df2['Sensor7']<30]=np.mean(df2['Sensor7'])
+df2['Sensor9'][df2['Sensor9']<50]=np.mean(df2['Sensor9'])
+
+df2.corr()
+
+
+df2.shape
+df3=df2.drop('Sensor1',axis=1)
+
+
+f=[]
+for i in range(0,df3.shape[0]):
+    if df3.iloc[i,1]!=0.0 and df3.iloc[i,2]!=0.0 and df3.iloc[i,3]!=0.0 and df3.iloc[i,4]!=0.0 and df3.iloc[i,5]!=0.0 and df3.iloc[i,6]!=0.0 and df3.iloc[i,7]!=0.0:
+        f.append(0)
+    else:
+        f.append(1)
+
+df3['Product']=f
+
+plt.hist(f)
+
+df4=df3[df3['Product']==1]
+
+
+
+
+df4['Date']=pd.to_datetime(df2['TimeStamp'],format='%d/%m/%Y %X')
+
+
+ano=2018
+df4['Date'].groupby(df4["Date"][df4["Date"].dt.year==ano].dt.month).count().plot(kind="bar",title=ano,ylim=(0,280))
+
+
+
+### AVALIAR DAQUI
+x_train=np.array(abs(df3.iloc[:,1:8])).reshape(122483,7)
+
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import chi2
+
+y_train=np.array(pd.get_dummies(df3.iloc[:,9])).reshape(122483,2)
+
+vars_num=6
+xx=SelectKBest(chi2, k=vars_num).fit_transform(x_train, df3.iloc[:,9])
+
+
+dados=pd.DataFrame(np.concatenate([xx,y_train],axis=1))
+
+
+''' SHUFFLE '''
+
+
+from sklearn.utils import shuffle
+df5 = shuffle(dados)
+
+xx=df5.iloc[:,0:6]
+y_train=df5.iloc[:,7]
+
+x_train=xx
+
+
+def norm(x):
+    return (x-np.min(x))/(np.max(x)-np.min(x))
+
+n=100000
+
+x_train_00=xx[0:n]
+x_test_01=xx[n+1:len(xx)]
+y_train_00=y_train[0:n]
+y_test_01=y_train[n+1:len(xx)]
+
+
+from sklearn.ensemble import GradientBoostingClassifier
+
+clf=GradientBoostingClassifier(learning_rate=0.1, n_estimators=100, subsample=1.0, 
+                              min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, 
+                              max_depth=30, verbose=1)
+clf.fit(x_train_00, y_train_00)
+
+
+from sklearn.metrics import accuracy_score,precision_score,confusion_matrix,f1_score,recall_score,r2_score
+
+
+pred0 = clf.predict(x_test_01)
+Y=y_test_01
+
+print('Precision (FP):',precision_score(np.array(Y),pred0,average='binary'))
+print('Recall (FN):',recall_score(np.array(Y),pred0,average='binary'))
+print('f1:',f1_score(np.array(Y),pred0,average='binary'))
+print('R2 score',r2_score(clf.predict(x_test_01),Y))
+print(confusion_matrix(np.array(Y),pred0),'\n')
+
+
+plt.plot(clf.predict(x_test_01)-df3.iloc[100001:len(xx),8])
+
+plt.plot(df3.iloc[100001:len(xx),8])
+
+
+
+
+
+
+
+#### AVALIAR DAQUI
+
+
+df9=df2.drop('Sensor1',axis=1)
+
+df9=df9.iloc[10000:80000,:]
+
+x_train=np.array(abs(df9.iloc[:,1:8])).reshape(70000,7)
+
+y_train9=np.array(df3.iloc[10000:80000,9])
+
+from imblearn.over_sampling import SMOTE
+from imblearn.combine import SMOTEENN
+
+sm = SMOTEENN()
+x_train, y_train9 = sm.fit_sample(x_train, np.array(y_train9))
+
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import chi2
+
+y_train=np.array(pd.get_dummies(y_train9)).reshape(len(y_train9),2)
+
+
+
+vars_num=4
+xx=SelectKBest(chi2, k=vars_num).fit_transform(x_train, y_train9)
+y_train
+
+
+
+timesteps=2
+look_back=timesteps
+
+o=[]
+for i in range(0,xx.shape[0]-look_back):
+    o.append(xx[i:i+look_back])
+
+x_train3=np.array(o)
+y_train30=np.array(y_train9[look_back:len(y_train)])
+y_train3=y_train30
+
+X0=norm(x_train3[69000:71000])
+x_test_ok=X0
+Y0=np.array(pd.get_dummies(y_train3[69000+look_back:71000+look_back]))
+y_test_ok=np.array(pd.get_dummies(y_train3[69000+look_back:71000+look_back]))
+y_test_ok2=y_train3[69000+look_back:71000+look_back]
+
+import tensorflow as tf
+from tensorflow.contrib import rnn
+
+
+class TemporalConvNet(tf.layers.Layer):
+    def __init__(self, num_channels, kernel_size=2, dropout=0.2,
+                 trainable=True, name=None, dtype=None, 
+                 activity_regularizer=None, **kwargs):
+        super(TemporalConvNet, self).__init__(
+            trainable=trainable, dtype=dtype,
+            activity_regularizer=activity_regularizer,
+            name=name, **kwargs
+        )
+        self.layers = []
+        num_levels = len(num_channels)
+        for i in range(num_levels):
+            dilation_size = 2 ** i
+            out_channels = num_channels[i]
+            self.layers.append(
+                TemporalBlock(out_channels, kernel_size, strides=1, dilation_rate=dilation_size,
+                              dropout=dropout, name="tblock_{}".format(i))
+            )
+    
+    def call(self, inputs, training=True):
+        outputs = inputs
+        for layer in self.layers:
+            outputs = layer(outputs, training=training)
+        return outputs
+
+learning_rate = 0.001
+display_step = 10
+num_input = vars_num
+num_hidden = 20
+num_classes = 2
+
+dropout = 0.1
+kernel_size = 8
+levels = 6
+
+class CausalConv1D(tf.layers.Conv1D):
+    def __init__(self, filters,
+               kernel_size,
+               strides=1,
+               dilation_rate=1,
+               activation=None,
+               use_bias=True,
+               kernel_initializer=None,
+               bias_initializer=tf.zeros_initializer(),
+               kernel_regularizer=None,
+               bias_regularizer=None,
+               activity_regularizer=None,
+               kernel_constraint=None,
+               bias_constraint=None,
+               trainable=True,
+               name=None,
+               **kwargs):
+        super(CausalConv1D, self).__init__(
+            filters=filters,
+            kernel_size=kernel_size,
+            strides=strides,
+            padding='valid',
+            data_format='channels_last',
+            dilation_rate=dilation_rate,
+            activation=activation,
+            use_bias=use_bias,
+            kernel_initializer=kernel_initializer,
+            bias_initializer=bias_initializer,
+            kernel_regularizer=kernel_regularizer,
+            bias_regularizer=bias_regularizer,
+            activity_regularizer=activity_regularizer,
+            kernel_constraint=kernel_constraint,
+            bias_constraint=bias_constraint,
+            trainable=trainable,
+            name=name, **kwargs
+        )
+       
+    def call(self, inputs):
+        padding = (self.kernel_size[0] - 1) * self.dilation_rate[0]
+        inputs = tf.pad(inputs, tf.constant([(0, 0,), (1, 0), (0, 0)]) * padding)
+        return super(CausalConv1D, self).call(inputs)
+
+
+class TemporalBlock(tf.layers.Layer):
+    def __init__(self, n_outputs, kernel_size, strides, dilation_rate, dropout=0.2, 
+                 trainable=True, name=None, dtype=None, 
+                 activity_regularizer=None, **kwargs):
+        super(TemporalBlock, self).__init__(
+            trainable=trainable, dtype=dtype,
+            activity_regularizer=activity_regularizer,
+            name=name, **kwargs
+        )        
+        self.dropout = dropout
+        self.n_outputs = n_outputs
+        self.conv1 = CausalConv1D(
+            n_outputs, kernel_size, strides=strides, 
+            dilation_rate=dilation_rate, activation=tf.nn.relu, 
+            name="conv1")
+        self.conv2 = CausalConv1D(
+            n_outputs, kernel_size, strides=strides, 
+            dilation_rate=dilation_rate, activation=tf.nn.relu, 
+            name="conv2")
+        self.down_sample = None
+
+    
+    def build(self, input_shape):
+        channel_dim = 2
+        self.dropout1 = tf.layers.Dropout(self.dropout, [tf.constant(1), tf.constant(1), tf.constant(self.n_outputs)])
+        self.dropout2 = tf.layers.Dropout(self.dropout, [tf.constant(1), tf.constant(1), tf.constant(self.n_outputs)])
+        if input_shape[channel_dim] != self.n_outputs:
+            self.down_sample = tf.layers.Dense(self.n_outputs, activation=None)
+    
+    def call(self, inputs, training=True):
+        x = self.conv1(inputs)
+        x = tf.contrib.layers.layer_norm(x)
+        x = self.dropout1(x, training=training)
+        x = self.conv2(x)
+        x = tf.contrib.layers.layer_norm(x)
+        x = self.dropout2(x, training=training)
+        if self.down_sample is not None:
+            inputs = self.down_sample(inputs)
+        return tf.nn.relu(x + inputs)
+
+tf.reset_default_graph()
+graph = tf.Graph()
+with graph.as_default():
+    tf.set_random_seed(10)
+
+    X = tf.placeholder("float", [None, timesteps, num_input])
+    Y = tf.placeholder("float", [None, num_classes])
+    is_training = tf.placeholder("bool")
+    
+    logits = tf.layers.dense(
+        TemporalConvNet([num_hidden] * levels, kernel_size, dropout)(
+            X, training=is_training)[:, -1, :],
+        num_classes, activation=None, 
+        kernel_initializer=tf.orthogonal_initializer()
+    )
+    prediction = tf.nn.softmax(logits)
+   
+    loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(
+        logits=logits, labels=Y))
+    
+    with tf.name_scope("optimizer"):
+        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+        train_op = optimizer.minimize(loss_op)
+
+    correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
+    accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+    init = tf.global_variables_initializer()
+    saver = tf.train.Saver()
+    print("All parameters:", np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.global_variables()]))
+    print("Trainable parameters:", np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.trainable_variables()]))
+
+def next_batch(num, data, labels):
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+    return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
+
+
+batch_size=100
+log_dir = "/home/theone/anaconda3/Dados/"
+tb_writer = tf.summary.FileWriter(log_dir, graph)
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = False
+best_val_acc = 0.85
+
+training_epochs = 3000
+batch_size = 60
+total_batch = int(Y0.shape[1] / batch_size)
+
+with tf.Session(graph=graph, config=config) as sess:
+    sess.run(init)
+    for step in range(1, training_epochs+1):
+        Xt, Yt = next_batch(batch_size, X0, Y0)
+        batch_x, batch_y = Xt,Yt
+        sess.run(train_op, feed_dict={X: batch_x, Y: batch_y, is_training: True})
+        if step % display_step == 0 or step == 1:
+            loss, acc = sess.run([loss_op, accuracy], feed_dict={
+                X: batch_x, Y: batch_y, is_training: False})
+            test_len = 2000
+            test_data = x_test_ok
+            test_label = y_test_ok
+            val_acc = sess.run(accuracy, feed_dict={X: test_data, Y: test_label, is_training: False})
+            print("Step " + str(step) + ", Minibatch Loss= " + \
+                  "{:.4f}".format(loss) + ", Training Accuracy= " + \
+                  "{:.3f}".format(acc) + ", Test Accuracy= " + \
+                  "{:.3f}".format(val_acc))
+            if val_acc > best_val_acc:
+                best_val_acc = val_acc
+                save_path = saver.save(sess, "/home/theone/anaconda3/Dados/model.ckpt")
+                print("Model saved in path: %s" % save_path)
+    pred00 = sess.run([prediction],feed_dict={X: x_test_ok, is_training: False})
+
+
+pred0=np.argmax(pred00[0],axis=1)
+Y=y_test_ok2
+
+print('\n')
+print('JANELA == ',look_back)
+print('Precision (FP):',precision_score(np.array(Y),pred0,average='binary'))
+print('Recall (FN):',recall_score(np.array(Y),pred0,average='binary'))
+print('f1:',f1_score(np.array(Y),pred0,average='binary'))
+print(confusion_matrix(np.array(Y),pred0),'\n')
