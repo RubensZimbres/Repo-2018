@@ -398,6 +398,7 @@ log_dir = "/home/theone/anaconda3/Dados/"
 tb_writer = tf.summary.FileWriter(log_dir, graph)
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = False
+config.gpu_options.per_process_gpu_memory_fraction = 0.7
 best_val_acc = 0.85
 
 training_epochs = 3000
