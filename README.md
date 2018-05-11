@@ -19,7 +19,7 @@ Tensorflow version used in models: keras==1.3.0
 
 <b> COCO Model </b>
 
-This folder presents my Pull Request regarding pycocotools library incompatibility between Python 2 and 3. 
+COCO (Common Objects in Context) is an image segmentation model. This folder presents my Pull Request regarding pycocotools library incompatibility between Python 2 and 3 suggesting a fix.
 
 <b> CycleGAN Project </b> -  GANs <br/>
 
@@ -68,7 +68,7 @@ Tensorboard: visualization of Tensorflow models' training
 
 <b> YOLO Model </b>
 
-The YOLO Model is a Deep Learning project for Real-Time object detection. Examples of outputs are presented.
+The YOLO Model (You Only Look Once) is a Deep Learning project for Real-Time object detection. Examples of outputs are presented.
 
 Datasets available at Repo-2017
  
