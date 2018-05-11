@@ -9,14 +9,6 @@ I am a Data Scientist and I code in Python. Here you will find some Machine Lear
 Data for models available at:
 
 https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing  
-
-and
-
-https://s3.amazonaws.com/mask-rcnn  
-https://s3.amazonaws.com/keras-yolo3  
-https://s3.amazonaws.com/cycle--gan    
-
-
  
 Keras version used in models: keras==2.0.8
 Tensorflow version used in models: keras==1.3.0
