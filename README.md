@@ -17,6 +17,10 @@ https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing
 Keras version used in models: keras==2.0.8
 Tensorflow version used in models: keras==1.3.0
 
+<b> COCO Model </b>
+
+This folder presents my Pull Request regarding pycocotools library incompatibility between Python 2 and 3. 
+
 <b> CycleGAN Project </b> -  GANs <br/>
 
 In this folder I presente the steps to train a CycleGAN for Style Transfer applied to paintings of Vincent van Gogh and Pablo Picasso using an EC2 GPU Tesla K-80. Examples of outputs are presented.
