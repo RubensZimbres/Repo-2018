@@ -20,3 +20,5 @@ Replace code line 308 in coco.py:
 Results presented below were created using saved weights at: https://github.com/matterport/Mask_RCNN/releases
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/COCO%20model/Pictures/COCO_Success.png>
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/COCO%20model/Pictures/COCO_result_BIG.png>
