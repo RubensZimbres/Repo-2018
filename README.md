@@ -12,9 +12,9 @@ https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing
 
 and
 
-https://s3.amazonaws.com/mask-rcnn
-https://s3.amazonaws.com/keras-yolo3
-https://s3.amazonaws.com/cycle--gan  
+https://s3.amazonaws.com/mask-rcnn  
+https://s3.amazonaws.com/keras-yolo3  
+https://s3.amazonaws.com/cycle--gan    
 
 
  
