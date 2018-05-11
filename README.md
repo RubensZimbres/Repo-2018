@@ -6,13 +6,17 @@ Codes in Machine Learning, Deep Learning, Reinforcement Learning, Artificial Int
 
 I am a Data Scientist and I code in Python. Here you will find some Machine Learning, Deep Learning, Natural Language Processing, Artificial Intelligence and Computer Vision models I developed.
 
-<b> Outputs of the models can be seen at my portfolio: </b> https://drive.google.com/file/d/0B0RLknmL54khdjRQWVBKeTVxSHM/view?usp=sharing
-
 Data for models available at:
 
-https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing
+https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing  
 
-----------------
+and
+
+https://s3.amazonaws.com/mask-rcnn
+https://s3.amazonaws.com/keras-yolo3
+https://s3.amazonaws.com/cycle--gan  
+
+
  
 Keras version used in models: keras==2.0.8
 Tensorflow version used in models: keras==1.3.0
