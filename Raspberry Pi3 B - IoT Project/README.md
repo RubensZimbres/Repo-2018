@@ -21,7 +21,7 @@ Certificates/Right-Click/Attach thing
 
 https://medium.com/@gomaketeam/connecting-raspberry-pi-zero-with-amazon-web-services-iot-part-i-working-with-aws-iot-caa8a0f6f91b  
 
-<b>3 - Connect Raspberry to AWS IoT (Mosquitto - Broker MQQT / HTTP ?)</b>  
+<b>3 - Connect Raspberry to AWS IoT ( + Mosquitto - Broker MQQT)</b>  
 
 https://medium.com/@gomaketeam/connecting-raspberry-pi-zero-with-amazon-web-services-iot-part-iii-installing-the-aws-iot-device-919de23f5642  
 
@@ -71,7 +71,14 @@ make -f Makefile
 ```  
 
 Back to AWS
-Shadow ARN
+Shadow ARN  
+
+(Mosquitto - MQTT)  
+
+http://mosquitto.org/download/  
+
+https://aws.amazon.com/pt/blogs/iot/how-to-bridge-mosquitto-mqtt-broker-to-aws-iot/  
+
 
 <b>4 - Collect CPU Temperature (Python ?)</b>  
 
@@ -98,10 +105,9 @@ CTRL X + Y
 python monitor-temp.py
 ```  
 
+<b>5 - Monitor CPU Temperature</b>  
 
-<b>5 - Send data to AWS IoT</b>  
-
-<b>6 - Monitor CPU Temperature</b>  
+<b>6 - Send data to AWS IoT</b>  
 
 <b>7 - Save data into Dynamo DB</b>  
 
