@@ -4,7 +4,7 @@
 
 2 - Set up Amazon AWS IoT (role, policies, key, etc)  
 
-3 - Connect Raspberry to AWS IoT (Mosquitto - Broker ?)  
+3 - Connect Raspberry to AWS IoT (Mosquitto - Broker MQQT / HTTP ?)  
 
 4 - Collect CPU Temperature (Python ?)  
 
