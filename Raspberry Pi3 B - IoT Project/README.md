@@ -115,7 +115,7 @@ https://docs.aws.amazon.com/iot/latest/developerguide/iot-ddb-rule.html
 
 <b>8 - Add sensor</b>  
 
-<b>9 - Use saved Machine Learning model for anomaly</b>  
+<b>9 - Load saved Machine Learning model for anomaly detection</b>  
 
 <b>10 - Dashboard</b>  
 
