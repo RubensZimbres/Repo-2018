@@ -14,6 +14,8 @@
 
 7 - Save data into Dynamo DB  
 
+8 - Add sensor  
+
 8 - Dashboard  
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B/Pictures/Raspberry%20Pi3.png>
