@@ -1,6 +1,6 @@
 # To Do List: Raspberry Pi3 Model B for IoT Project
 
-1 - Plug and Play  
+<b>1 - Plug and Play</b>  
 
 2 - Set up Amazon AWS IoT (role, policies, key, etc)  
 
