@@ -1,4 +1,4 @@
-# To Do List - Raspberry Pi3 Model B
+# To Do List - Raspberry Pi3 Model B - IoT Project
 
 1 - Plug and Play  
 
@@ -18,4 +18,4 @@
 
 8 - Dashboard  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B/Pictures/Raspberry%20Pi3.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B%20-%20IoT%20Project/Pictures/Raspberry%20Pi3.png>
