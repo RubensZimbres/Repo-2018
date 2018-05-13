@@ -19,6 +19,8 @@ while True:
     time.sleep(2)
 ```  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Notebook_IoT.png>
+
 <b> Edit basicPubSub.py from AWS library (AWSIoTPythonSDK) to communicate data to AWS IoT</b>  
 
 Add:  
@@ -37,3 +39,5 @@ while True:
 Remove 'message' from arguments  in notebook.  
 
 <b> Set Up Amazon AWS IoT </b>  
+
+
