@@ -1,4 +1,4 @@
-# IoT Project - CPU Temperature from linux to AWS IoT  
+# IoT Project - CPU Temperature from Ubuntu to AWS IoT  
 
 <b> Create .py file to collect CPU Temperature in Ubuntu </b>  
 
