@@ -34,4 +34,6 @@ while True:
     args['message']=measure_temp()[0]
 ```  
 
+Remove 'message' from arguments  in notebook.  
+
 <b> Set Up Amazon AWS IoT </b>  
