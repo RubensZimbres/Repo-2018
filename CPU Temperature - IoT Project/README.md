@@ -38,6 +38,13 @@ while True:
 
 Remove 'message' from arguments  in notebook.  
 
+<b> Install sensors in Ubuntu </b> 
+
+```
+sudo apt-get install lm-sensors
+sudo service kmod start
+```
+
 <b> Set Up Amazon AWS IoT </b>  
 
 
