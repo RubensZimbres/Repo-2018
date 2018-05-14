@@ -70,7 +70,9 @@ Device shadow:
     "Temperature": 55
   }
 }
-```  
+```  
+```
 python AWS_Send_test.py -e 12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt -c 12345-certificate.pem.crt -k 12345-private.pem.key -id arn:aws:iot:us-east-1:12345:thing/CPU-Ubuntu -t Temperature
+```  
 
 
