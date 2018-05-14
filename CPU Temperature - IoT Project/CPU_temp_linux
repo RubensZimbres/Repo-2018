@@ -1,0 +1,14 @@
+import subprocess
+import shlex
+import time
+
+def measure_temp():
+        temp = subprocess.Popen(shlex.split('sensors -u'),
+                                stdout=subprocess.PIPE,
+                                bufsize=10, universal_newlines=True)
+        return temp.communicate()
+    
+while True:
+    string=measure_temp()[0]
+    print(string.split()[8])
+    time.sleep(5)
