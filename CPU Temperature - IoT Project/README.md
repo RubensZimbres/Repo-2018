@@ -8,16 +8,15 @@ import shlex
 import time
 
 def measure_temp():
-        temp = subprocess.Popen(shlex.split('sensors'),
+        temp = subprocess.Popen(shlex.split('sensors -u'),
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
-        return temp.communicate()[0]
+        return temp.communicate()
     
 while True:
-    str1=measure_temp().split()[9]
-    temp=int(re.findall('\d+', str1 )[0])
-    print(temp)
-    time.sleep(4)
+    string=measure_temp()[0]
+    print(string.split()[8])
+    time.sleep(5)
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Notebook_IoT.png>
@@ -28,18 +27,25 @@ Add:
 
 ```
 def measure_temp():
-        temp = subprocess.Popen(shlex.split('sensors -u'),
-                                stdout=subprocess.PIPE,
-                                bufsize=10, universal_newlines=True)
-        return temp.communicate()
+    temp = subprocess.Popen(shlex.split('sensors -u'),
+                            stdout=subprocess.PIPE,
+                            bufsize=10, universal_newlines=True)
+    return temp.communicate()
+start=time.time()
     
 while True:
-    args.message=measure_temp()[0]
+    args.message={"desired": {"light": "green","Temperature": 55.22,
+                              "timestamp": 1526323886},
+    "reported": {"light": "blue","Temperature": measure_temp()[0].split()[8],"timestamp": time.time()
+    },"delta": {"light": "green","Temperature": time.time()-start}}
+    print(measure_temp()[0].split()[8])
+    time.sleep(5)
+
 ```  
 
-Remove 'message' from arguments  in notebook.  
+Remove 'message' from arguments  in shell.  
 
-<b> Install sensors in Ubuntu </b> 
+<b> Install program sensors in Ubuntu </b> 
 
 ```
 sudo apt-get install lm-sensors
@@ -84,5 +90,9 @@ Create rule to DynamoDB:
 Save data to DynamoDB:   
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB_.png>
+
+Create rule to Lambda:  
+
+<img src=>
 
 Visualize Telemetry data in Cloud Watch:  
