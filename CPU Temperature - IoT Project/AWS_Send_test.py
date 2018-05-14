@@ -44,13 +44,15 @@ clientId = args.clientId
 topic = args.topic
 
 def measure_temp():
-        temp = subprocess.Popen(shlex.split('sensors -u'),
+        temp = subprocess.Popen(shlex.split('sensors'),
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
         time.sleep(1)
         return temp.communicate()
     
-args.message=measure_temp()[0].split()[8]
+while True:
+    args.message=measure_temp()[0].split()[9]
+    print(args.message)
 
 if args.mode not in AllowedActions:
     parser.error("Unknown --mode option %s. Must be one of %s" % (args.mode, str(AllowedActions)))
