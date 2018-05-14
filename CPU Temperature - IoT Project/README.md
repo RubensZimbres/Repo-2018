@@ -83,4 +83,4 @@ Create rule to DynamoDB:
 
 Visualize Telemetry data:  
 
-
+<img src=>
