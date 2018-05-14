@@ -80,7 +80,7 @@ python AWS_Send_test.py -e 12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt -c 1
 Create rule to DynamoDB:  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB.png>  
-Save data to DynamoDB:  
+Save data to DynamoDB:   
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB_.png>
 
