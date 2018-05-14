@@ -8,15 +8,16 @@ import shlex
 import time
 
 def measure_temp():
-        temp = subprocess.Popen(shlex.split('sensors -u'),
+        temp = subprocess.Popen(shlex.split('sensors'),
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
-        return temp.communicate()
+        return temp.communicate()[0]
     
 while True:
-    string=measure_temp()[0]
-    print(string.split()[8])
-    time.sleep(2)
+    str1=measure_temp().split()[9]
+    temp=int(re.findall('\d+', str1 )[0])
+    print(temp)
+    time.sleep(4)
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Notebook_IoT.png>
