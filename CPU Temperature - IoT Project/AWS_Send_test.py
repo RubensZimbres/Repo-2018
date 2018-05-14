@@ -6,6 +6,7 @@ import json
 import subprocess
 import shlex
 import time
+import re
 
 AllowedActions = ['both', 'publish', 'subscribe']
 
@@ -47,12 +48,12 @@ def measure_temp():
         temp = subprocess.Popen(shlex.split('sensors'),
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
-        time.sleep(1)
-        return temp.communicate()
+        time.sleep(3)
+        return temp.communicate()[0]
     
 while True:
-    args.message=measure_temp()[0].split()[9]
-    print(args.message)
+    str1=measure_temp().split()[9]
+    print(int(re.findall('\d+', str1 )[0]))
 
 if args.mode not in AllowedActions:
     parser.error("Unknown --mode option %s. Must be one of %s" % (args.mode, str(AllowedActions)))
