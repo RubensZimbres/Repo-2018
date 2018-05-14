@@ -5,7 +5,6 @@ import argparse
 import json
 import subprocess
 import shlex
-import time
 import re
 
 AllowedActions = ['both', 'publish', 'subscribe']
