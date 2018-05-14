@@ -1,14 +1,14 @@
 import subprocess
 import shlex
 import time
-
+import re
 def measure_temp():
-        temp = subprocess.Popen(shlex.split('sensors -u'),
+        temp = subprocess.Popen(shlex.split('sensors'),
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
-        return temp.communicate()
+        time.sleep(1)
+        return temp.communicate()[0]
     
 while True:
-    string=measure_temp()[0]
-    print(string.split()[8])
-    time.sleep(5)
+    str1=measure_temp().split()[9]
+    print(int(re.findall('\d+', str1 )[0]))
