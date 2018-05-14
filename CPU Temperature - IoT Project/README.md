@@ -45,6 +45,12 @@ sudo apt-get install lm-sensors
 sudo service kmod start
 ```
 
+<b> Open port  </b>  
+
+```
+sudo ufw allow 8443
+```
+
 <b> Set Up Amazon AWS IoT </b>  
 
 
