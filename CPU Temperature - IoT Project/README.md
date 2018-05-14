@@ -53,4 +53,23 @@ sudo ufw allow 8443
 
 <b> Set Up Amazon AWS IoT </b>  
 
+Device shadow:  
+
+```
+{
+  "desired": {
+    "light": "green",
+    "Temperature": 55
+  },
+  "reported": {
+    "light": "blue",
+    "Temperature": 65
+  },
+  "delta": {
+    "light": "green",
+    "Temperature": 55
+  }
+}
+```
+
 
