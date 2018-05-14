@@ -33,7 +33,7 @@ def measure_temp():
         return temp.communicate()
     
 while True:
-    args['message']=measure_temp()[0]
+    args.message=measure_temp()[0]
 ```  
 
 Remove 'message' from arguments  in notebook.  
