@@ -28,7 +28,7 @@ parser.add_argument("-w", "--websocket", action="store_true", dest="useWebsocket
                     help="Use MQTT over WebSocket")
 parser.add_argument("-id", "--clientId", action="store", dest="clientId", default="basicPubSub",
                     help="Targeted client id")
-parser.add_argument("-t", "--topic", action="store", dest="topic", default="sdk/test/Python", help="Targeted topic")
+parser.add_argument("-t", "--topic", action="store", dest="topic", default="#", help="Targeted topic")
 parser.add_argument("-m", "--mode", action="store", dest="mode", default="both",
                     help="Operation modes: %s"%str(AllowedActions))
 parser.add_argument("-M", "--message", action="store", dest="message", default="Hello World!",
@@ -53,15 +53,11 @@ start=time.time()
     
 while True:
     str1=measure_temp().split()[9]
-    mess={
-            "desired": {"light": "green","Temperature": 55.77,
-                        "timestamp": start},
-                        "reported": {"light": "blue",
+    mess={"reported": {"light": "blue",
                                      "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": time.time()
-                                     },"delta": {"light": "green",
-                                     "Temperature": time.time()-start}}
+                                     }}
     args.message=mess
-    print(int(re.findall('\d+', str1 )[0]))
+    print(int(re.findall('\d+', str1 )[0]),time.time()-start)
     time.sleep(2)
     
 if args.mode not in AllowedActions:
