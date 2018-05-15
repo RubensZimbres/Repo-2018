@@ -100,3 +100,7 @@ Create rule to Lambda:
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Lambda.png>
 
 Visualize Telemetry data:  
+
+Ooops, not yet...  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/AWS_IoT_PPT.png>
