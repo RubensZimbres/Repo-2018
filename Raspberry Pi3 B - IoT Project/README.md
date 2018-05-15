@@ -1,4 +1,4 @@
-# To Do List: Raspberry Pi3 Model B for IoT Project
+# SKETCH: Raspberry Pi3 Model B for IoT Project
 
 <b>1 - Plug and Play</b>  
 
