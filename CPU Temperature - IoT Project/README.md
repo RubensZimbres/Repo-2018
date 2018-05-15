@@ -80,26 +80,28 @@ Device shadow:
 ```
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Shadow.png>  
 
-Log in into AWS IoT  
+<b>Log in into AWS IoT</b>  
 
 ```
 python AWS_Send_test.py -e 12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt -c 12345-certificate.pem.crt -k 12345-private.pem.key -id arn:aws:iot:us-east-1:12345:thing/CPU-Ubuntu -t '#'
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/IoT_.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/IoT_.png>  
 
-Create rule to DynamoDB:  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Shadow_Update_.png>  
+
+<b>Create rule to DynamoDB:</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB.png>  
-Save data to DynamoDB:   
+<b>Save data to DynamoDB:</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB_.png>
 
-Create rule to Lambda:  
+<b>Create rule to Lambda:</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Lambda.png>
 
-Visualize Telemetry data:  
+<b>Visualize Telemetry data:</b>  
 
 Ooops, not yet...  
 
