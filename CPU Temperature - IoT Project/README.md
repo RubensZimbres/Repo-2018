@@ -116,7 +116,7 @@ python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt
 
 <b>Create rule to CloudWatch:</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Cloud_Watch_Git.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Cloud_Watch_Git2.png>
 
 <b>Visualize Telemetry data:</b>  
 
