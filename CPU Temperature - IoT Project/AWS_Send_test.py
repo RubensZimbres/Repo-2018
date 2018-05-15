@@ -50,15 +50,16 @@ def measure_temp():
         return temp.communicate()[0]
 
 start=time.time()
-    
+i=0    
 while True:
+    i=i+1
     str1=measure_temp().split()[9]
     mess={"reported": {"light": "blue",
                                      "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": time.time()
                                      }}
     args.message=mess
-    print(int(re.findall('\d+', str1 )[0]),time.time()-start)
-    time.sleep(2)
+    print('Record',i,'Temperature:',int(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
+    time.sleep(6)
     
 if args.mode not in AllowedActions:
     parser.error("Unknown --mode option %s. Must be one of %s" % (args.mode, str(AllowedActions)))
