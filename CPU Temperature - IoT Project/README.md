@@ -51,7 +51,7 @@ Remove 'message' from arguments  in shell.
 sudo apt-get install lm-sensors
 sudo service kmod start  
 
-AWSIoTPythonSDK
+pip install AWSIoTPythonSDK
 ```
 
 <b> Open port  </b>  
