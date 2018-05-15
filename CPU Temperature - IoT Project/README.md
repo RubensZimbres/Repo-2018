@@ -54,6 +54,14 @@ sudo service kmod start
 pip install AWSIoTPythonSDK
 ```
 
+<b> Check CPU Temperature  </b>  
+
+```
+sensors
+```  
+
+<img src=>
+
 <b> Open port  </b>  
 
 ```
