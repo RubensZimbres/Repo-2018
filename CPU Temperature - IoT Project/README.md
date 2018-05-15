@@ -76,24 +76,24 @@ Device shadow:
 {
   "desired": {
     "light": "green",
-    "Temperature": 55
+    "Temperature": 55.22,
+    "timestamp": 1526323886
   },
   "reported": {
     "light": "blue",
-    "Temperature": 65
+    "Temperature": 55.22,
+    "timestamp": 1526323886
   },
   "delta": {
-    "light": "green",
-    "Temperature": 55
+    "light": "green"
   }
-}
-```
+}```
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Shadow.png>  
 
 <b>Log in into AWS IoT</b>  
 
 ```
-python AWS_Send_test.py -e 12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt -c 12345-certificate.pem.crt -k 12345-private.pem.key -id arn:aws:iot:us-east-1:12345:thing/CPU-Ubuntu -t '#'
+python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt -c 6612345-certificate.pem.crt -k 6612345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPU-Ubuntu -t '#'
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/IoT_.png>  
