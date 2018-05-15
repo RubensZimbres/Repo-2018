@@ -45,11 +45,13 @@ while True:
 
 Remove 'message' from arguments  in shell.  
 
-<b> Install program sensors in Ubuntu </b> 
+<b> Install program sensors in Ubuntu and AWSIoTPythonSDK library </b> 
 
 ```
 sudo apt-get install lm-sensors
-sudo service kmod start
+sudo service kmod start  
+
+AWSIoTPythonSDK
 ```
 
 <b> Open port  </b>  
