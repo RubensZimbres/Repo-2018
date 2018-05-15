@@ -47,13 +47,23 @@ def measure_temp():
         temp = subprocess.Popen(shlex.split('sensors'),
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
-        time.sleep(3)
         return temp.communicate()[0]
+
+start=time.time()
     
 while True:
     str1=measure_temp().split()[9]
+    mess={
+            "desired": {"light": "green","Temperature": 55.77,
+                        "timestamp": start},
+                        "reported": {"light": "blue",
+                                     "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": time.time()
+                                     },"delta": {"light": "green",
+                                     "Temperature": time.time()-start}}
+    args.message=mess
     print(int(re.findall('\d+', str1 )[0]))
-
+    time.sleep(2)
+    
 if args.mode not in AllowedActions:
     parser.error("Unknown --mode option %s. Must be one of %s" % (args.mode, str(AllowedActions)))
     exit(2)
