@@ -108,18 +108,14 @@ python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB.png>  
 <b>Save data to DynamoDB:</b>    
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB_.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DynamoDB_.png>  
 
-<b>Create rule to Lambda:</b>  
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Lambda.png>
-
-<b>Create rule to CloudWatch:</b>  
+<b>Create Dashboards in CloudWatch:</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Cloud_Watch_Git2.png>
 
 <b>Visualize Telemetry data:</b>  
 
-Ooops, not yet...  
+Almost ready ...  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/AWS_IoT_PPT_ok2.png>
