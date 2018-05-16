@@ -17,6 +17,10 @@ Tensorflow version used in models: keras==1.3.0
 
 COCO (Common Objects in Context) is an image segmentation model. This folder presents my Pull Request regarding pycocotools library incompatibility between Python 2 and 3 suggesting a fix.
 
+<b> CPU Temperature - IoT Project </b>  
+
+In this project I turned my notebook into an IoT device, where CPU temperature is collected via Python notebook and then sent to Amazon AWS IoT service, integrated with S3, Quick Sight and Cloud Watch.  
+
 <b> CycleGAN Project </b> -  GANs <br/>
 
 In this folder I presente the steps to train a CycleGAN for Style Transfer applied to paintings of Vincent van Gogh and Pablo Picasso using an EC2 GPU Tesla K-80. Examples of outputs are presented.
@@ -39,7 +43,10 @@ DCGANs: Deep Convolutional Generative Adversarial Networks
  
 In this folder you will find a guide to create your own haarcascade.xml so that you can identify any object using OpenCV.
  
- 
+<b> Raspberry Pi3 - IoT Project</b>  
+
+<b> Not ready yet </b> In this project I will use Raspberry Pi3 and attach a sensor and then send telemetry data to Amazon AWS IoT service, integrated with S3, Quick Sight and Cloud Watch. I also plan to deploy a Deep Learning trained model into the device for classification purposes.
+
 <b> TENSORFLOW </b> 
  
 Model for Regression
