@@ -28,7 +28,7 @@ parser.add_argument("-w", "--websocket", action="store_true", dest="useWebsocket
                     help="Use MQTT over WebSocket")
 parser.add_argument("-id", "--clientId", action="store", dest="clientId", default="basicPubSub",
                     help="Targeted client id")
-parser.add_argument("-t", "--topic", action="store", dest="topic", default="#", help="Targeted topic")
+parser.add_argument("-t", "--topic", action="store", dest="topic", default="$aws/things/CPUVecto/shadow/update/accepted", help="Targeted topic")
 parser.add_argument("-m", "--mode", action="store", dest="mode", default="both",
                     help="Operation modes: %s"%str(AllowedActions))
 parser.add_argument("-M", "--message", action="store", dest="message", default="Hello World!",
@@ -49,17 +49,6 @@ def measure_temp():
                                 bufsize=10, universal_newlines=True)
         return temp.communicate()[0]
 
-start=time.time()
-i=0    
-while True:
-    i=i+1
-    str1=measure_temp().split()[9]
-    mess={"reported": {"light": "blue",
-                                     "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": time.time()
-                                     }}
-    args.message=mess
-    print('Record',i,'Temperature:',int(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
-    time.sleep(6)
     
 if args.mode not in AllowedActions:
     parser.error("Unknown --mode option %s. Must be one of %s" % (args.mode, str(AllowedActions)))
@@ -100,15 +89,25 @@ myAWSIoTMQTTClient.configureConnectDisconnectTimeout(10)  # 10 sec
 myAWSIoTMQTTClient.configureMQTTOperationTimeout(5)  # 5 sec
 
 # Connect and subscribe to AWS IoT
-myAWSIoTMQTTClient.connect()
+#myAWSIoTMQTTClient.connect()
 if args.mode == 'both' or args.mode == 'subscribe':
     myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
 time.sleep(2)
 
 # Publish to the same topic in a loop forever
 loopCount = 0
+
+start=time.time()
+
 while True:
     if args.mode == 'both' or args.mode == 'publish':
+        str1=measure_temp().split()[9]
+        mess={"reported": {"light": "blue",
+                                         "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": time.time()
+                                         }}
+        args.message=mess
+        print('Temperature:',int(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
+        time.sleep(3)
         message = {}
         message['message'] = args.message
         message['sequence'] = loopCount
