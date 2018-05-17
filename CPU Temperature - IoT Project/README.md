@@ -76,12 +76,12 @@ Device shadow:
 {
   "desired": {
     "light": "green",
-    "Temperature": "55.22",
+    "Temperature": 55,
     "timestamp": 1526323886
   },
   "reported": {
     "light": "blue",
-    "Temperature": "55.22",
+    "Temperature": 55,
     "timestamp": 1526323886
   },
   "delta": {
@@ -105,6 +105,12 @@ python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r CA_Raiz.txt
 
 ```
 SELECT * FROM '#'
+```
+
+S3 Rule key:
+
+```
+$aws/things/CPUVecto/shadow/update/accepted
 ```
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/S3_bucket.png>    
