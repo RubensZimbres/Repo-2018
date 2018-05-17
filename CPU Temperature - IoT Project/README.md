@@ -76,12 +76,12 @@ Device shadow:
 {
   "desired": {
     "light": "green",
-    "Temperature": 55.22,
+    "Temperature": "55.22",
     "timestamp": 1526323886
   },
   "reported": {
     "light": "blue",
-    "Temperature": 55.22,
+    "Temperature": "55.22",
     "timestamp": 1526323886
   },
   "delta": {
@@ -90,8 +90,6 @@ Device shadow:
 }
 
 ```
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Shadow.png>  
 
 <b>Log in into AWS IoT</b>  
 
