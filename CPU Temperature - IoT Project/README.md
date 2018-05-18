@@ -92,10 +92,26 @@ Device shadow:
 
 ```
 
+<b>Create certificate and CA:</b>  
+
+```
+openssl genrsa -out rootCA.key 2048
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.pem
+
+copy code to Common Name
+
+openssl req -new -key verificationCert.key -out verificationCert.csr
+
+copy code to Common Name
+
+openssl x509 -req -in verificationCert.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out verificationCert.crt -days 500 -sha256
+```
+
+
 <b>Log in into AWS IoT</b>  
 
 ```
-python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 6612345-certificate.pem.crt -k 6612345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPU-Ubuntu -t '#'
+python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 6612345-certificate.pem.crt -k 6612345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPU-Ubuntu -t '#' -n CPU-Ubuntu
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/IoT_.png>  
