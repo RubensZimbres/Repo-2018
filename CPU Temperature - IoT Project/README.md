@@ -112,7 +112,8 @@ openssl x509 -req -in verificationCert.csr -CA rootCA.pem -CAkey rootCA.key -CAc
 <b>Log in into AWS IoT</b>  
 
 ```
-python AWS_Send_test.py -e a2thz12345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 6612345-certificate.pem.crt -k 6612345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPU-Ubuntu -t '#' -n CPU-Ubuntu
+python AWS_Send_test2BEST_QUASE4.py -e a2th12345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 66112345-certificate.pem.crt -k 66112345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPUVecto -t '#'
+
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/IoT_.png>  
