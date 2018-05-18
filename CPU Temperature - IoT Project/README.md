@@ -107,13 +107,7 @@ python AWS_Send_test2BEST_QUASE4.py -e a2th12345.iot.us-east-1.amazonaws.com -r 
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Shadow_Update_.png>  
 
-<b>Create SQL query + rule to S3:</b>  
-
-```
-SELECT * FROM '#'
-```
-
-DynamoDB Rule key:
+<b>Create SQL query + rule to Dynamo:</b>  
 
 ```
 SELECT * FROM 'Teste'
