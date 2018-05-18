@@ -89,7 +89,7 @@ myAWSIoTMQTTClient.configureConnectDisconnectTimeout(10)  # 10 sec
 myAWSIoTMQTTClient.configureMQTTOperationTimeout(5)  # 5 sec
 
 # Connect and subscribe to AWS IoT
-#myAWSIoTMQTTClient.connect()
+myAWSIoTMQTTClient.connect()
 if args.mode == 'both' or args.mode == 'subscribe':
     myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
 time.sleep(2)
@@ -107,13 +107,14 @@ while True:
                                          }}
         args.message=mess
         print('Temperature:',int(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
-        time.sleep(3)
         message = {}
         message['message'] = args.message
         message['sequence'] = loopCount
         messageJson = json.dumps(message)
+        print(messageJson)
+        print('\n')
         myAWSIoTMQTTClient.publish(topic, messageJson, 1)
         if args.mode == 'publish':
             print('Published topic %s: %s\n' % (topic, messageJson))
         loopCount += 1
-    time.sleep(1)
+    time.sleep(3)
