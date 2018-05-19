@@ -121,6 +121,14 @@ SELECT * FROM 'Teste'
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Cloud_Watch_Git2.png>
 
+<b>Create Data Pipeline from DynamoDB to S3 to be ingested by QuickSight</b>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Pipeline.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/DataPipelineCondig.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/data.png>
+
 <b>Visualize Telemetry data:</b>  
 
 Almost ready ...  
