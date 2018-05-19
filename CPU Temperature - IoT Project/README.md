@@ -129,7 +129,30 @@ SELECT * FROM 'Teste'
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/data.png>
 
-<b>Visualize Telemetry data:</b>  
+<b>Visualize Telemetry data with Quick Sight</b>  
+
+Edit S3 import JSON in Quick Sight:  
+
+```
+{
+    "fileLocations": [
+        {
+            "URIs": [
+                "https://s3.amazonaws.com/your-bucket/sensor_temp.csv"
+            ]
+        },
+        {
+            "URIPrefixes": [
+                "https://s3-us-east-1.amazonaws.com/your-bucket/"
+            ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "CSV",
+        "delimiter": ","
+    }
+}
+```
 
 Almost there ...  
 
