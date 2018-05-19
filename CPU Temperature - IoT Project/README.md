@@ -109,11 +109,11 @@ python AWS_Send_test2BEST_QUASE4.py -e a2th12345.iot.us-east-1.amazonaws.com -r 
 
 <b>Create SQL query + rule to Dynamo:</b>  
 
-```
-SELECT * FROM 'Teste'
-```
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Best1_Dynamo.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Dynamo4.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Best2_Dynamo.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Best3_Dynamo.png>  
 
 <b>Create Dashboards in CloudWatch:</b>  
 
