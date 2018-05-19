@@ -160,9 +160,7 @@ Edit S3 import JSON in Quick Sight:
 
 Almost there ...  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Project04.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Projeto6.png>  
 
 <b>To do list:</b>  
-- Check update shadow  
-- Accumulate data at DynamoDB  
-- Generate .csv  
+- Correct format of DynamoDB input
