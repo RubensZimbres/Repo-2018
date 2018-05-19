@@ -138,7 +138,7 @@ Edit S3 import JSON in Quick Sight:
     "fileLocations": [
         {
             "URIs": [
-                "https://s3.amazonaws.com/your-bucket/sensor_temp.csv"
+                "https://s3.amazonaws.com/your-bucket/2018-05-19-19-41-16/12345-c2712345-12345"
             ]
         },
         {
