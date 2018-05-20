@@ -151,7 +151,7 @@ Edit S3 import JSON in Quick Sight:
         },
         {
             "URIPrefixes": [
-                "https://s3-us-east-1.amazonaws.com/your-bucket/"
+                "https://s3.amazonaws.com/your-bucket/2018-05-19-19-41-16/12345-c2712345-12345"
             ]
         }
     ],
