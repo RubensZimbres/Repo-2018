@@ -146,15 +146,15 @@ Edit S3 import JSON in Quick Sight:
     "fileLocations": [
         {
             "URIs": [
-                "https://s3.amazonaws.com/iot-bucket2/2018-05-20-12-32-49/53034569-a279-4826-b269-4912ef4f0f06"
+                "https://s3.amazonaws.com/your-bucket2/2018-05-20-12-32-49/12345-a279-1243-b269-12345"
             ]
         },
         {
             "URIPrefixes": [
-                "https://s3.amazonaws.com/iot-bucket2/2018-05-20-12-32-49/53034569-a279-4826-b269-4912ef4f0f06"
+                "https://s3.amazonaws.com/your-bucket2/2018-05-20-12-32-49/12345-a279-1243-b269-12345"
             ]
         }
-    ],"globalUploadSettings": {"format":"CSV",
+    ],"globalUploadSettings": {"format":"JSON",
         "delimiter":"\n","textqualifier":"'"
     }
 }
