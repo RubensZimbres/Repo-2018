@@ -160,9 +160,7 @@ Edit S3 import JSON in Quick Sight:
 }
 ```
 
-<b>Clean data and Generate Plot with AWS Quick Sight</b>  
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Quick_Sight_FINAL.png>  
+<b>Import data and Generate Plot with AWS Quick Sight</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Quick_Sight02.png>
 
