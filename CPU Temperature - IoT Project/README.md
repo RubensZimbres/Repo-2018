@@ -154,13 +154,12 @@ Edit S3 import JSON in Quick Sight:
 }
 ```
 
-<b>Generate Plot with AWS Quick Sight</b>  
+<b>Clean data and Generate Plot with AWS Quick Sight</b>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Quick_Sight_FINAL.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Quick_Sight02.png>
 
-Almost there ...  
+And it's done ...  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Projeto6.png>  
-
-<b>To do list:</b>  
-- Correct format of DynamoDB input
+<img src=>
