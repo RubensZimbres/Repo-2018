@@ -1,5 +1,13 @@
 # IoT Project - CPU Temperature from Ubuntu to AWS IoT  
 
+Google Colab has open source projects that help Data Scientists everywhere. Inspired in this mindset, I developed my first IoT project using my notebook as an IoT device and AWS IoT as infrastructure. Recently I bought a Raspberry Pi, but it didn't arrive yet.
+
+So, I had a "simple" idea: collect CPU Temperature from my Notebook running on Ubuntu, send to Amazon AWS IoT, save data, make it available for Machine Learning models and dashboards.
+
+However, the operationalization of this idea is quite complex: first, develop a Python notebook that runs Ubuntu command line internally ('sensors'), collecting CPU temperature and is able to connect to AWS IoT via proper security protocols using MQTT.
+
+It is necessary to create a Thing at AWS IoT, get the Certificates, create and attach the Policy and create a SQL Rule to send data (JSON) to Cloud Watch and Dynamo DB. Then, create a Data Pipeline from Dynamo DB to S3, so that the data become available for a Machine Learning model and also to AWS Quick Sight dashboard.
+
 <b> Create .py file to collect CPU Temperature in Ubuntu </b>  
 
 ```
