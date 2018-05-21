@@ -6,6 +6,7 @@ import json
 import subprocess
 import shlex
 import re
+import pandas as pd
 
 AllowedActions = ['both', 'publish', 'subscribe']
 
@@ -103,7 +104,7 @@ while True:
     if args.mode == 'both' or args.mode == 'publish':
         str1=measure_temp().split()[9]
         mess={"reported": {"light": "blue",
-                                         "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": time.time()
+                                         "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": str(pd.to_datetime(time.time()))
                                          }}
         args.message=mess
         print('Temperature:',int(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
@@ -117,4 +118,4 @@ while True:
         if args.mode == 'publish':
             print('Published topic %s: %s\n' % (topic, messageJson))
         loopCount += 1
-    time.sleep(3)
+    time.sleep(2)
