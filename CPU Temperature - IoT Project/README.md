@@ -105,7 +105,7 @@ Device shadow:
 <b>Log in into AWS IoT</b>  
 
 ```
-python AWS_Send_test2BEST_QUASE4.py -e a2th12345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 27eec12345-certificate.pem.crt -k 27eec12345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPUUbuntu -t 'Teste'
+python AWS_Send_test2BEST_QUASE4.py -e a2th12345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 2733c12345-certificate.pem.crt -k 2722c12345-private.pem.key -id arn:aws:iot:us-east-1:1391112345:thing/CPUUbuntu -t 'Teste'
 
 ```  
 
