@@ -167,3 +167,18 @@ Edit S3 import JSON in Quick Sight:
 And it's done ...  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/ProjectFINAL.png>
+
+<b>Run an Athena Query:</b>  
+
+```
+CREATE EXTERNAL TABLE IF NOT EXISTS S3.S3 (
+  `Temperature` float,
+  `light` string,
+  `timestamp` int 
+)
+ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+) LOCATION 's3://iot-bucket2/2018-05-20-12-32-49/'
+TBLPROPERTIES ('has_encrypted_data'='false');
+```
