@@ -179,6 +179,6 @@ CREATE EXTERNAL TABLE IF NOT EXISTS S3.S3 (
 ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
 WITH SERDEPROPERTIES (
   'serialization.format' = '1'
-) LOCATION 's3://iot-bucket2/2018-05-20-12-32-49/'
+) LOCATION 's3://your-bucket/2018-05-20-12-32-49/'
 TBLPROPERTIES ('has_encrypted_data'='false');
 ```
