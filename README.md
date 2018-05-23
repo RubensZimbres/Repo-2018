@@ -19,7 +19,7 @@ COCO (Common Objects in Context) is an image segmentation model. This folder pre
 
 <b> CPU Temperature - IoT Project </b>  
 
-In this project I turned my notebook into an IoT device, where CPU temperature is collected via Python notebook and then sent to Amazon AWS IoT service, integrated with S3, Quick Sight and Cloud Watch.  
+In this project I turned my notebook into an IoT device, where CPU temperature is collected via Linux command line run inside a Python notebook and then sent via MQTT protocol to Amazon AWS IoT service, integrated with DynamoDB, Data Pipeline, S3, Quick Sight and Cloud Watch.  
 
 <b> CycleGAN Project </b> -  GANs <br/>
 
@@ -45,7 +45,7 @@ In this folder you will find a guide to create your own haarcascade.xml so that 
  
 <b> Raspberry Pi3 - IoT Project</b>  
 
-<b> Not ready yet </b> In this project I will use Raspberry Pi3 and attach a sensor and then send telemetry data to Amazon AWS IoT service, integrated with S3, Quick Sight and Cloud Watch. I also plan to deploy a Deep Learning trained model into the device for classification purposes.  
+<b> | Not ready yet | </b> In this project I will use Raspberry Pi3 and attach a sensor and then send telemetry data to Amazon AWS IoT service, integrated with DynamoDB, S3, Quick Sight and Cloud Watch. I also plan to deploy a Deep Learning trained model into the device for classification purposes.  
 
 <b> TENSORFLOW </b> 
  
