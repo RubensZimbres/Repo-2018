@@ -44,16 +44,18 @@ bin/elasticsearch-plugin install x-pack
 
 <b>Edit kibana.yml and elasticsearch.yml</b>  
 
-Kibana:  
-server.port:5601  
-server.host:"localhost"  
-elasticsearch.url: "https://search-domain-12345abcd.us-east-1.es.amazonaws.com:9200"  
-elasticsearch.password: "s0m3th1ngs3cr3t"  
-xpack.security.encryptionKey: "something_at_least_32_characters"  
-xpack.security.sessionTimeout: 600000  
-xpack.reporting.encryptionKey: "something_secret"  
-
-elasticsearch:  
-cluster.name: 1234567890:domain  
-
+Kibana:  
+```
+server.port:5601
+server.host:"localhost"
+elasticsearch.url: "https://search-domain-12345abcd.us-east-1.es.amazonaws.com:9200"
+elasticsearch.password: "s0m3th1ngs3cr3t"
+xpack.security.encryptionKey: "something_at_least_32_characters"
+xpack.security.sessionTimeout: 600000
+xpack.reporting.encryptionKey: "something_secret"
+```  
+elasticsearch:  `
+```
+cluster.name: 1234567890:domain  
+```
 
