@@ -1,4 +1,4 @@
-# Real-Time Streaming Data - Kibana  
+# Real-Time Streaming Data - AWS IoT + Kinesis + Lambda + Elasticsearch + Kibana  
   
 <b>Start sending data to AWS IoT Core via MQTT</b>  
 
