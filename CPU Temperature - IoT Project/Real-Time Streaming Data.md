@@ -62,7 +62,7 @@ xpack.security.encryptionKey: "something_at_least_32_characters"
 xpack.security.sessionTimeout: 600000
 xpack.reporting.encryptionKey: "something_secret"
 ```  
-elasticsearch:  `
+elasticsearch:  
 ```
 cluster.name: 1234567890:domain  
 ```
