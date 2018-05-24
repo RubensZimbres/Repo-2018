@@ -32,11 +32,9 @@ cd kibana-6.2.4-linux-x86_64
 
 <b>Install elasticsearch:</b>  
 ```
-wget httpswget https://://artifactsartifacts..elasticelastic..coco//downloadsdownloads//elasticsearchelasticsearch//elasticsearchelasticsearch--6.26.2..4.zip4.zip
-wget https wget https://://artifactsartifacts..elasticelastic..coco//downloadsdownloads//elasticsearchelasticsearch//elasticsearchelasticsearch--6.26.2..4.zip4.zip..sha512
-shasum sha512 shasum --a a 512512  --c elasticsearchc elasticsearch--6.26.2..4.zip4.zip..sha512 sha512 
-unzip elasticsearch unzip elasticsearch--6.26.2..4.zip4.zip
-cd elasticsearch cd elasticsearch--6.26.2..44
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.tar.gz
+tar -xvf elasticsearch-6.2.4.tar.gz
+cd elasticsearch-6.2.4
 ```
 
 <b>Install x-pack in Kibana:</b>  
