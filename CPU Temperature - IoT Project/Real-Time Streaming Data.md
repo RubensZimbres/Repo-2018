@@ -66,5 +66,12 @@ elasticsearch:  `
 ```
 cluster.name: 1234567890:domain  
 ```
+
+<b>Set up passwords: </b>  
+
+```
+bin/x-pack/setup-passwords auto
+```
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Alternative_Solution.png>  
 
