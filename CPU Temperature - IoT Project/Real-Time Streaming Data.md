@@ -1,6 +1,14 @@
 # Real-Time Streaming Data - Kibana  
   
-<b>Install JAVA:</b>  
+<b>Start sending data to AWS IoT Core via MQTT</b>  
+
+<b>Create a Domain in Amazon Elasticsearch</b>  
+
+<b>Create a Kinesis data stream</b>  
+
+<b>Clean Data Being Sent with Lambda for Kibana</b>
+
+<b>Install JAVA locally:</b>  
 
 ```
 sudo apt-get install default-jre  
