@@ -6,7 +6,7 @@
 
 <b>Create a Kinesis data stream</b>  
 
-<b>Clean Data Being Sent with Lambda for Kibana</b>
+<b>Clean Data Being Sent with Lambda</b>
 
 <b>Install JAVA locally:</b>  
 
