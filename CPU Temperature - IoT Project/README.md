@@ -168,4 +168,64 @@ And it's done ...
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/ProjectFINAL.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Alternative_Solution_Last.png>
+# Project part 2  
+
+In this part of the CPU Temperature Project, I developed a Real-Time Data Stream from my Notebook to a Dashboard in Kibana. See the following picture:  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Alternative_Solution_Last.png>  
+
+First we must set up an Elastic Search domain  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/ES_Git.png>  
+
+Setting up the access to a specific IP:  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "es:*",
+      "Resource": "arn:aws:es:us-east-1:12345:domain/domain/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "178.042.265.54"
+        }
+      }
+    }
+  ]
+}
+```
+
+Then a Kinesis stream and Firehose delivery stream:
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Kinesis_Stream.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Firehose_ES.png>  
+
+Finally, we connect the AWS Elasticsearch with Kibana, adjusting at 'Dev Tools'  
+
+```
+PUT /data
+{
+ "mappings": {
+  "doc": {
+   "properties": {
+     "light":{"type":"text"},
+    "Temperature": {"type": "integer"},
+    "timestamp": {"type": "integer"}
+   }
+  }
+ }
+}
+```  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Kibana_SetUp.png>  
+  
+Our Real-Time Streaming Data Dashboard is ready:  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/KIBANA_YESSSSS.png>
