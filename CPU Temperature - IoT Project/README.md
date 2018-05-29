@@ -174,7 +174,11 @@ In this part of the CPU Temperature Project, I developed a Real-Time Data Stream
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Alternative_Solution_Last.png>  
 
-First we must set up an Elastic Search domain  
+First we must set up a rule for AWS IoT send telemetry to Kinesis Firehose stream delivery:  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Rule_Firehose.png>
+
+Then set up an Elastic Search domain  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/ES_Git.png>  
 
