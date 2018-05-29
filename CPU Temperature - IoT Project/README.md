@@ -226,6 +226,6 @@ PUT /data
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/Kibana_SetUp.png>  
   
-Our Real-Time Streaming Data Dashboard is ready:  
+Our Real-Time Streaming Data Dashboard is ready, updating each 5 seconds:  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/CPU%20Temperature%20-%20IoT%20Project/Pictures/KIBANA_YESSSSS.png>
