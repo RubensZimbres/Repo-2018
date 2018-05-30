@@ -119,4 +119,4 @@ https://docs.aws.amazon.com/iot/latest/developerguide/iot-ddb-rule.html
 
 <b>10 - Dashboard</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B%20-%20IoT%20Project/Pictures/Raspberry%20Pi3.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B%20-%20IoT%20Project/Pictures/Raspberry_temp.png>
