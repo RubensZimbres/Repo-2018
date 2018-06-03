@@ -1,4 +1,4 @@
-# AWS SageMaker - Create you own Docker Image and Customized Algorithm
+# AWS SageMaker - Create your own Docker Image and run Customized Algorithms
 
 <b>Guidelines:</b>  
 
