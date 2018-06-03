@@ -2,7 +2,7 @@
 
 <b>Guidelines:</b>  
 
-Open Jupyter Notebook and ssh into your SageMaker EC2 instance:
+Open Jupyter Notebook from your SageMaker instance and ssh into the EC2 instance:
 
 ```
 ! sudo yum update -y
