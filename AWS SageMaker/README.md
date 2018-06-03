@@ -10,9 +10,11 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! sudo service docker start
 ! sudo usermod -a -G docker ec2-user
 ! docker info
-! docker build Docker_Image.txt
+! docker build -t sklearn .
+! aws ecr create-repository --repository-name sklearn
+! docker tag hello-world aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
+! aws ecr get-login --no-include-email
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
 ```  
 
-This last line of code will take 2 hours to complete in a ml.t2.medium SageMaker instance and will create an Anaconda3 Docker image.  
-
-
+Be sure to set up your EC2 permissions on AWS.  
