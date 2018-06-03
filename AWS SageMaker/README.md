@@ -13,6 +13,6 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker build Docker_Image.txt
 ```  
 
-This last line of code will take 2 hours to complete in a ml.t2.medium SageMaker instance.  
+This last line of code will take 2 hours to complete in a ml.t2.medium SageMaker instance and will create an Anaconda3 Docker image.  
 
 
