@@ -2,7 +2,7 @@
 
 <b>Guidelines:</b>  
 
-Open Jupyter Notebook from your SageMaker instance and ssh into the EC2 instance:
+Open Jupyter Notebook from your SageMaker instance and run:
 
 ```
 ! sudo yum update -y
@@ -13,6 +13,6 @@ Open Jupyter Notebook from your SageMaker instance and ssh into the EC2 instance
 ! docker build Docker_Image.txt
 ```  
 
-This process will take 2 hours in a ml.t2.medium SageMaker instance.  
+This last line of code will take 2 hours to complete in a ml.t2.medium SageMaker instance.  
 
 
