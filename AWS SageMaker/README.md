@@ -12,7 +12,7 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker info
 ! docker build -t sklearn .
 ! aws ecr create-repository --repository-name sklearn
-! docker tag hello-world aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
+! docker tag sklearn aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
 ! aws ecr get-login --no-include-email
 ! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
 ```  
