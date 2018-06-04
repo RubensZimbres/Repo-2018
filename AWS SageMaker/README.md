@@ -32,7 +32,14 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS (besid
             "Action": [
                 "ecr:*"            ],
             "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:*"            ],
+            "Resource": "*"
         }
+
     ]
 }
 ```
