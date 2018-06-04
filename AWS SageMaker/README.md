@@ -17,4 +17,4 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
 ```  
 
-Be sure to set up your EC2 permissions on AWS.  
+Be sure to set up your SageMaker permissions on AWS.  
