@@ -17,7 +17,7 @@ Tensorflow version used in models: tensorflow==1.7.0
 
 COCO (Common Objects in Context) is an image segmentation model. This folder presents my Pull Request regarding pycocotools library incompatibility between Python 2 and 3 suggesting a fix.  
 
-<b> CPU Temperature - IoT Project </b>  
+<b> CPU Temperature - IoT Project at AWS</b>  
 
 In this project I turned my notebook into an IoT device, where CPU temperature is collected via Linux command line run inside a Python notebook and then sent via MQTT protocol to Amazon AWS IoT service, integrated with DynamoDB, Data Pipeline, S3, Quick Sight and Cloud Watch. An alternative solution for near real-time data is also presented, using Kinesis, Firehose, Elasticsearch and Kibana.  
 
