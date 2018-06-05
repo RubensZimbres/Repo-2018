@@ -19,7 +19,7 @@ COCO (Common Objects in Context) is an image segmentation model. This folder pre
 
 <b> CPU Temperature - IoT Project </b>  
 
-In this project I turned my notebook into an IoT device, where CPU temperature is collected via Linux command line run inside a Python notebook and then sent via MQTT protocol to Amazon AWS IoT service, integrated with DynamoDB, Data Pipeline, S3, Quick Sight and Cloud Watch.  
+In this project I turned my notebook into an IoT device, where CPU temperature is collected via Linux command line run inside a Python notebook and then sent via MQTT protocol to Amazon AWS IoT service, integrated with DynamoDB, Data Pipeline, S3, Quick Sight and Cloud Watch. An alternative solution for near real-time data is also presented, using Kinesis, Firehose, Elasticsearch and Kibana.  
 
 <b> CycleGAN Project </b> -  GANs <br/>
 
