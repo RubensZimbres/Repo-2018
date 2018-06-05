@@ -11,7 +11,7 @@ Data for models available at:
 https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing  
  
 Keras version used in models: keras==2.0.8
-Tensorflow version used in models: keras==1.3.0
+Tensorflow version used in models: tensorflow==1.7.0
 
 <b> COCO Model </b>
 
