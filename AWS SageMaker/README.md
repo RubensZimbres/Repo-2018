@@ -43,3 +43,4 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS (besid
     ]
 }
 ```
+<b>WARNING: </b> If you are making experiments with SageMaker or even learning how to use it, be aware that each model with its corresponding endpoint will cost you an average of 6.00 USD a day. So, never leave 2 or 3 models running overnight otherwise your AWS bill will skyrocket.
