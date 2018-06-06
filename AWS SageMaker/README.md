@@ -43,7 +43,7 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS (besid
     ]
 }
 ```  
-Copy files necessary to run your Machine Learning in the Container:  
+Copy files necessary to run your Machine Learning model:  
 
 ```
 docker cp train sklearn:/train
