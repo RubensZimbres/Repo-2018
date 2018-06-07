@@ -27,7 +27,7 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (b
 
 Start instance in SageMaker and Open notebook.  
 
-Select Python 2 environment  
+Select Python 3 environment  
 
 Open Jupyter Notebook from your SageMaker instance and run:
 
