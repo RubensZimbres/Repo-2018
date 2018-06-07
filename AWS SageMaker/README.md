@@ -54,31 +54,31 @@ Copy files necessary to run your Machine Learning model:
 docker cp train sklearn:/opt/ml/model/train
 ```  
 
-/opt/ml
-├── input
-│   ├── config
-│   │   ├── hyperparameters.json
-│   │   └── resourceConfig.json
-│   └── data
-│       └── <channel_name>
-│           └── <input data>
-├── model
-│   └── <model files>
-└── output
-    └── failure
+/opt/ml  
+├── input  
+│   ├── config  
+│   │   ├── hyperparameters.json  
+│   │   └── resourceConfig.json  
+│   └── data  
+│       └── <channel_name>  
+│           └── <input data>  
+├── model  
+│   └── <model files>  
+└── output  
+    └── failure  
 
-/opt/ml
-└── model
-    └── <model files>
+/opt/ml  
+└── model  
+    └── <model files>  
     
-├── Dockerfile
-├── build_and_push.sh
-└── decision_trees
-    ├── nginx.conf
-    ├── predictor.py
-    ├── serve
-    ├── train
-    └── wsgi.py    
+├── Dockerfile  
+├── build_and_push.sh  
+└── decision_trees  
+    ├── nginx.conf  
+    ├── predictor.py  
+    ├── serve  
+    ├── train  
+    └── wsgi.py      
   
 
 <b>WARNING: </b> If you are making experiments with SageMaker or even learning how to use it, be aware that <b>each model</b> (with a ml.t2.medium instance) with its corresponding endpoint and trained on a ml.m4.4xlarge instance will cost you an average of 6.00 USD a day. So, never leave 2 or 3 models running overnight otherwise your AWS bill will skyrocket.
