@@ -1,0 +1,14 @@
+from sklearn import tree
+import pandas as pd
+import sys
+
+def train():
+    x=df.iloc[:,[1,2,3]]
+    y=df.iloc[:,0]
+    model=tree.DecisionTreeClassifier(criterion='entropy')
+    model.fit(x,y)
+    
+if __name__ == '__main__':
+    train()
+    # A zero exit code causes the job to be marked a Succeeded.
+    sys.exit(0)
