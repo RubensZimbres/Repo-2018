@@ -51,7 +51,10 @@ Open Jupyter Notebook from your SageMaker instance and run:
 Copy files necessary to run your Machine Learning model:  
 
 ```
-docker cp train sklearn:/opt/ml/model/train
+! docker run --rm -it --entrypoint=/bin/bash aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+! docker ps
+! docker cp container.tar.gz decision-trees:/opt/ml/model/container.tar.gz
+! docker tar -xvf container.tar.gz
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
