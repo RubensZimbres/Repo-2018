@@ -27,7 +27,7 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (b
 
 Start instance in SageMaker and Open notebook.  
 
-Select Python 3 environment  
+Select Python 2 environment  
 
 Open Jupyter Notebook from your SageMaker instance and run:
 
@@ -37,15 +37,15 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! sudo service docker start
 ! sudo usermod -a -G docker ec2-user
 ! docker info
-! docker build -t sklearn .
-! aws ecr create-repository --repository-name sklearn
-! docker tag sklearn aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
+! docker build -t decision-trees .
+! aws ecr create-repository --repository-name decision-trees
+! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ! aws ecr get-login --no-include-email
 ! docker login -u abc -p abc12345 http://abc123
-! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ! docker images
-! aws ecs register-task-definition --cli-input-json file://sklearn-task-def.json
-! aws ecs run-task --task-definition sklearn
+! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
+#! aws ecs run-task --task-definition decision-trees
 ```  
 
 Copy files necessary to run your Machine Learning model:  
