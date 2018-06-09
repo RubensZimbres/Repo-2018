@@ -1,9 +1,9 @@
 {
-    "family": "sklearn",
+    "family": "decision-trees",
     "containerDefinitions": [
         {
-            "name": "sklearn",
-            "image": "aws_account_id.dkr.ecr.us-east-1.amazonaws.com/sklearn",
+            "name": "decision-trees",
+            "image": "aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees",
             "cpu": 10,
             "memory": 500,
             "portMappings": [
