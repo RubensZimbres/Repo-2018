@@ -40,7 +40,7 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker info
 ! docker build -t decision-trees .
 ! aws ecr create-repository --repository-name decision-trees
-! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+! docker tag decision-trees:latest aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ! aws ecr get-login --no-include-email
 ! docker login -u abc -p abc12345 http://abc123
 ```  
@@ -68,7 +68,7 @@ Copy files necessary to run your Machine Learning model:
 ! docker cp decision_trees/train 123456abc:opt/program/train
 ! docker cp decision_trees/wsgi.py 123456abc:opt/program/wsgi.py  
 
-! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
