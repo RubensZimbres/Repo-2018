@@ -64,11 +64,11 @@ CONTAINER ID        IMAGE                                                       
 Copy files necessary to run your Machine Learning model:  
 
 ```
-! docker cp decision_trees/nginx.conf 123456abc:nginx.conf
-! docker cp decision_trees/predictor.py 123456abc:predictor.py
-! docker cp decision_trees/serve 123456abc:serve
-! docker cp decision_trees/train 123456abc:train
-! docker cp decision_trees/wsgi.py 123456abc:wsgi.py
+! docker cp decision_trees/nginx.conf 123456abc:opt/program/nginx.conf
+! docker cp decision_trees/predictor.py 123456abc:opt/program/predictor.py
+! docker cp decision_trees/serve 123456abc:opt/program/serve
+! docker cp decision_trees/train 123456abc:opt/program/train
+! docker cp decision_trees/wsgi.py 123456abc:opt/program/wsgi.py
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
