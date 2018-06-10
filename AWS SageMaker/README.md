@@ -2,7 +2,7 @@
 
 <b>Guidelines:</b>  
 
-Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (besides S3):  
+Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (besides S3): AmazonEC2ContainerServiceFullAccess, AmazonEC2ContainerRegistryFullAccess and AmazonSageMakerFullAccess.   
 
 ```
 {
@@ -41,7 +41,7 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker login -u abc -p abc12345 http://abc123
 ```  
 
-Associate the task created with the cluster. Set up permissions in your ECS repository and also EC2, ECS and SageMaker. In the same Jupyter notebook, run:  
+Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
 
 ```
 ! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
@@ -54,7 +54,7 @@ CONTAINER ID        IMAGE                                                       
 123456abc        1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees   "/bin/bash"         21 seconds ago      Up 20 seconds                           dreamy_lichterman
 ```
 
-Copy files necessary to run your Machine Learning model:  
+If necessary, copy files necessary to run your Machine Learning model:  
 
 ```
 ! docker cp decision_trees 123456abc:opt/program/decision_trees
