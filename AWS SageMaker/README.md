@@ -43,9 +43,6 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ! aws ecr get-login --no-include-email
 ! docker login -u abc -p abc12345 http://abc123
-! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
-! docker images
-! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
 Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
@@ -64,11 +61,16 @@ CONTAINER ID        IMAGE                                                       
 Copy files necessary to run your Machine Learning model:  
 
 ```
+! docker cp decision_trees 123456abc:opt/program/decision_trees
 ! docker cp decision_trees/nginx.conf 123456abc:opt/program/nginx.conf
 ! docker cp decision_trees/predictor.py 123456abc:opt/program/predictor.py
 ! docker cp decision_trees/serve 123456abc:opt/program/serve
 ! docker cp decision_trees/train 123456abc:opt/program/train
-! docker cp decision_trees/wsgi.py 123456abc:opt/program/wsgi.py
+! docker cp decision_trees/wsgi.py 123456abc:opt/program/wsgi.py  
+
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+! docker images
+! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
