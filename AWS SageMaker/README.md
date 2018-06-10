@@ -48,25 +48,27 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
-Associate the task created with the cluster. Set up permissions in your ECS repository.  
+Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
 
 ```
-! docker run -i -t 704107955360.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ```  
 
-Open new notebook in Jupyter. Run:  
+Docker is running and you can add files to image. Open new notebook in Jupyter. Run:  
 ```
 ! docker ps
+CONTAINER ID        IMAGE                                                         COMMAND             CREATED             STATUS              PORTS               NAMES
+123456abc        1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees   "/bin/bash"         21 seconds ago      Up 20 seconds                           dreamy_lichterman
 ```
 
 #Copy files necessary to run your Machine Learning model:  
 
 ```
-! docker cp decision_trees/nginx.conf e73e911b52d2:nginx.conf
-! docker cp decision_trees/predictor.py e73e911b52d2:predictor.py
-! docker cp decision_trees/serve e73e911b52d2:serve
-! docker cp decision_trees/train e73e911b52d2:train
-! docker cp decision_trees/wsgi.py e73e911b52d2:wsgi.py
+! docker cp decision_trees/nginx.conf 123456abc:nginx.conf
+! docker cp decision_trees/predictor.py 123456abc:predictor.py
+! docker cp decision_trees/serve 123456abc:serve
+! docker cp decision_trees/train 123456abc:train
+! docker cp decision_trees/wsgi.py 123456abc:wsgi.py
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
