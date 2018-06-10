@@ -61,7 +61,7 @@ CONTAINER ID        IMAGE                                                       
 123456abc        1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees   "/bin/bash"         21 seconds ago      Up 20 seconds                           dreamy_lichterman
 ```
 
-#Copy files necessary to run your Machine Learning model:  
+Copy files necessary to run your Machine Learning model:  
 
 ```
 ! docker cp decision_trees/nginx.conf 123456abc:nginx.conf
