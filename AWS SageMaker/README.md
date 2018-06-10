@@ -24,6 +24,7 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (b
     ]
 }
 ```
+Create a Cluster in Elastic Container Service.  
 
 Start instance in SageMaker and Open notebook.  
 
@@ -46,14 +47,10 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
-Create a Cluster in Elastic Container Service. Back to SageMaker:  
 
-```
-#! aws ecs run-task --task-definition decision-trees
-```
+Associate the task created with the cluster. Set up permissions in your ECS repository.  
 
-
-Copy files necessary to run your Machine Learning model:  
+#Copy files necessary to run your Machine Learning model:  
 
 ```
 ! docker run --rm -it --entrypoint=/bin/bash aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
