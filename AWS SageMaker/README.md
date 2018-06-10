@@ -24,8 +24,6 @@ Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (b
     ]
 }
 ```
-Create a Cluster in Elastic Container Service.  
-
 Start instance in SageMaker and Open notebook.  
 
 Select Python 2 environment  
@@ -33,8 +31,6 @@ Select Python 2 environment
 Open Jupyter Notebook from your SageMaker instance and run:
 
 ```
-! sudo yum update -y
-! sudo yum install -y docker
 ! sudo service docker start
 ! sudo usermod -a -G docker ec2-user
 ! docker info
@@ -45,7 +41,7 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker login -u abc -p abc12345 http://abc123
 ```  
 
-Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
+Associate the task created with the cluster. Set up permissions in your ECS repository and also EC2, ECS and SageMaker. In the same Jupyter notebook, run:  
 
 ```
 ! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
@@ -62,12 +58,6 @@ Copy files necessary to run your Machine Learning model:
 
 ```
 ! docker cp decision_trees 123456abc:opt/program/decision_trees
-! docker cp decision_trees/nginx.conf 123456abc:opt/program/nginx.conf
-! docker cp decision_trees/predictor.py 123456abc:opt/program/predictor.py
-! docker cp decision_trees/serve 123456abc:opt/program/serve
-! docker cp decision_trees/train 123456abc:opt/program/train
-! docker cp decision_trees/wsgi.py 123456abc:opt/program/wsgi.py  
-
 ! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
