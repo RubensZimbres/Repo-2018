@@ -35,6 +35,8 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! sudo usermod -a -G docker ec2-user
 ! docker info
 ! docker build -t decision-trees .
+! chmod +x decision_trees/train
+! chmod +x decision_trees/serve
 ! aws ecr create-repository --repository-name decision-trees
 ! docker tag decision-trees:latest aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ! aws ecr get-login --no-include-email
