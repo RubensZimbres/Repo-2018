@@ -74,6 +74,8 @@ Tensorboard: visualization of Tensorflow models' training
 The YOLO Model (You Only Look Once) is a Deep Learning project for Real-Time object detection. Examples of outputs are presented.
 
 Datasets available at Repo-2017  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/raw/master/COCO%20model/Pictures/COCO_result_BIG.png>
  
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Deep%20Learning%20Summer%20School/GANs.jpg>
  
