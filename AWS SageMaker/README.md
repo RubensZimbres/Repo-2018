@@ -44,13 +44,13 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ```  
 
-Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
+In the same Jupyter notebook, run:  
 
 ```
 #! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ```  
 
-Docker is running and you can add files to image. Open new notebook in Jupyter. Run:  
+Docker is running. Open new notebook in Jupyter. Run:  
 ```
 ! docker ps
 CONTAINER ID        IMAGE                                                         COMMAND             CREATED             STATUS              PORTS               NAMES
@@ -67,8 +67,7 @@ Define PATH so that the train and serve programs are found when the container is
 #! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
-
-Create cluster at Elastic Container Service.
+Create cluster at Elastic Container Service. Associate the task created with the cluster. Set up permissions in your ECS repository. Run Boosting.ipynb
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
   
