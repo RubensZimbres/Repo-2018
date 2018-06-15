@@ -58,6 +58,9 @@ CONTAINER ID        IMAGE                                                       
 
 If necessary, copy files necessary to run your Machine Learning model:  
 
+Define PATH so that the train and serve programs are found when the container is invoked.
+
+
 ```
 ! docker cp decision_trees 123456abc:opt/program/decision_trees
 ! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
