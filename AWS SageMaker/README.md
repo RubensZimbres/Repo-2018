@@ -38,7 +38,7 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! chmod +x decision_trees/train
 ! chmod +x decision_trees/serve
 ! aws ecr create-repository --repository-name decision-trees
-! docker tag decision-trees:latest aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
+! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ! aws ecr get-login --no-include-email
 ! docker login -u abc -p abc12345 http://abc123
 ```  
@@ -63,7 +63,7 @@ Define PATH so that the train and serve programs are found when the container is
 
 ```
 ! docker cp decision_trees 123456abc:opt/program/decision_trees
-! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
