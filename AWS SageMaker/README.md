@@ -68,6 +68,8 @@ Define PATH so that the train and serve programs are found when the container is
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
+Create cluster at Elastic Container Service.
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
   
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/altert2.png>  
