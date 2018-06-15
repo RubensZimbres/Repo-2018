@@ -34,19 +34,20 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! sudo service docker start
 ! sudo usermod -a -G docker ec2-user
 ! docker info
-! docker build -t decision-trees .
 ! chmod +x decision_trees/train
 ! chmod +x decision_trees/serve
 ! aws ecr create-repository --repository-name decision-trees
+! docker build -t decision-trees .
 ! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
-! aws ecr get-login --no-include-email
-! docker login -u abc -p abc12345 http://abc123
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+#! aws ecr get-login --no-include-email
+#! docker login -u abc -p abc12345 http://abc123
 ```  
 
 Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
 
 ```
-! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+#! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ```  
 
 Docker is running and you can add files to image. Open new notebook in Jupyter. Run:  
@@ -62,9 +63,8 @@ Define PATH so that the train and serve programs are found when the container is
 
 
 ```
-! docker cp decision_trees 123456abc:opt/program/decision_trees
-! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
-! docker images
+#! docker cp decision_trees 123456abc:opt/program/decision_trees
+#! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
