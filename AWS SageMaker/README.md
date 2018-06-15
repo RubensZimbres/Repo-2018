@@ -40,8 +40,8 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! aws ecr get-login --no-include-email
 ! docker login -u abc -p abc12345 http://abc123
 ! docker build -t decision-trees .
-! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
-! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees
+! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
+! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ```  
 
 Associate the task created with the cluster. Set up permissions in your ECS repository. In the same Jupyter notebook, run:  
