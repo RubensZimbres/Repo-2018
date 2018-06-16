@@ -64,7 +64,9 @@ Define PATH so that the train and serve programs are found when the container is
 ! docker images
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
-Run Boosting.ipynb
+Run Boosting.ipynb  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Sage_Maker_YES.png>
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
   
