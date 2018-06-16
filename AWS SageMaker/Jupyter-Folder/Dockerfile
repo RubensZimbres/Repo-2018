@@ -20,7 +20,7 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
 # a significant amount of space. These optimizations save a fair amount of space in the
 # image, which reduces start up time.
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && \
-    pip install numpy scipy scikit-learn pandas flask gevent gunicorn && \
+    pip install numpy scipy scikit-learn pandas flask gevent gunicorn s3fs && \
         (cd /usr/local/lib/python2.7/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
         rm -rf /root/.cache
 
@@ -34,5 +34,11 @@ ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV PATH="/opt/program:${PATH}"
 
 # Set up the program in the image
-COPY decision_trees /opt/program
+COPY /decision_trees /opt/program
+RUN mkdir -p /opt/ml/input/data
+RUN mkdir -p /opt/ml/output
+RUN mkdir -p /opt/ml/model
+COPY /hyperparameters.json /opt/ml/input/config/hyperparameters.json
+RUN mkdir -p /opt/ml/input/data/training
+COPY /DadosTeseLogit_0.csv /opt/ml/input/data/training/DadosTeseLogit_0.csv
 WORKDIR /opt/program
