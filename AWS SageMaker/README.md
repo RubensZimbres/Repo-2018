@@ -43,26 +43,21 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! docker build -t decision-trees .
 ! docker tag decision-trees aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
 ! docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/decision-trees:latest
+! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
-In the same Jupyter notebook, run:  
+In the same Jupyter notebook, you may run:  
 
 ```
 #! docker run -i -t 1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees
 ```  
 
-Docker is running. Open new notebook in Jupyter. Run:  
+Open new notebook in Jupyter. Run:  
 ```
 ! docker ps
 CONTAINER ID        IMAGE                                                         COMMAND             CREATED             STATUS              PORTS               NAMES
 123456abc        1234567.dkr.ecr.us-east-1.amazonaws.com/decision-trees   "/bin/bash"         21 seconds ago      Up 20 seconds                           dreamy_lichterman
-```
-
-Define PATH so that the train and serve programs are found when the container is invoked.
-
-```
 ! docker images
-! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 Run Boosting.ipynb  
 
@@ -71,4 +66,4 @@ Run Boosting.ipynb
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
   
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/altert2.png>  
-<b>WARNING: </b> If you are making experiments with SageMaker or even learning how to use it, be aware that <b>each model</b> (with a ml.t2.medium instance) with its corresponding endpoint and trained on a ml.m4.4xlarge instance will cost you an average of 5.00 USD a day. So, never leave 2 or 3 models running overnight otherwise your AWS bill will skyrocket. Also, take care of repositories created and tasks related to them.
+<b>WARNING: </b> If you are making experiments with SageMaker or even learning how to use it, be aware that <b>each model</b> (with a ml.t2.medium instance) with its corresponding endpoint and trained on a ml.m4.4xlarge instance will cost you an average of 5.00 USD a day. So, never leave 2 or 3 models running overnight otherwise your AWS bill will skyrocket. Also, take care of repositories created and tasks related to them, as well as any CloudWatch report.
