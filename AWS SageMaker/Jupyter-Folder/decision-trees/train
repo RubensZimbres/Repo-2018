@@ -30,7 +30,7 @@ def train():
         train_y = train_data.ix[:,0]
         train_X = train_data.ix[:,1:]
 
-        clf = tree.DecisionTreeClassifier()
+        clf = tree.DecisionTreeClassifier(max_depth:20,max_features:None)
         clf = clf.fit(train_X, train_y)
 
         with open(os.path.join(model_path, 'decision-tree-model.pkl'), 'w') as out:
