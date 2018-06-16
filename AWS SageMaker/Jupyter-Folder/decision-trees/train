@@ -11,7 +11,7 @@ import json
 import pickle
 import sys
 import traceback
-
+import numpy as np
 import pandas as pd
 
 from sklearn import tree
@@ -35,18 +35,15 @@ def train():
     print('Starting the training.')
     try:
         # Read in any hyperparameters that the user passed with the training job
-        with open(param_path, 'r') as tc:
-            trainingParams = json.load(tc)
+        #with open(param_path, 'r') as tc:
+        #    trainingParams = json.load(tc)
 
         # Take the set of files and read them all into a single pandas dataframe
-        input_files = [ os.path.join(training_path, file) for file in os.listdir(training_path) ]
-        if len(input_files) == 0:
-            raise ValueError(('There are no files in {}.\n' +
-                              'This usually indicates that the channel ({}) was incorrectly specified,\n' +
-                              'the data specification in S3 was incorrectly specified or the role specified\n' +
-                              'does not have permission to access the data.').format(training_path, channel_name))
-        raw_data = [ pd.read_csv(file, header=None) for file in input_files ]
-        train_data = pd.concat(raw_data)
+        df=pd.read_csv('s3://your_bucket/DadosTeseLogit.csv',sep=',',header=0)
+        sel=np.where(df.corr()['selected']>.5)[0][0:-1]
+        df=df.iloc[:,np.concatenate([[30],sel])]
+        raw_data = df
+        train_data = df
 
         # labels are in the first column
         train_y = train_data.ix[:,0]
@@ -54,12 +51,12 @@ def train():
 
         # Here we only support a single hyperparameter. Note that hyperparameters are always passed in as
         # strings, so we need to do any necessary conversions.
-        max_leaf_nodes = trainingParams.get('max_leaf_nodes', None)
-        if max_leaf_nodes is not None:
-            max_leaf_nodes = int(max_leaf_nodes)
+        #max_leaf_nodes = trainingParams.get('max_leaf_nodes', None)
+        #if max_leaf_nodes is not None:
+        #    max_leaf_nodes = int(max_leaf_nodes)
 
         # Now use scikit-learn's decision tree classifier to train the model.
-        clf = tree.DecisionTreeClassifier(max_leaf_nodes=max_leaf_nodes)
+        clf = tree.DecisionTreeClassifier()
         clf = clf.fit(train_X, train_y)
 
         # save the model
