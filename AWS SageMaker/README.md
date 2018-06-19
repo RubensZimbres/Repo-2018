@@ -2,13 +2,13 @@
 
 <b>Guidelines:</b>  
 
-Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (besides S3): AmazonEC2ContainerServiceFullAccess, AmazonEC2ContainerRegistryFullAccess and AmazonSageMakerFullAccess.  
+Be sure to set up your SageMaker Execution Role Policy permissions on AWS IAM (besides S3) and also AmazonEC2ContainerServiceFullAccess, AmazonEC2ContainerRegistryFullAccess and AmazonSageMakerFullAccess.  
 
-Start instance in SageMaker and Open notebook.  
+Create and start instance in SageMaker and Open notebook.  
 
-Select Python 2 environment  
+Clone this repo to your EC2 instance in SageMaker.
 
-Open Jupyter Notebook from your SageMaker instance and run:
+Inside Jupyter, run:
 
 ```
 ! sudo service docker start
@@ -25,7 +25,9 @@ Open Jupyter Notebook from your SageMaker instance and run:
 ! aws ecs register-task-definition --cli-input-json file://decision-trees-task-def.json
 ```  
 
-Run Boosting.ipynb  
+Open and run Boosting.ipynb  
+
+You're done.  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Sage_Maker_YES.png>
 
