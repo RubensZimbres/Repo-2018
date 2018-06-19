@@ -27,8 +27,6 @@ Inside Jupyter, run:
 
 Open and run Boosting.ipynb  
 
-You're done.  
-
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Sage_Maker_YES.png>
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
