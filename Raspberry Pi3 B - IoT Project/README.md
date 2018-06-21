@@ -2,26 +2,33 @@
 
 <b>1 - Plug and Play</b>  
 
+Open "Disks" and find path to SDCard.  
+Download Ubuntu Core Image: http://cdimage.ubuntu.com/ubuntu-core/16/stable/current/ubuntu-core-16-pi3.img.xz
+```
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa
+The key's randomart image is:
++---[RSA 2048]----+
+|            oo*=*|
+|             - o*|
+|            . +.o|
+|           . o +.|
+|      . S . o - -|
+|       o . o . X.|
+|          + o - &|
+|           + . %=|
+|          . . +=O|
++----[SHA256]-----+
+xzcat ~/Downloads/ubuntu-core-16-pi3.img.xz 
+sudo dd of=/dev/mmcblk0p1
+sync
+```
+
+
 <b>2 - Set up Amazon AWS IoT</b>  
 
-https://docs.aws.amazon.com/iot/latest/developerguide/iot-sdk-setup.html  
-
-Things/Manage/Register  
-Details/Interact  
-Note of the REST API endpoint  
-Security/Create Certificate  
-Directory called deviceSDK  
-Download Key
-Activate
-Create new policy
-Action field: iot:*  Resource ARN: *  
-Create/Back  
-Security/Certificates/Attach policy  
-Certificates/Right-Click/Attach thing  
-
-https://medium.com/@gomaketeam/connecting-raspberry-pi-zero-with-amazon-web-services-iot-part-i-working-with-aws-iot-caa8a0f6f91b  
-
-<b>3 - Connect Raspberry to AWS IoT ( + Mosquitto - Broker MQQT)</b>  
+<b>3 - Connect Raspberry to AWS IoT</b>  
 
 https://medium.com/@gomaketeam/connecting-raspberry-pi-zero-with-amazon-web-services-iot-part-iii-installing-the-aws-iot-device-919de23f5642  
 
