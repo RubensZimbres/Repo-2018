@@ -20,8 +20,7 @@ The key's randomart image is:
 |           + . %=|
 |          . . +=O|
 +----[SHA256]-----+
-xzcat ~/Downloads/ubuntu-core-16-pi3.img.xz 
-sudo dd of=/dev/mmcblk0p1
+xzcat ~/Downloads/ubuntu-core-16-pi3.img.xz | sudo dd of=/dev/mmcblk0p1 bs=32M
 sync
 ```
 
