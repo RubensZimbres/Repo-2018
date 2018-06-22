@@ -4,17 +4,21 @@
 
 Open "Disks" and find path to SDCard.  
 Download Ubuntu Core Image: http://cdimage.ubuntu.com/ubuntu-core/16/stable/current/ubuntu-core-16-pi3.img.xz
+Flash it with Etcher: https://etcher.io/  
+
+Configure network and setup administrator account
+
 ```
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-ssh-keygen -t rsa
+ssh-keygen -t rsa -b 4096
 The key's randomart image is:
 +---[RSA 2048]----+
 |            oo*=*|
 |             - o*|
 |            . +.o|
 |           . o +.|
-|      . S . o - -|
+|      . X . o - -|
 |       o . o . X.|
 |          + o - &|
 |           + . %=|
@@ -22,7 +26,16 @@ The key's randomart image is:
 +----[SHA256]-----+
 xzcat ~/Downloads/ubuntu-core-16-pi3.img.xz | sudo dd of=/dev/mmcblk0p1 bs=32M
 sync
+```  
+Copy code and paste into Ubuntu One:  
 ```
+ssh-rsa ABCDEF12345 theone@Dell
+```
+
+Turn on Raspberry:
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B%20-%20IoT%20Project/Pictures/20180622_114019.jpg>  
+
 
 
 <b>2 - Set up Amazon AWS IoT</b>  
