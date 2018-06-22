@@ -3,7 +3,7 @@
 <b>1 - Plug and Play</b>  
 
 Open "Disks" and find path to SDCard.  
-Download Ubuntu Core Image: http://cdimage.ubuntu.com/ubuntu-core/16/stable/current/ubuntu-core-16-pi3.img.xz
+Download Ubuntu Core Image: http://cdimage.ubuntu.com/ubuntu-core/16/stable/current/ubuntu-core-16-pi3.img.xz  
 Flash it with Etcher: https://etcher.io/  
 
 Configure network and setup administrator account
