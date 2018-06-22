@@ -14,13 +14,13 @@ chmod 700 ~/.ssh
 ssh-keygen -t rsa -b 4096
 The key's randomart image is:
 +---[RSA 2048]----+
-|            oo*=*|
-|             - o*|
-|            . +.o|
+|             o*=*|
+|             + o*|
+|            . -.o|
 |           . o +.|
-|      . X . o - -|
+|      . X . o . -|
 |       o . o . X.|
-|          + o - &|
+|          + o . &|
 |           + . %=|
 |          . . +=O|
 +----[SHA256]-----+
@@ -29,14 +29,18 @@ sync
 ```  
 Copy code and paste into Ubuntu One:  
 ```
-ssh-rsa ABCDEF12345 theone@Dell
+ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345 user@Dell
 ```
 
 Turn on Raspberry:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B%20-%20IoT%20Project/Pictures/20180622_114019.jpg>  
 
-
+```
+sudo apt-get openssh-server
+sudo service ssh start
+ssh your_email@170.162.2.3
+```
 
 <b>2 - Set up Amazon AWS IoT</b>  
 
