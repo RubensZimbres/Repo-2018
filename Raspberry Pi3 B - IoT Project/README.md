@@ -1,4 +1,4 @@
-# SKETCH: Raspberry Pi3 Model B for IoT Project
+# SKETCH: Raspberry Pi3 Model B for IoT Project - Ubuntu Core
 
 <b>1 - Plug and Play</b>  
 
@@ -6,28 +6,17 @@ Open "Disks" and find path to SDCard.
 Download Ubuntu Core Image: http://cdimage.ubuntu.com/ubuntu-core/16/stable/current/ubuntu-core-16-pi3.img.xz  
 Flash it with Etcher: https://etcher.io/  
 
-Configure network and setup administrator account
+Configure network and setup administrator account. Generate key.
 
 ```
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa -b 4096
-The key's randomart image is:
-+---[RSA 2048]----+
-|             o*=*|
-|             + o*|
-|            . -.o|
-|           . o +.|
-|      . X . o . -|
-|       o . o . X.|
-|          + o . &|
-|           + . %=|
-|          . . +=O|
-+----[SHA256]-----+
 ```  
-Copy code and paste into Ubuntu One:  
+Copy key code and paste into Ubuntu One:  
+
 ```
-ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345 user@Dell
+ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345 user@Notebook
 ```
 
 Turn on Raspberry:
