@@ -25,6 +25,7 @@ Turn on Raspberry:
 
 ```
 sudo apt-get install openssh-server
+sudo ufw allow 22
 sudo service ssh start
 ssh your_email@170.162.2.3
 ```
