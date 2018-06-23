@@ -37,7 +37,7 @@ Turn on Raspberry:
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20B%20-%20IoT%20Project/Pictures/raspberry_OK.png>  
 
 ```
-sudo apt-get openssh-server
+sudo apt-get install openssh-server
 sudo service ssh start
 ssh your_email@170.162.2.3
 ```
