@@ -65,11 +65,7 @@ Parallel unsquashfs: Using 4 processors
 sudo apt install snapcraft build-essential git
 ```
 
-
-
-<b>2 - Set up Amazon AWS IoT</b>  
-
-<b>3 - Collect CPU Temperature and Connect Raspberry to AWS IoT</b>  
+<b>2 - Collect CPU Temperature and Connect Raspberry to AWS IoT</b>  
 
 ```
 import shlex
@@ -83,10 +79,12 @@ def measure_temp():
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
 
-<b>7 - Save data into Dynamo DB</b>  
+<b>4 - Send Data to AWS</b>  
 
-<b>8 - Add sensor</b>  
+<b>4 - Save data into Dynamo DB</b>  
 
-<b>9 - Load saved Machine Learning model for anomaly detection</b>  
+<b>5 - Add sensor</b>  
 
-<b>10 - Dashboard</b>  
+<b>6 - Load saved Machine Learning model for anomaly detection</b>  
+
+<b>7 - Dashboard</b>  
