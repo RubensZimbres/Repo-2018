@@ -58,7 +58,9 @@ Parallel unsquashfs: Using 4 processors
 11111 inodes (11975 blocks) to write
 
 [===========================================================/] 11975/11975 100%
-(classic)rubens@localhost:~$
+
+(classic)rubens@localhost:~$ sudo apt update
+sudo apt install snapcraft build-essential git
 ```
 
 
