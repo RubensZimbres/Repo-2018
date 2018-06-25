@@ -72,13 +72,13 @@ sudo apt install snapcraft build-essential git
 <b>3 - Collect CPU Temperature and Connect Raspberry to AWS IoT</b>  
 
 ```
-from subprocess import PIPE, Popen
-
-def get_cpu_temperature():
-    """get cpu temperature using vcgencmd"""
-    process = Popen(['vcgencmd', 'measure_temp'], stdout=PIPE)
-    output, _error = process.communicate()
-    return float(output[output.index('=') + 1:output.rindex("'")])
+import shlex
+import subprocess
+def measure_temp():
+        temp = subprocess.Popen(shlex.split('sensors'),
+                                stdout=subprocess.PIPE,
+                                bufsize=10, universal_newlines=True)
+        return temp.communicate()[0]
 ```
 
 <b>7 - Save data into Dynamo DB</b>  
