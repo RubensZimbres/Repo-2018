@@ -36,6 +36,8 @@ ssh your_user@191.168.15.XXX
 
 ```
 ssh-keygen -R 192.168.15.XXX
+cd .ssh
+rm *
 cp id_rsa ~/.ssh/id_rsa
 cp id_rsa.pub ~/.ssh/id_rsa.pub
 ssh your_user@191.168.15.XXX
