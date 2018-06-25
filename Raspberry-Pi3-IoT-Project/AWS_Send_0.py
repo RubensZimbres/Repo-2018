@@ -104,10 +104,10 @@ while True:
     if args.mode == 'both' or args.mode == 'publish':
         str1=measure_temp().split()[5]
         mess={"reported": {"light": "blue",
-                                         "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": str(pd.to_datetime(time.time()))
+                                         "Temperature": float(re.findall('\d+', str1 )[0]),"timestamp": str(pd.to_datetime(time.time()))
                                          }}
         args.message=mess
-        print('Temperature:',int(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
+        print('Temperature:',float(re.findall('\d+', str1 )[0]),'Time (min):',(time.time()-start)/60)
         message = {}
         message['message'] = args.message
         message['sequence'] = loopCount
