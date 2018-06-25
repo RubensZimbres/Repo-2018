@@ -84,12 +84,18 @@ pip install setuptools
 pip install AWSIoTPythonSDK
 ```  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
+
+Create a blank file, copy and paste contents of AWS_Send_0.py via vim, then ESC:wq ENTER:  
+
+```
+touch AWS_Send_0.py
+vi AWS_Send_0.py
+```
+
 ```
 python AWS_Send_test2BEST_QUASE4.py -e a23312345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 123412345-certificate.pem.crt -k 12345-private.pem.key -id arn:aws:iot:us-east-1:1123112345:thing/CPUUbuntu -t 'Teste'
 ```  
-
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
 
 <b>4 - Send Data to AWS</b>  
 
