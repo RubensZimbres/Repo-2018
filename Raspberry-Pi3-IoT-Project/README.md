@@ -140,3 +140,8 @@ Remember to copy rootCA.pem + *.crt + *private.pem.key + *.public.pem.key
 <b>6 - Load saved Machine Learning model for anomaly detection</b>  
 
 <b>7 - Dashboard</b>  
+
+LogOff:
+```
+sudo halt -h
+```
