@@ -31,12 +31,19 @@ Configure network and setup administrator account connected to Ubuntu One. SSH i
 sudo apt-get install openssh-server
 sudo ufw allow 22
 sudo service ssh start
-ssh your_user@191.168.1.XXX
+ssh your_user@191.168.15.XXX
 ```  
-You may redirect ports in case of firewall.
 
 ```
-ssh -v your_user@192.168.1.XXX -p 8888 -R 8888:localhost:22
+ssh-keygen -R 192.168.15.XXX
+cp id_rsa ~/.ssh/id_rsa
+cp id_rsa.pub ~/.ssh/id_rsa.pub
+ssh your_user@191.168.15.XXX
+```  
+
+Your login will change:
+```
+rubens@localhost:~$
 ```
 
 <b>2 - Set up Amazon AWS IoT</b>  
