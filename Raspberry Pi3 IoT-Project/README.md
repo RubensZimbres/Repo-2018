@@ -1,8 +1,8 @@
 # Raspberry Pi3 Model B for IoT Project - Ubuntu Core  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/rasp_pin_assigment.jpg>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/rasp_pin_assignment.JPG>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/Raspberry_run.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_run.png>  
 
 <b>1 - Plug and Play</b>  
 
@@ -27,7 +27,7 @@ ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF
 
 Turn on Raspberry:
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/raspberry_OK%20(1).png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/raspberry_OK%20(1).png>  
 
 Configure network and setup administrator account connected to Ubuntu One. SSH into your Raspberry. 
 
@@ -86,7 +86,7 @@ pip install setuptools
 pip install AWSIoTPythonSDK
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/temp_run.png>
 
 Create a blank file, copy and paste contents of AWS_Send_0.py via vim, then ESC:wq ENTER:  
 
@@ -101,7 +101,7 @@ python AWS_Send_0.py -e a23312345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 1
 
 Now you can ping AwS IoT Core:  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/AWS_Raspberry.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/AWS_Raspberry.png>  
 
 Copy certificates to your Raspberry:  
 
@@ -133,9 +133,9 @@ Remember to copy rootCA.pem + *.crt + *private.pem.key + *.public.pem.key
 
 Run AWS_Send_0.py at rubens@localhost:~$
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/AWS_running_Raspberry.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/AWS_running_Raspberry.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/Raspberry_AWS_Success.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_AWS_Success.png>
 
 <b>4 - Save data into Dynamo DB</b>  
 
