@@ -80,6 +80,7 @@ def measure_temp():
 ```
 export LC_ALL=C
 source .bashrc
+pip install setuptools
 pip install AWSIoTPythonSDK
 ```
 
