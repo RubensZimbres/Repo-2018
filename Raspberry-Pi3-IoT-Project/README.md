@@ -103,7 +103,29 @@ Now you can ping AwS IoT Core:
 
 Copy certificates to your Raspberry:  
 
-...........
+```
+lsblk
+
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    1  58.2G  0 disk 
+`-sda1        8:1    1    32G  0 part 
+loop0         7:0    0  70.9M  0 loop /snappy
+loop1         7:1    0  85.6M  0 loop 
+loop2         7:2    0  70.9M  1 loop 
+loop3         7:3    0  85.6M  1 loop 
+loop4         7:4    0   5.9M  1 loop 
+loop5         7:5    0  73.4M  1 loop 
+loop6         7:6    0 128.8M  1 loop 
+loop7         7:7    0     4K  1 loop 
+mmcblk0     179:0    0   7.4G  0 disk 
+|-mmcblk0p1 179:1    0   128M  0 part 
+`-mmcblk0p2 179:2    0   7.3G  0 part /home
+
+sudo mkdir /mnt/usb
+sudo mount /dev/sda1 /mnt/usb
+sudo cp /mnt/usb/27aa12345-public.pem.key 27aa12345-public.pem.key
+```  
+Remember to copy rootCA.pem + *.crt + *private.pem.key + *.public.pem.key
 
 <b>4 - Send Data to AWS</b>  
 
