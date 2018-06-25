@@ -129,6 +129,8 @@ Remember to copy rootCA.pem + *.crt + *private.pem.key + *.public.pem.key
 
 <b>4 - Send Data to AWS</b>  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/AWS_running_Raspberry.png>  
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/Raspberry_AWS_Success.png>
 
 <b>4 - Save data into Dynamo DB</b>  
