@@ -82,7 +82,11 @@ export LC_ALL=C
 source .bashrc
 pip install setuptools
 pip install AWSIoTPythonSDK
+```  
+
 ```
+python AWS_Send_test2BEST_QUASE4.py -e a23312345.iot.us-east-1.amazonaws.com -r rootCA.pem -c 123412345-certificate.pem.crt -k 12345-private.pem.key -id arn:aws:iot:us-east-1:1123112345:thing/CPUUbuntu -t 'Teste'
+```  
 
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
