@@ -77,6 +77,13 @@ def measure_temp():
         return temp.communicate()[0]
 ```  
 
+```
+export LC_ALL=C
+source .bashrc
+pip install AWSIoTPythonSDK
+```
+
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
 
 <b>4 - Send Data to AWS</b>  
