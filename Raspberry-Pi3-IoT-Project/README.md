@@ -1,6 +1,6 @@
 # Raspberry Pi3 Model B for IoT Project - Ubuntu Core  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry_Pi3_B_IoT-Project/Pictures/20180625_101723.jpg>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/20180625_101723.jpg>  
 
 <b>1 - Plug and Play</b>  
 
@@ -25,7 +25,7 @@ ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF
 
 Turn on Raspberry:
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry_Pi3_B_IoT-Project/Pictures/raspberry_OK%20(1).png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/raspberry_OK%20(1).png>  
 
 Configure network and setup administrator account connected to Ubuntu One. SSH into your Raspberry. 
 
