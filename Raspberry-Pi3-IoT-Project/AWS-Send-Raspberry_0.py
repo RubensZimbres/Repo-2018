@@ -44,12 +44,11 @@ useWebsocket = args.useWebsocket
 clientId = args.clientId
 topic = args.topic
 
-from subprocess import PIPE, Popen
-
 def measure_temp():
-    """get cpu temperature using vcgencmd"""
-    temp = Popen(['vcgencmd', 'measure_temp'], stdout=PIPE)
-    return temp.communicate()[0]
+        temp = subprocess.Popen(shlex.split('sensors'),
+                                stdout=subprocess.PIPE,
+                                bufsize=10, universal_newlines=True)
+        return temp.communicate()[0]
 
     
 if args.mode not in AllowedActions:
@@ -103,7 +102,7 @@ start=time.time()
 
 while True:
     if args.mode == 'both' or args.mode == 'publish':
-        str1=measure_temp().split()[9]
+        str1=measure_temp().split()[5]
         mess={"reported": {"light": "blue",
                                          "Temperature": int(re.findall('\d+', str1 )[0]),"timestamp": str(pd.to_datetime(time.time()))
                                          }}
