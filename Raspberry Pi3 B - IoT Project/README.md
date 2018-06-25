@@ -46,7 +46,22 @@ ssh your_user@191.168.15.XXX
 Your login will change:
 ```
 rubens@localhost:~$
+```  
+
+You're in ! Install snap classic.  
+
 ```
+sudo snap install classic --edge --devmode
+sudo classic
+Creating classic environment
+Parallel unsquashfs: Using 4 processors
+11111 inodes (11975 blocks) to write
+
+[===========================================================/] 11975/11975 100%
+(classic)rubens@localhost:~$
+```
+
+
 
 <b>2 - Set up Amazon AWS IoT</b>  
 
