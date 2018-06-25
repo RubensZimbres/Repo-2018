@@ -79,7 +79,9 @@ def measure_temp():
                                 stdout=subprocess.PIPE,
                                 bufsize=10, universal_newlines=True)
         return temp.communicate()[0]
-```
+```  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/temp_run.png>
 
 <b>7 - Save data into Dynamo DB</b>  
 
