@@ -1,4 +1,4 @@
-# Raspberry Pi3 Model B for IoT Project - Running Ubuntu Core  
+# Raspberry Pi3 Model B for IoT Project - Ubuntu Core  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry-Pi3-IoT-Project/Pictures/Raspberry_run.png>  
 
