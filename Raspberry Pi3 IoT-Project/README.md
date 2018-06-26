@@ -163,7 +163,7 @@ while True: # Run forever
     sleep(1) # Sleep for 1 second
  ```  
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_.png>
 
 <b>4 - Save data into Dynamo DB</b>  
 
