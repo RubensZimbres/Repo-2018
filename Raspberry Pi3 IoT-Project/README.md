@@ -158,18 +158,18 @@ vi LED.py
 
 CTRL+C   INSERT    CTRL+SHIFT+V
 
-import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
-from time import sleep # Import the sleep function from the time module
+import RPi.GPIO as GPIO 
+from time import sleep 
 
-GPIO.setwarnings(False) # Ignore warning for now
-GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
-GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD) 
+GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) 
 
-while True: # Run forever
-    GPIO.output(8, GPIO.HIGH) # Turn on
-    sleep(1) # Sleep for 1 second
-    GPIO.output(8, GPIO.LOW) # Turn off
-    sleep(1) # Sleep for 1 second
+while True: 
+    GPIO.output(8, GPIO.HIGH) 
+    sleep(1) 
+    GPIO.output(8, GPIO.LOW) 
+    sleep(1) 
  ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>
