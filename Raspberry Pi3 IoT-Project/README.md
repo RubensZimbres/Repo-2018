@@ -186,5 +186,5 @@ while True:
 
 LogOff:
 ```
-sudo halt -h
+sudo shutdown now -h
 ```  
