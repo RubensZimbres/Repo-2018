@@ -147,8 +147,17 @@ sudo pip install RPi.GPIO
 sudo chown rubens /dev/gpiomem
 sudo chmod g+rw /dev/gpiomem
 ```  
+Connect LED and 2 resistors (4.7 Ohms) in parallel using wires:  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/map_LED.png>  
+
+Develop LED.py
 ```
+touch LED.py
+vi LED.py
+
+CTRL+C   INSERT    CTRL+SHIFT+V
+
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from time import sleep # Import the sleep function from the time module
 
