@@ -172,13 +172,23 @@ while True:
     sleep(1) 
     GPIO.output(8, GPIO.LOW) 
     sleep(1) 
+    
+export LC_ALL=C
+source .bashrc
+python LED.py
  ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>  
 
 <b>4 - Save data in Dynamo DB</b>  
 
 <b>5 - Add sensor</b>  
+
+```
+sudo vi /boot/config.tx
+add dtoverlay=w1–gpio
+
+```
 
 <b>6 - Load trained Machine Learning model</b>  
 
