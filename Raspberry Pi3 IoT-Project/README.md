@@ -178,11 +178,11 @@ while True:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>
 
-<b>4 - Save data into Dynamo DB</b>  
+<b>4 - Save data in Dynamo DB</b>  
 
 <b>5 - Add sensor</b>  
 
-<b>6 - Load saved Machine Learning model for anomaly detection</b>  
+<b>6 - Load trained Machine Learning model</b>  
 
 <b>7 - Dashboard</b>  
 
