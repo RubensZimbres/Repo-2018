@@ -142,6 +142,8 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python-pip python-dev
 sudo pip install RPi.GPIO
+sudo chown rubens /dev/gpiomem
+sudo chmod g+rw /dev/gpiomem
 ```  
 
 ```
