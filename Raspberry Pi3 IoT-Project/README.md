@@ -135,7 +135,9 @@ Run AWS_Send_0.py at rubens@localhost:~$
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/AWS_running_Raspberry.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_AWS_Success.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_AWS_Success.png>  
+
+<b>Let's Blink a LED:</b>
 
 ```
 sudo apt-get update
@@ -159,7 +161,10 @@ while True: # Run forever
     sleep(1) # Sleep for 1 second
     GPIO.output(8, GPIO.LOW) # Turn off
     sleep(1) # Sleep for 1 second
- ```
+ ```  
+
+<img src=>
+
 <b>4 - Save data into Dynamo DB</b>  
 
 <b>5 - Add sensor</b>  
