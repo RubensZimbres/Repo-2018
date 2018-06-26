@@ -175,6 +175,8 @@ while True:
     
 export LC_ALL=C
 source .bashrc
+sudo chown rubens /dev/gpiomem
+sudo chmod g+rw /dev/gpiomem
 python LED.py
  ```  
 
