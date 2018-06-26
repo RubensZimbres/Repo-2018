@@ -137,6 +137,27 @@ Run AWS_Send_0.py at rubens@localhost:~$
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_AWS_Success.png>
 
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python-pip python-dev
+sudo pip install RPi.GPIO
+```  
+
+```
+import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+from time import sleep # Import the sleep function from the time module
+
+GPIO.setwarnings(False) # Ignore warning for now
+GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
+GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
+
+while True: # Run forever
+    GPIO.output(8, GPIO.HIGH) # Turn on
+    sleep(1) # Sleep for 1 second
+    GPIO.output(8, GPIO.LOW) # Turn off
+    sleep(1) # Sleep for 1 second
+ ```
 <b>4 - Save data into Dynamo DB</b>  
 
 <b>5 - Add sensor</b>  
