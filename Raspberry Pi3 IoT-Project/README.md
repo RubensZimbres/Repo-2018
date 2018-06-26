@@ -140,6 +140,8 @@ Run AWS_Send_0.py at rubens@localhost:~$
 <b>Let's Blink a LED:</b>
 
 ```
+sudo pip install setuptools
+sudo pip install wheel
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python-pip python-dev
