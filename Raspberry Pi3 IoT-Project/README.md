@@ -202,11 +202,14 @@ device_tree_overlay=overlays/w1-gpio-overlay.dtb
 dtoverlay=w1-gpio,gpiopin=7
 dtparam=i2c_arm=on
 
+#Reboot
+
 pip install w1thermsensor OR
 pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
 
 sudo apt-get install -y i2c-tools
 sudo adduser pi i2c
+#Reboot
 sudo i2cdetect -y 1
 ```
 
