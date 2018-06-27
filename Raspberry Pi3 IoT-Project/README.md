@@ -205,6 +205,8 @@ dtparam=i2c_arm=on
 pip install w1thermsensor OR
 pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
 
+sudo apt-get install -y i2c-tools
+sudo i2cdetect -y 1
 ```
 
 <b>6 - Load trained Machine Learning model</b>  
