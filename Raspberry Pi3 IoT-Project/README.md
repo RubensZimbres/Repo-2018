@@ -188,7 +188,11 @@ python LED.py
 
 ```
 sudo vi /boot/config.txt
-add dtoverlay=w1-gpio,gpiopin=4
+#add 
+device_tree=bcm2708-rpi-b.dtb 
+device_tree_overlay=overlays/w1-gpio-overlay.dtb
+dtoverlay=w1-gpio,gpiopin=7
+
 pip install w1thermsensor OR
 pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
 
