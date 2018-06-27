@@ -189,6 +189,7 @@ python LED.py
 ```
 sudo vi /boot/config.tx
 add dtoverlay=w1–gpio
+pip install w1thermsensor OR
 pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
 
 ```
