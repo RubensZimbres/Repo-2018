@@ -187,6 +187,11 @@ python LED.py
 <b>5 - Add sensor</b>  
 
 ```
+sudo vi /etc/modules
+#add
+w1-gpio
+w1-therm
+
 sudo vi /boot/config.txt
 #add 
 device_tree=bcm2708-rpi-b.dtb 
