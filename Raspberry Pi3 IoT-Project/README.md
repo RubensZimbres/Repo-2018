@@ -210,7 +210,10 @@ pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
 sudo apt-get install -y i2c-tools
 sudo adduser pi i2c
 #Reboot
+
 sudo i2cdetect -y 1
+sudo i2cdetect -l
+
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_empty.png>  
