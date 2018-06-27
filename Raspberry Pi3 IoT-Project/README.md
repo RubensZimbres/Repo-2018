@@ -184,7 +184,7 @@ python LED.py
 
 <b>4 - Save data in Dynamo DB</b>  
 
-<b>5 - Add sensor</b>  
+<b>5 - Add LM 35 Temperature Sensor</b>  
 
 ```
 sudo vi /etc/modules
