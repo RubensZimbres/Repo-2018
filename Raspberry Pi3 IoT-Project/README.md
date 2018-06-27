@@ -192,6 +192,7 @@ sudo vi /boot/config.txt
 device_tree=bcm2708-rpi-b.dtb 
 device_tree_overlay=overlays/w1-gpio-overlay.dtb
 dtoverlay=w1-gpio,gpiopin=7
+dtparam=i2c_arm=on
 
 pip install w1thermsensor OR
 pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
