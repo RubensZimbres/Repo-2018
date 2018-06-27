@@ -193,6 +193,7 @@ sudo vi /etc/modules
 #add
 w1-gpio
 w1-therm
+i2c-dev
 
 sudo vi /boot/config.txt
 #add 
