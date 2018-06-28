@@ -1,5 +1,9 @@
 # Raspberry Pi3 Model B for IoT Project - Ubuntu Core  
-  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Core_logo.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_logo.png>  
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Raspberry_run.png>  
 
 <b>1 - Plug and Play</b>  
