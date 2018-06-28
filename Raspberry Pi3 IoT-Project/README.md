@@ -199,6 +199,11 @@ device_tree_overlay=overlays/w1-gpio-overlay.dtb
 dtoverlay=w1-gpio,gpiopin=7
 dtparam=i2c_arm=on
 
+sudo vi /etc/environment
+#add
+export W1THERMSENSOR_NO_KERNEL_MODULE=1
+W1THERMSENSOR_NO_KERNEL_MODULE=1 python Temp.py
+
 #Reboot
 
 pip install w1thermsensor OR
