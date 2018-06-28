@@ -45,7 +45,9 @@ In this folder you will find a guide to create your own haarcascade.xml so that 
  
 <b> Raspberry Pi3 - IoT Project</b>  
 
-<b> | Not ready yet | </b> In this project I will use Raspberry Pi3 and attach a sensor and then send telemetry data to Amazon AWS IoT service, integrated with DynamoDB, S3, Quick Sight and Cloud Watch. I also plan to deploy a Deep Learning trained model into the device for classification purposes.  
+In this project I use Raspberry Pi3 running in Ubuntu Core OS and attached a sensor and then send telemetry data to Amazon AWS IoT service, integrated with DynamoDB, S3, Quick Sight and Cloud Watch. I also plan to deploy a Deep Learning trained model into the device for classification purposes.  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/raw/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>
 
 <b> TENSORFLOW </b> 
  
