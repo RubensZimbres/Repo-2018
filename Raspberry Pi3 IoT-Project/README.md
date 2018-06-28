@@ -220,6 +220,26 @@ sudo i2cdetect -l
 
 Connect sensor.
 
+```
+sudo lsmod
+
+Module                  Size  Used by
+nls_ascii              16384  1
+joydev                 20480  0
+hid_generic            16384  0
+brcmfmac              282624  0
+brcmutil               20480  1 brcmfmac
+usbhid                 57344  0
+cfg80211              557056  1 brcmfmac
+hid                   114688  2 hid_generic,usbhid
+i2c_bcm2708            16384  0
+bcm2835_wdt            16384  0
+bcm2835_gpiomem        16384  0
+uio_pdrv_genirq        16384  0
+uio                    20480  1 uio_pdrv_genirq
+
+```
+
 <b>6 - Load trained Machine Learning model</b>  
 
 <b>7 - Dashboard</b>  
