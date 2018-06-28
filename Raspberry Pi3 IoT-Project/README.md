@@ -174,7 +174,7 @@ while True:
     sleep(1) 
     
 source .bashrc
-python LED.py
+sudo python LED.py
  ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>  
@@ -227,6 +227,7 @@ git clone git://git.drogon.net/wiringPi
 cd ~/wiringPi
 git pull origin
 ./build
+(sudo python setup.py install)
 gpio readall
 ```  
 
