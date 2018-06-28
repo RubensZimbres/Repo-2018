@@ -266,6 +266,8 @@ sudo make install
 
 sudo pigpiod
 pigs r 7
+
+sudo python Temp_read_GPIO.py
 ```
 
 <b>6 - Load trained Machine Learning model</b>  
