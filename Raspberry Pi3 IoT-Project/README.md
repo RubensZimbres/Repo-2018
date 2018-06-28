@@ -173,10 +173,7 @@ while True:
     GPIO.output(8, GPIO.LOW) 
     sleep(1) 
     
-export LC_ALL=C
 source .bashrc
-sudo chown rubens /dev/gpiomem
-sudo chmod g+rw /dev/gpiomem
 python LED.py
  ```  
 
