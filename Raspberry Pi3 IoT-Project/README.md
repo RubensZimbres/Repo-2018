@@ -153,13 +153,13 @@ Connect LED and 2 resistors (4.7 Ohms) in parallel using wires:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/map_LED.png>  
 
-Develop LED.py
+Develop LED.py  
 ```
 touch LED.py
 vi LED.py
-
-CTRL+C   INSERT    CTRL+SHIFT+V
-
+```  
+CTRL+C   INSERT    CTRL+SHIFT+V  
+```
 import RPi.GPIO as GPIO 
 from time import sleep 
 
@@ -172,7 +172,9 @@ while True:
     sleep(1) 
     GPIO.output(8, GPIO.LOW) 
     sleep(1) 
-    
+``` 
+
+```
 source .bashrc
 sudo python LED.py
  ```  
