@@ -212,7 +212,7 @@ pip install w1thermsensor OR
 pip install --index-url=https://pypi.python.org/simple/ w1thermsensor
 
 sudo apt-get install -y i2c-tools
-sudo adduser pi i2c
+sudo adduser rubens i2c
 #Reboot
 
 sudo i2cdetect -y 1
