@@ -252,6 +252,20 @@ bcm2835_wdt            16384  0
 bcm2835_gpiomem        16384  0
 uio_pdrv_genirq        16384  0
 uio                    20480  1 uio_pdrv_genirq
+```  
+Install pigpio:  
+
+```
+sudo apt-get install wget
+sudo apt-get install unzip
+wget https://github.com/joan2937/pigpio/archive/master.zip
+unzip master.zip
+cd pigpio-master
+make
+sudo make install
+
+sudo pigpiod
+pigs r 7
 ```
 
 <b>6 - Load trained Machine Learning model</b>  
