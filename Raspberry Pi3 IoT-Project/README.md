@@ -236,16 +236,6 @@ uio_pdrv_genirq        16384  0
 uio                    20480  1 uio_pdrv_genirq
 ```
 
-```
-(Raspbian users)
-sudo vi /etc/apt/sources.list
-#add
-deb http://archive.raspberrypi.org/debian/ jessie main
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7FA3303E
-sudo apt-get update
-sudo apt-get install raspi-config
-```
-
 <b>6 - Load trained Machine Learning model</b>  
 
 <b>7 - Dashboard</b>  
