@@ -274,7 +274,7 @@ sudo python Temp_read_GPIO.py
 
 <b>7 - Dashboard</b>  
 
-LogOff:
+ShutDown:
 ```
 sudo shutdown now -h
 ```  
