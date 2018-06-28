@@ -218,7 +218,19 @@ sudo i2cdetect -l
 
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_empty.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_empty.png> 
+
+Check GPIOs.  
+
+```
+git clone git://git.drogon.net/wiringPi
+cd ~/wiringPi
+git pull origin
+./build
+gpio readall
+```  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/GPIO_Readall.png>
 
 Connect sensor.
 
