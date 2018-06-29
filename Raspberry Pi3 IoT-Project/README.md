@@ -153,7 +153,7 @@ Connect LED and 2 resistors (4.7 Ohms) in parallel using wires:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/GPIO_OK.png>  
 
-https://pinout.xyz/pinout/pin7_gpio4
+https://pinout.xyz/pinout/pin7_gpio4  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/map_LED.png>  
 
@@ -287,7 +287,10 @@ sudo pip install smbus2
 sudo i2cdetect -y 1
 
 sudo python Temp_smbus.py
-```
+```  
+
+https://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing  
+
 To do:  
 * w1thermsensor - code.py + digital temperature sensor
 * gpio -g ... (get base address)
