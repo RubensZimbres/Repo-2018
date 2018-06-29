@@ -188,7 +188,7 @@ sudo python LED.py
 
 <b>4 - Save data in Dynamo DB</b>  
 
-<b>5 - Add LM 35 Temperature Sensor</b>  
+<b>5 - Try add LM 35 Temperature Sensor</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LM35_sensor.png>  
 
