@@ -184,7 +184,7 @@ source .bashrc
 sudo python LED.py
  ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LED_22.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/blink_LED.png>  
 
 <b>4 - Save data in Dynamo DB</b>  
 
