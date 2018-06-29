@@ -276,6 +276,14 @@ pigs r 7
 (classic)rubens@localhost:~/pigpio-master$ python3 Temp_pipio.py
 
 ```  
+
+```
+export LC_ALL=C
+source .bashrc
+sudo pip install smbus2
+
+sudo python Temp_smbus.py
+```
 To do:  
 * w1thermsensor - code.py + digital temperature sensor
 * gpio -g ...
