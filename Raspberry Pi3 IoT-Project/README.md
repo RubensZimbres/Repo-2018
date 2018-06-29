@@ -289,7 +289,9 @@ sudo i2cdetect -y 1
 sudo python Temp_smbus.py
 ```  
 
+References:  
 https://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing  
+https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial  
 
 To do:  
 * w1thermsensor - code.py + digital temperature sensor
