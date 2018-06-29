@@ -162,7 +162,7 @@ Develop LED.py
 touch LED.py
 vi LED.py
 ```  
-CTRL+C   INSERT    CTRL+SHIFT+V  
+CTRL+C   i  i     CTRL+SHIFT+V  
 ```
 import RPi.GPIO as GPIO 
 from time import sleep 
@@ -176,7 +176,8 @@ while True:
     sleep(1) 
     GPIO.output(8, GPIO.LOW) 
     sleep(1) 
-``` 
+```  
+ESC : w q
 
 ```
 source .bashrc
