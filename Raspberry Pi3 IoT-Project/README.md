@@ -275,7 +275,11 @@ sudo python Temp_read_GPIO.py OR
 
 (classic)rubens@localhost:~/pigpio-master$ python3 Temp_pipio.py
 
-```
+```  
+To do:  
+* w1thermsensor - code.py
+* gpio -g ...
+
 
 <b>6 - Load trained Machine Learning model</b>  
 
