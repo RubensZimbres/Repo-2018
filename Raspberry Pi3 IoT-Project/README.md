@@ -288,7 +288,7 @@ sudo python Temp_smbus.py
 ```
 To do:  
 * w1thermsensor - code.py + digital temperature sensor
-* gpio -g ...
+* gpio -g ... (get base address)
 
 
 <b>6 - Load trained Machine Learning model</b>  
