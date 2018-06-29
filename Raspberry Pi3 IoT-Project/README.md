@@ -271,7 +271,10 @@ sudo make install
 sudo pigpiod
 pigs r 7
 
-sudo python Temp_read_GPIO.py
+sudo python Temp_read_GPIO.py OR
+
+(classic)rubens@localhost:~/pigpio-master$ python3 Temp_pipio.py
+
 ```
 
 <b>6 - Load trained Machine Learning model</b>  
