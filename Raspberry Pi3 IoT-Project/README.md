@@ -153,6 +153,8 @@ Connect LED and 2 resistors (4.7 Ohms) in parallel using wires:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/GPIO_OK.png>  
 
+https://pinout.xyz/pinout/pin7_gpio4
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/map_LED.png>  
 
 Develop LED.py  
