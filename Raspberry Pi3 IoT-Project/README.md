@@ -284,6 +284,8 @@ export LC_ALL=C
 source .bashrc
 sudo pip install smbus2
 
+sudo i2cdetect -y 1
+
 sudo python Temp_smbus.py
 ```
 To do:  
