@@ -277,7 +277,7 @@ sudo python Temp_read_GPIO.py OR
 
 ```  
 To do:  
-* w1thermsensor - code.py
+* w1thermsensor - code.py + digital temperature sensor
 * gpio -g ...
 
 
