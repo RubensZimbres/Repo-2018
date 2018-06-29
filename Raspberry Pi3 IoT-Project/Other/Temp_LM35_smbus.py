@@ -5,6 +5,8 @@ import smbus
 import time
 #from OLED1306 import OLED1306
 
+bus = smbus.SMBus(1)
+
 def readData(port = 0):
     if port == 0:
         adc_address = 0x48
