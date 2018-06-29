@@ -1,4 +1,4 @@
-# Python Codes: IoT, Machine Learning and Computer Vision
+# Python Codes: IoT, Machine Learning, Computer Vision
 
 Codes in Machine Learning, Deep Learning, Reinforcement Learning, Artificial Intelligence and Computer Vision
 
