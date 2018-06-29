@@ -290,6 +290,8 @@ sudo i2cdetect -y 1
 sudo python Temp_smbus.py
 ```  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/pin_mappings_MS.png>
+
 References:  
 https://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing  
 https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial  
