@@ -256,6 +256,8 @@ bcm2835_wdt            16384  0
 bcm2835_gpiomem        16384  0
 uio_pdrv_genirq        16384  0
 uio                    20480  1 uio_pdrv_genirq
+
+sudo python Temp_read_GPIO.py
 ```  
 Install pigpio:  
 
@@ -270,8 +272,6 @@ sudo make install
 
 sudo pigpiod
 pigs r 7
-
-sudo python Temp_read_GPIO.py OR
 
 (classic)rubens@localhost:~/pigpio-master$ python3 Temp_pipio.py
 
