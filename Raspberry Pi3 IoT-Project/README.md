@@ -19,7 +19,7 @@ mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa -b 4096
 ```  
-Copy key code and paste into Ubuntu One:  
+Copy key code:  
 
 ```
 ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345 user@Dell
@@ -29,7 +29,7 @@ Turn on Raspberry:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/raspberry_OK%20(1).png>  
 
-Configure network and setup administrator account connected to Ubuntu One. SSH into your Raspberry. 
+Configure network and setup administrator account connected to Ubuntu Core. SSH into your Raspberry. 
 
 ```
 sudo apt-get install openssh-server
@@ -57,6 +57,7 @@ You're in ! Install snap classic.
 ```
 sudo snap install classic --edge --devmode
 sudo classic
+
 Creating classic environment
 Parallel unsquashfs: Using 4 processors
 11111 inodes (11975 blocks) to write
