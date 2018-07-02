@@ -45,6 +45,11 @@ cp id_rsa.pub ~/.ssh/id_rsa.pub
 ssh your_user@191.168.15.XXX
 ```  
 
+```
+ifconfig
+route -n
+```
+
 Your login will change:
 ```
 rubens@localhost:~$
