@@ -19,7 +19,7 @@ mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa -b 4096
 ```  
-Copy key code:  
+Copy key code and Upload to your Ubuntu One account:  
 
 ```
 ssh-rsa ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345ABCDEF12345 user@Dell
@@ -29,19 +29,17 @@ Turn on Raspberry:
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/raspberry_OK%20(1).png>  
 
-Configure network and setup administrator account connected to Ubuntu Core. SSH into your Raspberry. 
+Configure network and setup administrator account connected to Ubuntu One. SSH into your Raspberry. 
 
 ```
 sudo apt-get install openssh-server
 sudo ufw allow 22
 sudo service ssh start
-ssh your_user@191.168.15.XXX
 ```  
 
 ```
 ssh-keygen -R 192.168.15.XXX
-cd .ssh
-rm *
+mkdir .ssh
 cp id_rsa ~/.ssh/id_rsa
 cp id_rsa.pub ~/.ssh/id_rsa.pub
 ssh your_user@191.168.15.XXX
