@@ -308,10 +308,13 @@ To do:
 
 * Connect successfully to 192.168.15.XXX + ifconfig + route -n  
 https://www.theroadtosiliconvalley.com/technology/changing-ubuntu-server-dhcp-static-ip-address/  
-
-* test + implement
+- test + implement
 
 * gpio -g ... (get base address)  
+
+* temperature sensor DHT11  
+
+* Advantech  
 
 * w1thermsensor - code.py + digital temperature sensor  
 
