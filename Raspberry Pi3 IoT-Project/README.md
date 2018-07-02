@@ -299,6 +299,8 @@ References:
 https://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing  
 https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/diagram_circuits.png>  
+
 To do:  
 * w1thermsensor - code.py + digital temperature sensor
 * gpio -g ... (get base address)
