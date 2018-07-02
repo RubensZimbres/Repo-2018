@@ -196,7 +196,7 @@ sudo python LED.py
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LM35_sensor.png>  
 
-LM35 analog sensor: not I2C compatible. All pins in Raspbery are digital.
+LM35 analog sensor: not I2C compatible. All pins in Raspbery are digital. Need converter ADS1115.
 
 ```
 sudo vi /etc/modules
