@@ -305,8 +305,17 @@ https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/diagram_circuits.png>  
 
 To do:  
-* w1thermsensor - code.py + digital temperature sensor
-* gpio -g ... (get base address)
+
+* Connect successfully to 192.168.15.XXX  
+* ifconfig + route -n  
+https://www.theroadtosiliconvalley.com/technology/changing-ubuntu-server-dhcp-static-ip-address/  
+* test + implement
+
+* gpio -g ... (get base address)  
+
+* w1thermsensor - code.py + digital temperature sensor  
+
+* movidius  
 
 
 <b>6 - Load trained Machine Learning model</b>  
