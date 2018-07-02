@@ -306,9 +306,9 @@ https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial
 
 To do:  
 
-* Connect successfully to 192.168.15.XXX  
-* ifconfig + route -n  
+* Connect successfully to 192.168.15.XXX + ifconfig + route -n  
 https://www.theroadtosiliconvalley.com/technology/changing-ubuntu-server-dhcp-static-ip-address/  
+
 * test + implement
 
 * gpio -g ... (get base address)  
