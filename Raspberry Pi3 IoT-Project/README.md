@@ -306,20 +306,23 @@ https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial
 
 Develop RGB LED for Iris Dataset Classification:  
 
+Install Miniconda:  
+
 ```
 export LC_ALL=C
 source .bashrc
 
-sudo apt install python3-pip
-sudo apt-get install python3-pip python3-dev
-pip3 install wheel
-```  
+wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+sudo md5sum Miniconda3-latest-Linux-armv7l.sh
+sudo /bin/bash Miniconda3-latest-Linux-armv7l.sh
+sudo reboot -h now
 
-```
-pip3 install keras
-sudo pip3 install sklearn
-sudo pip3 install keras
-sudo pip3 install tensorflow
+export LC_ALL=C
+sudo chmod -R a+rX /home/rubenszmm/miniconda3
+sudo chown -R rubenszmm /home/rubenszmm/miniconda3conda install numpy
+conda install numpy
+
+pip3 install tensorflow
 ```  
 
 To do:  
