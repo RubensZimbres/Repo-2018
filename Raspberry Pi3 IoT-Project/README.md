@@ -309,8 +309,12 @@ Develop RGB LED for Iris Dataset Classification:
 ```
 export LC_ALL=C
 source .bashrc
+
+sudo apt install python3-pip
+sudo apt-get install python3-pip python3-dev
+
 pip install keras
-pip install tensorflow
+pip3 install tensorflow
 ```  
 
 To do:  
