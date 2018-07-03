@@ -348,13 +348,11 @@ sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 sudo vi /etc/dphys-swapfile
 CONF_SWAPSIZE=100
 ```  
-https://www.pyimagesearch.com/2017/12/18/keras-deep-learning-raspberry-pi/  
-http://www.instructables.com/id/Installing-Keras-on-Raspberry-Pi-3/  
 
 To do:  
 
 * Connect successfully to 192.168.15.XXX + ifconfig + route -n  
-https://www.theroadtosiliconvalley.com/technology/changing-ubuntu-server-dhcp-static-ip-address/  
+
 - test + implement
 
 * gpio -g ... (get base address)  
