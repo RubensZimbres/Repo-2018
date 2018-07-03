@@ -320,7 +320,9 @@ sudo reboot -h now
 export LC_ALL=C
 sudo chmod -R a+rX /home/rubenszmm/miniconda3
 sudo chown -R rubenszmm /home/rubenszmm/miniconda3
-conda install numpy
+conda install scikit-learn
+
+(stop here)
 
 sudo vi /etc/dphys-swapfile
 CONF_SWAPSIZE=1024
