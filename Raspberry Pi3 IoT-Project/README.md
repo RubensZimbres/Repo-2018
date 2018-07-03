@@ -345,7 +345,6 @@ wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/ten
 
 sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
-
 sudo vi /etc/dphys-swapfile
 CONF_SWAPSIZE=100
 ```  
