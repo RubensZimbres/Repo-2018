@@ -320,10 +320,22 @@ sudo reboot -h now
 export LC_ALL=C
 sudo chmod -R a+rX /home/rubenszmm/miniconda3
 sudo chown -R rubenszmm /home/rubenszmm/miniconda3conda install numpy
-conda install numpy
 
-pip3 install tensorflow
+sudo vi /etc/dphys-swapfile
+CONF_SWAPSIZE=1024
+
+wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp27-none-linux_armv7l.whl
+pip install tensorflow-1.1.0-cp27-none-linux_armv7l.whl
+
+sudo apt-get install libhdf5-serial-dev
+pip install h5py
+
+pip install pillow imutils
+pip install scipy --no-cache-dir
+pip install keras==2.1.5
 ```  
+https://www.pyimagesearch.com/2017/12/18/keras-deep-learning-raspberry-pi/  
+http://www.instructables.com/id/Installing-Keras-on-Raspberry-Pi-3/  
 
 To do:  
 
