@@ -312,13 +312,14 @@ source .bashrc
 
 sudo apt install python3-pip
 sudo apt-get install python3-pip python3-dev
+pip3 install wheel
 
-pip install numpy --verbose
-```
+pip3 install numpy
+```  
 
 ```
 sudo pip3 install sklearn
-sudo pip3 install keras     (this line of code will take 40 minutes)
+sudo pip3 install keras
 sudo pip3 install tensorflow
 ```  
 
