@@ -306,7 +306,7 @@ https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial
 
 Develop RGB LED for Iris Dataset Classification:  
 
-Install Miniconda:  
+The following steps take hours to complete:  
 
 ```
 export LC_ALL=C
