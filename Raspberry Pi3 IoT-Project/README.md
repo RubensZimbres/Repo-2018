@@ -304,6 +304,15 @@ https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/diagram_circuits.png>  
 
+Develop RGB LED for Iris Dataset Classification:  
+
+```
+export LC_ALL=C
+source .bashrc
+pip install keras
+pip install tensorflow
+```  
+
 To do:  
 
 * Connect successfully to 192.168.15.XXX + ifconfig + route -n  
