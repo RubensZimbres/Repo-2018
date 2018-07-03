@@ -334,6 +334,9 @@ pip install h5py
 pip install pillow imutils
 pip install scipy --no-cache-dir
 pip install keras==2.1.5
+
+sudo vi /etc/dphys-swapfile
+CONF_SWAPSIZE=100
 ```  
 https://www.pyimagesearch.com/2017/12/18/keras-deep-learning-raspberry-pi/  
 http://www.instructables.com/id/Installing-Keras-on-Raspberry-Pi-3/  
