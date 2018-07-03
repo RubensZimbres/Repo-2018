@@ -339,9 +339,10 @@ sudo pip3 install keras
 
 sudo python3
 
+wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+
 (stop here)
 
-wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
 
