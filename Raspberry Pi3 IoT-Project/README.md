@@ -313,11 +313,10 @@ source .bashrc
 sudo apt install python3-pip
 sudo apt-get install python3-pip python3-dev
 pip3 install wheel
-
-pip3 install numpy
 ```  
 
 ```
+pip3 install keras
 sudo pip3 install sklearn
 sudo pip3 install keras
 sudo pip3 install tensorflow
