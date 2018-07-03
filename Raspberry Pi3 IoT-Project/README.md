@@ -313,7 +313,7 @@ source .bashrc
 sudo apt install python3-pip
 sudo apt-get install python3-pip python3-dev
 
-pip install keras
+pip install keras     (this line of code will take 40 minutes)
 pip3 install tensorflow
 ```  
 
