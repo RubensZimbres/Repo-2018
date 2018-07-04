@@ -357,6 +357,8 @@ sudo python3
 Machine Learning packages installed at:  
 
 ```
+/miniconda3/lib/python3.4/site-packages
+
 export LC_ALL=C
 
 (classic)rubens@localhost:~/miniconda3$ python3
