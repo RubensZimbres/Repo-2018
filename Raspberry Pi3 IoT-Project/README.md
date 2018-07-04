@@ -363,6 +363,7 @@ export LC_ALL=C
 sudo chmod -R a+rX /home/rubenszmm/miniconda3
 sudo chown -R rubenszmm /home/rubenszmm/miniconda3
 
+sudo apt-get install cython3
 pip3 install keras
 pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
