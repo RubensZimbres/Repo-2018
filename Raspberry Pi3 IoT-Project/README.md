@@ -347,6 +347,14 @@ These steps below will take one hour or longer:
 ```
 (classic)rubens@localhost:~/miniconda3$ 
 
+sudo apt-get install python-software-properties
+conda install anaconda-client
+
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install gcc-4.9
+sudo apt-get upgrade libstdc++6
+
 cp /home/rubens/tensorflow-1.8.0-cp35-none-linux_armv7l.whl tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 easy_install pip==1.5.6 (8.1.1)
 pip install numpy==1.14.5
