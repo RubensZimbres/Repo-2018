@@ -304,10 +304,6 @@ https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/diagram_circuits.png>  
 
-Develop RGB LED for Iris Dataset Classification:  
-
-The following steps take hours to complete:  
-
 ```
 export LC_ALL=C
 source .bashrc
@@ -366,6 +362,7 @@ export LC_ALL=C
 (classic)rubens@localhost:~/miniconda3$ python3
 sudo chmod -R a+rX /home/rubenszmm/miniconda3
 sudo chown -R rubenszmm /home/rubenszmm/miniconda3
+
 pip3 install keras
 pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
