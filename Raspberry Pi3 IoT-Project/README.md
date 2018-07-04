@@ -353,7 +353,9 @@ CONF_SWAPSIZE=100
 
 To do:  
 
-* gpio -g ... (get base address)  
+* RGB Iris sklearn  
+
+* gpio -g ... (get base address for SMBUS)  
 
 * temperature sensor DHT11  
 
