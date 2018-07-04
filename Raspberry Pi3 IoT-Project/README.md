@@ -360,6 +360,13 @@ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
+
+export LC_ALL=C
+sudo chmod -R a+rX /home/rubenszmm/miniconda3
+sudo chown -R rubenszmm /home/rubenszmm/miniconda3
+sudo pip3 install pandas
+
+sudo python3 Iris_Keras.py
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/keras_raspberry_success.png>  
