@@ -340,7 +340,11 @@ sudo pip3 install keras
 sudo python3
 
 wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+```  
 
+These steps below will take one hour or longer:  
+
+```
 (classic)rubens@localhost:~/miniconda3$ cp /home/rubens/tensorflow-1.8.0-cp35-none-linux_armv7l.whl tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 easy_install pip==1.5.6 (8.1.1)
 pip install numpy==1.14.5
