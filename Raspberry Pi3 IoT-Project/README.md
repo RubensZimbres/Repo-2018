@@ -364,7 +364,8 @@ Machine Learning packages installed at:
 export LC_ALL=C
 
 (classic)rubens@localhost:~/miniconda3$ python3
-
+sudo chmod -R a+rX /home/rubenszmm/miniconda3
+sudo chown -R rubenszmm /home/rubenszmm/miniconda3
 pip3 install keras
 pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
