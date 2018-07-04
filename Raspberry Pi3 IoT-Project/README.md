@@ -352,6 +352,13 @@ sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 sudo pip3 install keras 
 
 sudo python3
+
+sudo apt-get install software-properties-common
+sudo apt-get install libstdc++6
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test 
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
 ```  
 
 Machine Learning packages installed at:  
