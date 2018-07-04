@@ -341,9 +341,7 @@ sudo python3
 
 wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
-(stop here)
-
-(classic)rubens@localhost:~/miniconda3$
+(classic)rubens@localhost:~/miniconda3$ cp /home/rubens/tensorflow-1.8.0-cp35-none-linux_armv7l.whl tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 easy_install pip==1.5.6 (8.1.1)
 pip install numpy==1.14.5
 sudo apt-get install python3-pip
