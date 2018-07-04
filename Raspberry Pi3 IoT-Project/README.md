@@ -335,10 +335,7 @@ sudo apt-get install python3-setuptools
 sudo apt-get install python3-scipy
 sudo apt-get update
 sudo apt-get install python3-h5py
-sudo pip3 install keras 
-
-sudo python3
-
+ 
 wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 ```  
 
@@ -350,18 +347,26 @@ These steps below will take one hour or longer:
 sudo apt-get install python-software-properties
 conda install anaconda-client
 
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt-get update
-sudo apt-get install gcc-4.9
-sudo apt-get upgrade libstdc++6
-
 cp /home/rubens/tensorflow-1.8.0-cp35-none-linux_armv7l.whl tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 easy_install pip==1.5.6 (8.1.1)
 pip install numpy==1.14.5
 sudo apt-get install python3-pip
 sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
+sudo pip3 install keras 
+
 sudo python3
+```  
+
+Machine Learning packages installed at:  
+
+```
+export LC_ALL=C
+
+(classic)rubens@localhost:~/miniconda3$ python3
+
+pip3 install keras
+pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
 sudo vi /etc/dphys-swapfile
 CONF_SWAPSIZE=100
