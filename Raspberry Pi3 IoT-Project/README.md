@@ -318,6 +318,7 @@ sudo chmod -R a+rX /home/rubenszmm/miniconda3
 sudo chown -R rubenszmm /home/rubenszmm/miniconda3
 conda install scikit-learn
 
+(Careful)
 sudo vi /etc/dphys-swapfile
 CONF_SWAPSIZE=1024
 
@@ -359,25 +360,6 @@ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
-```  
-
-Machine Learning packages installed at:  
-
-```
-/miniconda3/lib/python3.4/site-packages
-
-export LC_ALL=C
-
-(classic)rubens@localhost:~/miniconda3$ python3
-sudo chmod -R a+rX /home/rubenszmm/miniconda3
-sudo chown -R rubenszmm /home/rubenszmm/miniconda3
-
-sudo apt-get install cython3
-pip3 install keras
-pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
-
-sudo vi /etc/dphys-swapfile
-CONF_SWAPSIZE=100
 ```  
 
 To do:  
