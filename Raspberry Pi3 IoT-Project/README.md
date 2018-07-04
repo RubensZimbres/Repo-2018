@@ -362,6 +362,8 @@ sudo apt-get upgrade
 sudo apt-get dist-upgrade
 ```  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/keras_raspberry_success.png>  
+
 To do:  
 
 * RGB Iris sklearn  
