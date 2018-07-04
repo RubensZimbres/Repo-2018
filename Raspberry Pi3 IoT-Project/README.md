@@ -343,8 +343,10 @@ wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/ten
 
 (stop here)
 
-
-
+(classic)rubens@localhost:~/miniconda3$
+easy_install pip==1.5.6 (8.1.1)
+pip install numpy==1.14.5
+sudo apt-get install python3-pip
 sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
 
 sudo vi /etc/dphys-swapfile
