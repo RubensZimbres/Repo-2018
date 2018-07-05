@@ -370,10 +370,14 @@ sudo python setup.py install
 
 export LC_ALL=C
 source .bashrc
-sudo pip3 install spidev 
+sudo pip3 install spidev
+sudo pip3 install pkg-config
+pip install matplotlib
 ```
 
 To do:  
+
+* DY-028  
 
 * RGB Iris sklearn  
 
