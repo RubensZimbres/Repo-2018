@@ -377,7 +377,6 @@ sudo apt-get install pkg-config
 (stop here)
 
 sudo apt-get install libfreetype6-dev
-sudo pip install matplotlib --upgrade
 sudo apt-get install bedtools
 
 sudo pip3 install matplotlib --upgrade
