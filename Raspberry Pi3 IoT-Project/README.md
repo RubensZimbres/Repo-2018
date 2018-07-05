@@ -192,11 +192,9 @@ sudo python LED.py
 
 <b>4 - Save data in Dynamo DB</b>  
 
-<b>5 - Try add LM 35 Temperature Sensor</b>  
+<b>5 - Add DY-028 Temperature Sensor</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/LM35_sensor.png>  
-
-LM35 analog sensor: not I2C compatible. All pins in Raspbery are digital. Need converter ADS1115.
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DY-028.png>  
 
 ```
 sudo vi /etc/modules
@@ -231,7 +229,7 @@ sudo i2cdetect -l
 
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DY-028.png> 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_empty.png> 
 
 Check GPIOs.  
 
