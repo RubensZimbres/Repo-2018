@@ -375,7 +375,11 @@ sudo pip3 install spidev
 sudo apt-get install pkg-config
 
 (stop here)
-pip install matplotlib
+
+sudo add-apt-repository ppa:glasen/freetype2
+sudo apt update && sudo apt install freetype2-demos
+
+sudo pip3 install matplotlib
 ```
 
 To do:  
