@@ -374,12 +374,11 @@ sudo pip3 install spidev
 
 sudo apt-get install pkg-config
 
-(stop here)
-
 sudo apt-get install libfreetype6-dev
 sudo apt-get install bedtools
 
-sudo pip3 install matplotlib --upgrade
+(stop here)
+#sudo pip3 install matplotlib --upgrade
 ```
 
 To do:  
