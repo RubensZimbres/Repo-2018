@@ -371,7 +371,10 @@ sudo python setup.py install
 export LC_ALL=C
 source .bashrc
 sudo pip3 install spidev
-sudo pip3 install pkg-config
+
+sudo apt-get install pkg-config
+
+(stop here)
 pip install matplotlib
 ```
 
