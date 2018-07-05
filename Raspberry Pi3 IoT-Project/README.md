@@ -231,7 +231,7 @@ sudo i2cdetect -l
 
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_empty.png> 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DY-028.png> 
 
 Check GPIOs.  
 
@@ -240,7 +240,6 @@ git clone git://git.drogon.net/wiringPi
 cd ~/wiringPi
 git pull origin
 ./build
-(sudo python setup.py install)
 gpio readall
 ```  
 
@@ -361,14 +360,15 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
 
+sudo apt-get install gcc-arm-linux-gnueabihf
+
+git clone https://github.com/adafruit/Adafruit_Python_DHT
+cd Adafruit_Python_DHT
+sudo python setup.py install
+
 export LC_ALL=C
-sudo chmod -R a+rX /home/rubenszmm/miniconda3
-sudo chown -R rubenszmm /home/rubenszmm/miniconda3
-
-(stop here)
-sudo pip3 install pandas
-
-sudo python3 Iris_Keras.py
+source .bashrc
+sudo pip3 install spidev 
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/keras_raspberry_success.png>  
