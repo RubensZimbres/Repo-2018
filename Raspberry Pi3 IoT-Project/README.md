@@ -357,7 +357,11 @@ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
+```  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/keras_raspberry_success.png>  
+
+```
 sudo apt-get install gcc-arm-linux-gnueabihf
 
 git clone https://github.com/adafruit/Adafruit_Python_DHT
@@ -367,9 +371,7 @@ sudo python setup.py install
 export LC_ALL=C
 source .bashrc
 sudo pip3 install spidev 
-```  
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/keras_raspberry_success.png>  
+```
 
 To do:  
 
