@@ -378,6 +378,7 @@ sudo apt-get install pkg-config
 
 sudo add-apt-repository ppa:glasen/freetype2
 sudo apt update && sudo apt install freetype2-demos
+sudo ln -s /usr/include/freetype2/ft2build.h /usr/include/
 
 sudo pip3 install matplotlib
 ```
