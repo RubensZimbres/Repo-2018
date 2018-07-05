@@ -368,7 +368,7 @@ git clone https://github.com/adafruit/Adafruit_Python_DHT
 cd Adafruit_Python_DHT
 sudo python setup.py install
 
-export LC_ALL=C
+export LC_ALL=C (pip3)
 source .bashrc
 sudo pip3 install spidev
 
@@ -376,11 +376,11 @@ sudo apt-get install pkg-config
 
 (stop here)
 
-sudo add-apt-repository ppa:glasen/freetype2
-sudo apt update && sudo apt install freetype2-demos
-sudo ln -s /usr/include/freetype2/ft2build.h /usr/include/
+sudo apt-get install libfreetype6-dev
+sudo pip install matplotlib --upgrade
+sudo apt-get install bedtools
 
-sudo pip3 install matplotlib
+sudo pip3 install matplotlib --upgrade
 ```
 
 To do:  
