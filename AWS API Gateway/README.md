@@ -49,10 +49,26 @@ https://www.liquid-technologies.com/online-json-to-schema-converter
       "type": "object",
       "properties": {
         "type": {
-          "type": "string"
+          "type": "object",
+          "properties": {
+            "S": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "S"
+          ]
         },
         "page": {
-          "type": "string"
+          "type": "object",
+          "properties": {
+            "S": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "S"
+          ]
         }
       },
       "required": [
