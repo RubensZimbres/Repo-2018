@@ -18,7 +18,7 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/Model_Schema.png>  
 
-Model schema:  
+Model schemas:  
 
 ```
 {
@@ -31,6 +31,32 @@ Model schema:
       "type" : "number"
     }
   }
+}
+```  
+```
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Kron",
+	"type": "object",
+	"properties": {
+		"TableName": {
+			"type": "string"
+		},
+		"Item": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"type": "string"
+					},
+					"page": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
 }
 ```  
 
