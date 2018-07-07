@@ -1,0 +1,14 @@
+{ 
+    "TableName": "Kron",
+    "Item": {
+	"MessageID": {
+            "S": "$context.MessageID"
+            },
+        "type": {
+            "S": "$input.path('$.type')"
+            },
+        "page": {
+            "S": "$input.path('$.page')"
+        }
+    }
+}
