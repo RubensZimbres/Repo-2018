@@ -1,4 +1,4 @@
-# AWS API Gateway to collect sensor data
+# AWS API Gateway to collect and store sensor data
 
 <b>Steps:</b>  
 
