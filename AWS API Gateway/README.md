@@ -65,7 +65,8 @@ https://www.liquid-technologies.com/online-json-to-schema-converter
     "TableName",
     "Item"
   ]
-}```  
+}
+```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/API_Gateway_Success.png>  
 
