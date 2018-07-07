@@ -18,6 +18,8 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/Model_Schema.png>  
 
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/cors.png>
+
 Model schemas:  
 
 ```
@@ -33,32 +35,37 @@ Model schemas:
   }
 }
 ```  
+https://www.liquid-technologies.com/online-json-to-schema-converter
+
 ```
 {
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "Kron",
-	"type": "object",
-	"properties": {
-		"TableName": {
-			"type": "string"
-		},
-		"Item": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"properties": {
-					"type": {
-						"type": "string"
-					},
-					"page": {
-						"type": "string"
-					}
-				}
-			}
-		}
-	}
-}
-```  
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "TableName": {
+      "type": "string"
+    },
+    "Item": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "page": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "page"
+      ]
+    }
+  },
+  "required": [
+    "TableName",
+    "Item"
+  ]
+}```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/API_Gateway_Success.png>  
 
