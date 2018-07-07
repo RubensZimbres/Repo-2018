@@ -18,5 +18,21 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/Model_Schema.png>  
 
+Model schema:  
+
+```
+{
+  "type" : "object",
+  "properties" : {
+    "type" : {
+      "type" : "string"
+    },
+    "page" : {
+      "type" : "number"
+    }
+  }
+}
+```  
+
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/API_Gateway_Success.png>  
 
