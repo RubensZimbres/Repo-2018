@@ -1,4 +1,4 @@
-# AWS API Gateway to collect and store sensor data
+# AWS API Gateway to collect and store sensor data in DynamoDB Table
 
 <b>Steps:</b>  
 
