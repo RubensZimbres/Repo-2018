@@ -1,4 +1,4 @@
-# AWS API Gateway to collect and store sensor data in DynamoDB Table
+# AWS API Gateway to collect and store sensor data in DynamoDB Table via Lambda Function
 
 <b>Steps:</b>  
 
@@ -15,8 +15,6 @@
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/POST_Integration_Response.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/POST_Method_Response.png>  
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/Model_Schema.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/cors.png>
 
