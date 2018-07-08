@@ -1,0 +1,12 @@
+#set($inputRoot = $input.path('$'))
+{
+  "MessageID" : {
+    "S" : "$context.MessageID"
+  },
+  "type" : {
+    "S" : "$input.path('$.type')"
+  },
+  "page" : {
+    "S" : "$input.path('$.type')"
+  }
+}
