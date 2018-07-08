@@ -21,20 +21,7 @@
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/cors.png>
 
 Model schemas:  
-
-```
-{
-  "type" : "object",
-  "properties" : {
-    "type" : {
-      "type" : "string"
-    },
-    "page" : {
-      "type" : "number"
-    }
-  }
-}
-```  
+  
 https://www.liquid-technologies.com/online-json-to-schema-converter
 
 ```
@@ -42,44 +29,44 @@ https://www.liquid-technologies.com/online-json-to-schema-converter
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "TableName": {
-      "type": "string"
-    },
-    "Item": {
+    "MessageID": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "object",
-          "properties": {
-            "S": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "S"
-          ]
-        },
-        "page": {
-          "type": "object",
-          "properties": {
-            "S": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "S"
-          ]
+        "S": {
+          "type": "string"
         }
       },
       "required": [
-        "type",
-        "page"
+        "S"
+      ]
+    },
+    "type": {
+      "type": "object",
+      "properties": {
+        "S": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "S"
+      ]
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "S": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "S"
       ]
     }
   },
   "required": [
-    "TableName",
-    "Item"
+    "MessageID",
+    "type",
+    "page"
   ]
 }
 ```  
