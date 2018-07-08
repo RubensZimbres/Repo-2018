@@ -2,7 +2,9 @@ import requests
 import json
 API_URL = "https://abcd1234.execute-api.us-east-1.amazonaws.com/stage"
 
-message ={"TableName":"Sensor","Item":{"type":{"S":"22"},"page":{"S":"2"}}}
+message =message ={ "MessageID" : { "S" : "12345" }, 
+"type" : { "S" : "type" }, 
+"page" : { "S" : "page"}}
 
 headers = {'content-type':'application/json',
            'X-Api-Key':'abcd12345'}
