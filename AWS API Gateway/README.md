@@ -8,7 +8,7 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/POST_Method_Request.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/POST_Integration_Request1.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/POST_Integration_Request_11.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/POST_IntegrationRequest_3.png>  
 
