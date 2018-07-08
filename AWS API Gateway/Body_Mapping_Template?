@@ -7,6 +7,6 @@
     "S" : "$input.path('$.type')"
   },
   "page" : {
-    "S" : "$input.path('$.type')"
+    "S" : "$input.path('$.page')"
   }
 }
