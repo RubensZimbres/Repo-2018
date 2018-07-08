@@ -1,0 +1,5 @@
+{ 
+"MessageID" : { "S" : "12345" }, 
+"type" : { "S" : "type" }, 
+"page" : { "S" : "page"}
+}
