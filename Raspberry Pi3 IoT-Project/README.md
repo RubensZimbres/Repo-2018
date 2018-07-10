@@ -400,7 +400,7 @@ Using TensorFlow backend.
 
 <b>5 - Add KY-028 Temperature Sensor</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DY-028.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_KY-028.png>  
 
 
 To do:  
