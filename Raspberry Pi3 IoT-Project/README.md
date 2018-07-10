@@ -438,7 +438,9 @@ S	Pin 7
 -	GND
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/buzzer.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/buzzer.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/serial_buzzer.png>
 
 To do:  
 
