@@ -395,6 +395,10 @@ Using TensorFlow backend.
 >>> 
 ```
 
+```
+(classic)rubens@localhost:~/pigpio-master$ sudo pigpiod
+(classic)rubens@localhost:~/pigpio-master$ sudo python3 Temp_pipio.py
+```
 
 To do:  
 
