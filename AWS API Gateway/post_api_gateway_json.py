@@ -2,6 +2,7 @@ import requests
 import json
 API_URL = "https://abcd1234.execute-api.us-east-1.amazonaws.com/stage"
 
+# dynamic ID
 message =message ={ "MessageID" : { "S" : "12345" }, 
 "type" : { "S" : "type" }, 
 "page" : { "S" : "page"}}
