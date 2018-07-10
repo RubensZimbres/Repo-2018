@@ -3,7 +3,7 @@ import json
 import random
 API_URL = "https://gycm7vglz2.execute-api.us-east-1.amazonaws.com/Stage0"
 
-# Dynamic ID
+# unique ID -- uuid
 message ={ "MessageID" : { "S" : str(random.randint(0,999999)) }, 
 "type" : { "S" : "type" }, 
 "page" : { "S" : "page"}}
