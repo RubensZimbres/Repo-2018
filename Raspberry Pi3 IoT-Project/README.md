@@ -378,9 +378,23 @@ sudo apt-get install pkg-config
 sudo apt-get install libfreetype6-dev
 sudo apt-get install bedtools
 
-(stop here)
-#sudo pip3 install matplotlib --upgrade
+sudo apt-get install python3-matplotlib
 ```
+
+Everything installed at sudo. Here OK:
+
+```
+rubens@localhost:~$ sudo classic
+(classic)rubenszmm@localhost:~$ sudo python3
+Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import keras
+Using TensorFlow backend.
+>>> import matplotlib
+>>> 
+```
+
 
 To do:  
 
