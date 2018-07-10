@@ -416,6 +416,18 @@ sudo apt-get install man
 cd wiringPi
 man gpio
 gpio -g mode 7 input
+
+cd pigpio-master
+wget http://abyz.me.uk/rpi/pigpio/code/gpiotest.zip
+unzip gpiotest.zip
+sudo pigpiod
+bash gpiotest
+
+Testing...
+Skipped non-user gpios: 0 1 28 29 30 31 
+Tested user gpios: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
+Failed user gpios: None
+
 ```
 
 To do:  
