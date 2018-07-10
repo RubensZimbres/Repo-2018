@@ -42,7 +42,8 @@ ssh-keygen -R 192.168.15.XXX
 mkdir .ssh
 cp id_rsa ~/.ssh/id_rsa
 cp id_rsa.pub ~/.ssh/id_rsa.pub
-ssh your_user@191.168.15.XXX
+ssh your_user@192.168.15.XXX (OR)
+ssh 192.168.15.XXX -l rubens
 ```  
 
 ```
