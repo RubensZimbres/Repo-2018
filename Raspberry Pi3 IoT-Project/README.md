@@ -411,6 +411,11 @@ sudo i2cdetect -y 1
 ```
 sudo killall pigpiod
 sudo pigpiod
+
+sudo apt-get install man
+cd wiringPi
+man gpio
+gpio -g mode 7 input
 ```
 
 To do:  
