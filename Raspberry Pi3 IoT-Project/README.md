@@ -430,19 +430,27 @@ Failed user gpios: None
 
 ```
 
+<b>Buzzer KY-012:</b>  
+
+```
+KY-012	Raspberry
+S	Pin 7
+-	GND
+```  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/buzzer.png>
+
 To do:  
 
 * DY-028  
 
 * RGB Iris sklearn  
 
-* gpio -g ... (get base address for SMBUS)  
-
 * temperature sensor DHT11  
 
 * Advantech  
 
-* w1thermsensor - code.py + digital temperature sensor  
+* w1thermsensor - code.py + digital temperature sensor -- DS18B20  
 
 * movidius  
 
