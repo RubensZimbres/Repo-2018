@@ -402,11 +402,6 @@ Using TensorFlow backend.
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_KY-028.png>  
 
-```
-sudo i2cdetect -y 1
-```
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_KY-028_.png>
 
 ```
 sudo killall pigpiod
@@ -443,6 +438,27 @@ S	Pin 7
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/serial_buzzer_2.png>  
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/small_kit.png>  
 
+```
+sudo i2cdetect -y 1
+```  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_KY-028_.png>
+
+
+```
+sudo i2cget -y 1 0x20
+sudo python3 pigpio1.py
+
+import pigpio
+import time
+pi=pigpio.pi()
+while True:
+    (b,d)=pi.i2c_read_block_data(0x20,(3))
+    print(b)
+    print(d)
+    time.sleep(1)
+
+```  
 
 To do:  
 
