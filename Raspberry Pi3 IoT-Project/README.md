@@ -463,6 +463,8 @@ while True:
     print(d)
     time.sleep(1)
 
+gpio -g mode 3 input
+sudo i2cdetect -y 1
 ```  
 
 To do:  
