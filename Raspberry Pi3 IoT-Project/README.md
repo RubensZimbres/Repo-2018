@@ -440,6 +440,11 @@ S	Pin 7
 
 ```
 sudo i2cdetect -y 1
+
+Example:
+0x00 - bx50 connected
+
+FIX
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_KY-028_.png>
