@@ -75,4 +75,4 @@ https://www.liquid-technologies.com/online-json-to-schema-converter
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/lambda_1.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/dynamo_API.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20API%20Gateway/Pictures/dynamo_API2.png>  
