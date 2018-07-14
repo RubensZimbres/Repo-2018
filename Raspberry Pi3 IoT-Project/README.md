@@ -32,7 +32,6 @@ Turn on Raspberry:
 Configure network and setup administrator account connected to Ubuntu One. SSH into your Raspberry. 
 
 ```
-sudo apt-get install openssh-server
 sudo ufw allow 22
 sudo service ssh start
 ```  
@@ -42,8 +41,9 @@ ssh-keygen -R 192.168.15.XXX
 mkdir .ssh
 cp id_rsa ~/.ssh/id_rsa
 cp id_rsa.pub ~/.ssh/id_rsa.pub
-ssh your_user@192.168.15.XXX (OR)
-ssh 192.168.15.XXX -l rubens
+cd .ssh
+rubens@dell:~/.ssh$  ssh your_user@192.168.15.XXX (OR)
+rubens@dell:~/.ssh$  ssh 192.168.15.XXX -l rubens
 ```  
 
 ```
