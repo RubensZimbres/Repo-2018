@@ -439,7 +439,9 @@ S	Pin 7
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/small_kit.png>  
 
 
-<b>Big Sound Detector:</b>  
+<b>Big Sound Detector + Laser Beam + LED:</b>  
+
+Be sure to adjust potentiometer.  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/big_sound.png>  
 
