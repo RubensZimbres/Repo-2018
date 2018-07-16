@@ -488,6 +488,9 @@ sudo python setup.py install
 (classic)rubens@localhost:~/Adafruit_Python_DHT/examples$ sudo python Adafruit_DHT.py 11 8
 
 ```  
+<b>Touch sensor + LED + Buzzer:</b>  
+
+<img src=>
 
 To do:  
 
