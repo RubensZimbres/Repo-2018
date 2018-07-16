@@ -481,7 +481,10 @@ cd bcm2835-1.56
 make
 sudo make check
 sudo make install
+```  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DHT11.png>
 
+```
 cd Adafruit_Python_DHT
 sudo python setup.py install
 
