@@ -488,7 +488,7 @@ sudo make install
 cd Adafruit_Python_DHT
 sudo python setup.py install
 
-(classic)rubens@localhost:~/Adafruit_Python_DHT/examples$ sudo python adafruit_dht.py 11 8
+(classic)rubens@localhost:~/Adafruit_Python_DHT/examples$ sudo python Adafruit_DHT.py 11 8
 
 ```  
 
