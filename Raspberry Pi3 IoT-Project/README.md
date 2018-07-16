@@ -490,7 +490,7 @@ sudo python setup.py install
 ```  
 <b>Touch sensor + LED + Buzzer:</b>  
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Touch_sensor.png>
 
 To do:  
 
