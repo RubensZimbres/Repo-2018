@@ -490,7 +490,12 @@ sudo python setup.py install
 ```  
 <b>Touch sensor + LED + Buzzer:</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Touch_sensor.png>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/Touch_sensor.png>  
+
+<b>Air Conditioning Control + Shut Off Computer:</b>  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/air_conditioning_off.png>
+
 
 To do:  
 
