@@ -481,6 +481,12 @@ cd bcm2835-1.56
 make
 sudo make check
 sudo make install
+
+cd Adafruit_Python_DHT
+sudo python setup.py install
+
+(classic)rubens@localhost:~/Adafruit_Python_DHT/examples$ sudo python adafruit_dht.py 11 8
+
 ```  
 
 To do:  
