@@ -1,7 +1,7 @@
 import requests
 import json
 import random
-API_URL = "https://gycm7vglz2.execute-api.us-east-1.amazonaws.com/Stage0"
+API_URL = "https://abcd1234.execute-api.us-east-1.amazonaws.com/Stage0"
 
 # unique ID -- uuid
 message ={ "MessageID" : { "S" : str(random.randint(0,999999)) }, 
@@ -9,7 +9,7 @@ message ={ "MessageID" : { "S" : str(random.randint(0,999999)) },
 "page" : { "S" : "page"}}
 
 headers = {'Content-Type':'application/json',
-           'X-Api-Key':'A6rKr9oBPX6LNnkH1AiLg1JqjMAVOOsT4IBoE4Fk'}
+           'X-Api-Key':'abcd12345'}
 
 for i in range(0,8):
     try:
