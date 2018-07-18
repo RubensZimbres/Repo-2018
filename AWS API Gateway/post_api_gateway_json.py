@@ -1,7 +1,7 @@
 import requests
 import json
 import random
-API_URL = "https://abcd1234.execute-api.us-east-1.amazonaws.com/Stage0"
+API_URL = "https://abcd12345.execute-api.us-west-1.amazonaws.com/stage"
 
 # unique ID -- uuid
 message ={ "MessageID" : { "S" : str(random.randint(0,999999)) }, 
