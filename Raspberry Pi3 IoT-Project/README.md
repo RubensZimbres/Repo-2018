@@ -507,7 +507,10 @@ ESC:wq!!
 sudo vi /etc/sudoers
 Add:
 %wheel ALL= NOPASSWD: /sbin/shutdown
-ESC:wq!!
+ESC:wq!
+ESC:w !sudo tee %
+ENTER "O"  (oh)
+:q!
 
 which python
 cd miniconda3
