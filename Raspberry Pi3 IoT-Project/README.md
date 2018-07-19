@@ -497,6 +497,7 @@ sudo python setup.py install
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/air_conditioning_off.png>
 
 ```
+(classic)rubens@localhost$: sudo apt-get install rpi-update
 sudo rpi-update
 
 sudo vi /etc/group file.
