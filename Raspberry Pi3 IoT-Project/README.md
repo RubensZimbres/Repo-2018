@@ -497,9 +497,7 @@ sudo python setup.py install
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/air_conditioning_off.png>
 
 ```
-which python
-cp id_rsa /home/rubenszmm/miniconda3/id_rsa
-cd miniconda3
+sudo BRANCH=next rpi-update
 
 sudo vi /etc/group file.
 Add:
@@ -511,6 +509,8 @@ Add:
 %wheel ALL= NOPASSWD: /sbin/shutdown
 ESC:wq!!
 
+which python
+cd miniconda3
 sudo python shutdown.py
 
 ```
