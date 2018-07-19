@@ -515,7 +515,7 @@ ENTER "O"  (oh)
 
 which python
 cd miniconda3
-sudo python shutdown.py
+sudo /home/rubenszmm/miniconda3/bin/python3 shutdown.py
 
 ```
 
