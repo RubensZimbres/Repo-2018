@@ -507,7 +507,7 @@ sudo rpi-update
 sudo vi /etc/group file.
 Add:
 wheel:x:10:root
-ESC:wq!!
+ESC:w !sudo tee %
 
 sudo vi /etc/sudoers
 Add:
@@ -515,7 +515,6 @@ Add:
 ESC:wq!
 ESC:w !sudo tee %
 ENTER "O"  (oh)
-:q!
 
 which python
 cd miniconda3
