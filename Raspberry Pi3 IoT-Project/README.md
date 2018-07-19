@@ -515,6 +515,7 @@ Add:
 ESC:wq!
 ESC:w !sudo tee %
 ENTER "O"  (oh)
+:q!
 
 which python
 cd miniconda3
