@@ -500,6 +500,17 @@ sudo python setup.py install
 which python
 cp id_rsa /home/rubenszmm/miniconda3/id_rsa
 cd miniconda3
+
+sudo vi /etc/group file.
+Add:
+wheel:x:10:root
+ESC:wq!!
+
+sudo vi /etc/sudoers
+Add:
+%wheel ALL= NOPASSWD: /sbin/shutdown
+ESC:wq!!
+
 sudo python shutdown.py
 
 ```
