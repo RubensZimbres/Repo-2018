@@ -517,10 +517,10 @@ ESC:w !sudo tee %
 ENTER "O"  (oh)
 :q!
 
+sudo -i
 which python
 cd miniconda3
-sudo /home/rubenszmm/miniconda3/bin/python3 shutdown.py
-
+sudo /home/rubenszmm/miniconda3/bin/python3 /home/rubenszmm/shutdown.py
 ```
 
 To do:  
