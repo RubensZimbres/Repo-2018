@@ -497,6 +497,13 @@ sudo python setup.py install
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/air_conditioning_off.png>
 
 ```
+TRY
+sudo vi /lib/modules/4.4.0-1092-raspi2
+Add:
+i2c-dev
+sudo modprobe i2c-dev
+
+.......
 Update Kernel
 
 (classic)rubens@localhost$: sudo apt-get install rpi-update
