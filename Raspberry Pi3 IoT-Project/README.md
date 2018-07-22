@@ -498,6 +498,7 @@ sudo python setup.py install
 
 ```
 PROBLEMS:
+sudo apt-get install kmod
 1 - sudo modprobe i2c-dev
 2 - i2cdetect ALL APPEAR
 ```
