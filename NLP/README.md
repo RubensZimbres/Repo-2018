@@ -19,8 +19,9 @@ chakin.search(lang='Portuguese')
 chakin.download(number=8, save_dir='./')
 
 (OR)
-https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.vec
-https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.zip
+
+wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.vec (1.5 GB)
+wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.zip (3.9 GB)
 
 ```  
 Use Facebook_FastText_Português.py  
