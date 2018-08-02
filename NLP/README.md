@@ -1,6 +1,6 @@
 # Natural Language Processing - Wikipedia Word Embeddings in Portuguese  
 
-<b> 1. Fast Text </b>  
+<b> 1. Facebook Fast Text </b>  
 
 Install FastText, chakin and download trained model:  
 
