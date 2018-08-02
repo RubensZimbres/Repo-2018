@@ -11,7 +11,15 @@ Data for models available at:
 https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing  
  
 Keras version used in models: keras==2.0.8
-Tensorflow version used in models: tensorflow==1.7.0
+Tensorflow version used in models: tensorflow==1.7.0  
+
+<b> AWS API Gateway </b>  
+
+This folder presents general guidelines to create an endpoint and API key in AWS API Gateway, that will receive data from a Python notebook sending sensor data, that arrives in API Gateway, is processed and cleaned in Lambda and is stored in DynamoDB.
+
+<b> AWS SageMaker </b>  
+
+This sector presents the development of a container with a customized Machine Learning model that is pushed into Elastic ... and generates and endpoint in AWS SageMaker.
 
 <b> COCO Model </b>
 
@@ -39,6 +47,10 @@ GANs: Generative Adversarial Networks
  
 DCGANs: Deep Convolutional Generative Adversarial Networks  
  
+<b> NLP </b>  
+
+Notebooks presenting Word2Vec similarities in trained Wikipedia corpus, Portuguese language.  
+
 <b> OPENCV </b>
  
 In this folder you will find a guide to create your own haarcascade.xml so that you can identify any object using OpenCV.  
