@@ -51,3 +51,19 @@ import numpy as np
 print('\n',frase,'\n')
 for i in range(0,9):
     print(i,np.sum(cosine_similarity(r,ff[i])),documents[i])
+    
+###################################################################
+
+model.most_similar(positive='customizar')
+
+[('personalizar', 0.8436061143875122),
+ ('desbloquear', 0.697656512260437),
+ ('destravar', 0.6670040488243103),
+ ('emular', 0.6302285194396973),
+ ('configurar', 0.6297141313552856),
+ ('atualizar', 0.6150598526000977),
+ ('acessar', 0.608622670173645),
+ ('sincronizar', 0.6048502922058105),
+ ('renderizar', 0.6007644534111023),
+ ('programar', 0.5998499393463135)]
+
