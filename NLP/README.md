@@ -20,6 +20,8 @@ chakin.download(number=8, save_dir='./')
 ```  
 Use Facebook_FastText_Português.py  
 
+  
+
 <b> 2. Gensim Word2Vec </b>  
 
 Download trained model wiki.pt-br.word2vec.model at Repo-2017 Data folder.  
