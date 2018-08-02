@@ -1,4 +1,4 @@
-# Natual Language Processing - Wikipedia Word Embeddings in Portuguese  
+# Natural Language Processing - Wikipedia Word Embeddings in Portuguese  
 
 <b> 1. Fast Text </b>  
 
