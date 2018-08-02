@@ -14,7 +14,9 @@ pt_model.most_similar(positive=get_similar,topn=30)
 word_plus = ['homem', 'rei']
 word_minus = ['poder']
 
-# Necessary to clean the similarity result:
+# Necessary to clean the similarity result
+
+# ** ALSO: Necessary to LEMMATIZE sentences to match proper similarity
 
 pt_model.most_similar(positive=word_plus, negative=word_minus)
 
