@@ -18,7 +18,7 @@ chakin.search(lang='Portuguese')
 
 chakin.download(number=8, save_dir='./')
 ```  
-Use FastText_Português.py  
+Use Facebook_FastText_Português.py  
 
 <b> 2. Gensim Word2Vec </b>  
 
