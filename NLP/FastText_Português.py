@@ -26,3 +26,17 @@ word_minus = ['poder']
 for similar in pt_model.most_similar(positive=word_plus, negative=word_minus):
     print("Word : {0} , Similarity: {1:.2f}".format(similar[0], similar[1]))
  
+###############################################################################
+
+find_similar_to = 'customizar'
+
+Word: customiza, Similarity: 0.92
+Word: customizando, Similarity: 0.88
+Word: customizam, Similarity: 0.88
+Word: customize, Similarity: 0.86
+Word: customização, Similarity: 0.85
+Word: customizado, Similarity: 0.84
+Word: customizada, Similarity: 0.84
+Word: customizações, Similarity: 0.83
+Word: customizadas, Similarity: 0.83
+Word: customizados, Similarity: 0.83
