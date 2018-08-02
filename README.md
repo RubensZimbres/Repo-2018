@@ -15,7 +15,7 @@ Tensorflow version used in models: tensorflow==1.7.0
 
 <b> AWS API Gateway </b>  
 
-This folder presents general guidelines to create an endpoint and API key in AWS API Gateway, that will receive data from a Python notebook sending sensor data, that arrives in API Gateway, is processed and cleaned in Lambda and is stored in DynamoDB.
+This folder presents general guidelines to create an endpoint and API key in AWS API Gateway, that will receive data from a Python notebook sending sensor data, that arrives in API Gateway, is processed and cleaned in Lambda and is stored in DynamoDB. Data is then available for S3 to create a data pipeline and further visualization with Kibana or Quick Sight.
 
 <b> AWS SageMaker </b>  
 
