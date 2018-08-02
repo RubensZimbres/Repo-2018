@@ -24,7 +24,7 @@ wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.vec (1.5 GB)
 wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.zip (3.9 GB)
 
 ```  
-Use Facebook_FastText_Português.py  
+Use Facebook_Português.py  
 
   
 
