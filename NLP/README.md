@@ -1,6 +1,8 @@
 # Natual Language Processing - Wikipedia Word Embeddings in Portuguese  
 
-<b>1. Fast Text </b>  
+<b> 1. Fast Text </b>  
+
+Install FastText, chakin and download trained model:  
 
 ```
 git clone https://github.com/facebookresearch/fastText.git
@@ -16,4 +18,10 @@ chakin.search(lang='Portuguese')
 
 chakin.download(number=8, save_dir='./')
 ```  
-Use FastText.py
+Use FastText.py  
+
+<b> 2. Gensim Word2Vec </b>  
+
+Download trained model wiki.pt-br.word2vec.model at Repo-2017 Data folder.  
+
+Use NLP_Word2Vec_Português.py
