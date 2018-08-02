@@ -19,7 +19,7 @@ This folder presents general guidelines to create an endpoint and API key in AWS
 
 <b> AWS SageMaker </b>  
 
-This sector presents the development of a container with a customized Machine Learning model that is pushed into Elastic ... and generates and endpoint in AWS SageMaker.
+This sector presents the development of a Docker container with a customized Machine Learning model that is pushed into Elastic Container Registry and generates and endpoint in AWS SageMaker.
 
 <b> COCO Model </b>
 
@@ -40,6 +40,10 @@ In this folder you will find Tensorflow and Keras codes and also a Powerpoint pr
 <b> EC2 INSTANCE SETUP </b>
 
 A set up Manual I developed to create EC2 instances in Amazon AWS  
+
+<b> FLASK </b>  
+
+This folder contains the Python code for the REST API and also the request code.
 
 <b> KERAS </b>
  
