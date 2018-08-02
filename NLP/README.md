@@ -17,6 +17,11 @@ chakin.search(lang='Portuguese')
 8  fastText(pt)        300  Wikipedia           592K  fastText  Portuguese   Facebook 
 
 chakin.download(number=8, save_dir='./')
+
+(OR)
+https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.vec
+https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.zip
+
 ```  
 Use Facebook_FastText_Português.py  
 
