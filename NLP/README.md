@@ -36,6 +36,8 @@ Use NLP_Word2Vec_Português.py
 
 <b> 3. GloVe </b> 
 
-Download word embeddings at: http://143.107.183.175:22980/download.php?file=embeddings/glove/glove_s300.zip  
+```
+wget http://143.107.183.175:22980/download.php?file=embeddings/glove/glove_s300.zip  
+```  
 
 Use Glove_Wikipedia_PT.py
