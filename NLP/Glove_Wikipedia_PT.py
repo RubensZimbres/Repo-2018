@@ -42,6 +42,8 @@ long_words=[w for w in frase.lower().split() if len(w)>3]
 
 r=[model.wv[x] for x in long_words]
 
+## NEED TO LEMMATIZE
+
 import numpy as np
 print('\n',frase,'\n')
 for i in range(0,9):
