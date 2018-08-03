@@ -24,7 +24,7 @@ wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.vec (1.5 GB)
 wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.pt.zip (3.9 GB)
 
 ```  
-Use Facebook_Português.py  
+Use Facebook_FastText_Português.py  
 
   
 
@@ -32,7 +32,7 @@ Use Facebook_Português.py
 
 Download trained model wiki.pt-br.word2vec.model at Repo-2017 Data folder.  
 
-Use NLP_Word2Vec_Português.py
+Use Word2Vec_Português.py
 
 <b> 3. GloVe </b> 
 
