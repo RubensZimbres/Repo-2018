@@ -400,7 +400,7 @@ Using TensorFlow backend.
 
 <b>5 - Add Micro Sound Sensor on i2c SDA on pin 3:</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c-detect_ok.png?raw=true>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c-detect_ok.png>  
 
 
 ```
@@ -451,10 +451,7 @@ sudo i2cdetect -y 1
 
 Example:
 0x00 - bx50 connected
-
-FIX
 ```  
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_KY-028_.png>
 
 
 ```
