@@ -1,4 +1,3 @@
-from gensim import corpora
 documents = ["Interface máquina humana para aplicações computacionais de laboratório abc",
               "Um levantamento da opinião do usuário sobre o tempo de resposta do sistema informático",
                "O sistema de gerenciamento de interface do usuário EPS",
@@ -9,16 +8,8 @@ documents = ["Interface máquina humana para aplicações computacionais de labo
                "Gráfico de menores IV Largura de árvores personalizadas e bem quase encomendado",
                "Gráficos menores Uma pesquisa"]
 
-
-stoplist = set('a e o para sobre'.split())
-texts = [[word for word in document.lower().split() if word not in stoplist]
-    for document in documents]
-texts=[[x.lower() for x in texts[i]] for i in range(0,9)]
-
-long_words1 = [[w for w in texts[i] if len(w)>3] for i in range(0,9)]
-
-from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
+# from nltk.stem import WordNetLemmatizer
+# lemmatizer = WordNetLemmatizer()
 
 import spacy
 from spacy.lang.pt.examples import sentences
