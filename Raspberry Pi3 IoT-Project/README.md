@@ -398,7 +398,7 @@ Using TensorFlow backend.
 ```  
 
 
-<b>5 - Add Micro Sound Sensor on i2c SDA on pin 3:</b>  
+<b>5 - Add Micro Sound Sensor on i2c SDA on pin 3: Adjust potentiometer for i2cdetect: </b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c-detect_ok.png>  
 
