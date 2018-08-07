@@ -398,9 +398,9 @@ Using TensorFlow backend.
 ```  
 
 
-<b>5 - Add KY-028 Temperature Sensor on i2c SDA:</b>  
+<b>5 - Add Micro Sound Sensor on i2c SDA on pin 3:</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_KY-028.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c-detect_ok.png?raw=true>  
 
 
 ```
