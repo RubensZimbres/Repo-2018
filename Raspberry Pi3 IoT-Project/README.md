@@ -402,6 +402,9 @@ Using TensorFlow backend.
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c-detect_ok.png>  
 
+Use Temp_pigpio_Rpi.GPIO*.py
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/temp_character.png>
 
 ```
 sudo killall pigpiod
