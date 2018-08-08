@@ -386,6 +386,12 @@ tar -xvzf PyGObject-3.28.3.tar.gz
 cd PyGObject-3.28.3
 sudo python setup.py install
 sudo apt-get install tcl-dev tk-dev python-tk python3-tk
+
+sudo vi ~/.ssh/config
+Add:
+ForwardX11 yes
+
+Reboot
 ```
 
 Everything installed at sudo python3. Here OK:
