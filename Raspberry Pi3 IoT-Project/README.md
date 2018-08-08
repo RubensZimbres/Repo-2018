@@ -376,6 +376,7 @@ sudo apt-get install libfreetype6-dev
 sudo apt-get install bedtools
 
 sudo apt-get install python3-matplotlib
+sudo apt-get install python-tk
 ```
 
 Everything installed at sudo python3. Here OK:
