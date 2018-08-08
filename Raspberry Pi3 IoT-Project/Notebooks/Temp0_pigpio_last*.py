@@ -1,5 +1,7 @@
+# ssh -X name@192.168.15.XXX
+
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use('TkAgg')
 
 
 import pigpio
