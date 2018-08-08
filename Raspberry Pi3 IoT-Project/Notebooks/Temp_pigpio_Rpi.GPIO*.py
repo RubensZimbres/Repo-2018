@@ -11,13 +11,14 @@ bus = 1
 address = 0x5a
 read_bytes = 9
 
-handle = pi.i2c_open(bus,address)
-count, data = pi.i2c_read_device(handle, read_bytes)
+while True:
+    handle = pi.i2c_open(bus,address)
+    count, data = pi.i2c_read_device(handle, read_bytes)
 
-pi.i2c_close(handle)
-pi.stop()
+    pi.i2c_close(handle)
+    pi.stop()
 
-print(count)
-print(data)
+    print(count)
+    print(data)
 
-exit()
+    exit()
