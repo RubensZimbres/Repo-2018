@@ -378,7 +378,7 @@ sudo apt-get install bedtools
 sudo apt-get install python3-matplotlib
 ```
 
-Everything installed at sudo. Here OK:
+Everything installed at sudo python3. Here OK:
 
 ```
 rubens@localhost:~$ sudo classic
