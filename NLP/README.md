@@ -28,7 +28,7 @@ Use Facebook_FastText_Português.py
 
   
 
-<b> 2. Gensim Word2Vec </b>  
+<b> 2. Word2Vec </b>  
 
 Download trained model wiki.pt-br.word2vec.model at Repo-2017 Data folder.  
 
