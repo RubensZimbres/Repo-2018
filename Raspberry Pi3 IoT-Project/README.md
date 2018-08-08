@@ -377,6 +377,15 @@ sudo apt-get install bedtools
 
 sudo apt-get install python3-matplotlib
 sudo apt-get install python-tk
+sudo apt-get install libgtk-3-dev
+sudo apt-get update
+
+sudo pip3 install pycairo
+wget https://files.pythonhosted.org/packages/e0/e8/1e4f21800015a9ca153969e85fc29f7962f8f82fc5dbc1ecbdeb9dc54c75/PyGObject-3.28.3.tar.gz
+tar -xvzf PyGObject-3.28.3.tar.gz
+cd PyGObject-3.28.3
+sudo python setup.py install
+sudo apt-get install tcl-dev tk-dev python-tk python3-tk
 ```
 
 Everything installed at sudo python3. Here OK:
