@@ -1,10 +1,14 @@
+import matplotlib
+matplotlib.use('Agg')
+
+
 import pigpio
 import RPi.GPIO as GPIO
 import time
 import matplotlib.pyplot as plt
-import matplotlib
 
-matplotlib.use('Agg')
+
+
 pi = pigpio.pi()
 
 if not pi.connected:
@@ -33,7 +37,7 @@ for i in range(0,50):
 
     a=[float(x) for x in data]
     print(a)
-    b.append(a[0])
-
+    b.append(a)
+b=[item for sublist in b for item in sublist]
 print(b)
 plt.plot(b)
