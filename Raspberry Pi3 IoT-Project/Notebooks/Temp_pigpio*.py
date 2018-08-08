@@ -19,6 +19,6 @@ while True:
     pi.stop()
 
     print(count)
-    print(data)
+    print([hex(x) for x in data])
 
     exit()
