@@ -521,13 +521,6 @@ sudo apt-get install kmod
 2 - i2cdetect ALL APPEAR
 ```
 ```
-Update Kernel
-
-(classic)rubens@localhost$: sudo apt-get install rpi-update
-sudo rpi-update
-
-#Reboot
-
 sudo vi /etc/group file.
 Add:
 wheel:x:10:root
