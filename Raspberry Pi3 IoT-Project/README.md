@@ -556,6 +556,7 @@ Temp0_pigpio_last*.py
 sudo python3 temp0.py
 plt.switch_backend('agg')
 
+scp rubens@192.168.15.XXX:/home/rubens/pigpio-master/temp.png /home/user/temp.png
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/temp_matplotlib.png>
