@@ -540,7 +540,20 @@ cd miniconda3
 sudo /home/rubenszmm/miniconda3/bin/python3 /home/rubenszmm/shutdown.py
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DHT11%E2%80%93Temperature-Sensor-Pinout.jpg>
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/DHT11%E2%80%93Temperature-Sensor-Pinout.jpg>  
+
+```
+sudo apt-get install python-gtk2-dev
+sudo apt-get update
+sudo vi /etc/matplotlibrc
+
+Add:
+backend : Agg
+
+sudo python3 temp0.py
+plt.switch_backend('agg')
+
+```  
 
 To do:  
 
