@@ -550,10 +550,15 @@ sudo vi /etc/matplotlibrc
 Add:
 backend : Agg
 
+RUN:
+Temp0_pigpio_last*.py
+
 sudo python3 temp0.py
 plt.switch_backend('agg')
 
 ```  
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/temp_matplotlib.png>
 
 To do:  
 
