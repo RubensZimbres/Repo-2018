@@ -1,1 +1,1 @@
-# MIND-CONTROLLED APPARATUS
+# Mind-Controlled Apparatus
