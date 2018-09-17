@@ -225,9 +225,12 @@ sudo adduser rubens i2c
 sudo i2cdetect -y 1
 sudo i2cdetect -l
 
+# ADJUST POTENTIOMETER
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/i2c_detect_empty.png> 
+
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/scrot_0.png> 
 
 Check GPIOs.  
 
