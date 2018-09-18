@@ -1,4 +1,4 @@
-# Mind Controlled Apparatus  - Project Start Sept, 13th, 2018
+# Mind Controlled Car  - Project Start Sept, 13th, 2018
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Mind-Controlled-Apparatus/Pictures/muse0.JPG>
 
