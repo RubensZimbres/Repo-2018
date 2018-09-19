@@ -5,6 +5,6 @@
       "enableWordTimeOffsets": false
   },
   "audio": {
-      "uri":"gs://storagespeech/gravacao.opus"
+      "uri":"gs://storage/gravacao.opus"
   }
 }
