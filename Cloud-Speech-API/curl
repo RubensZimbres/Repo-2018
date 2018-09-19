@@ -1,0 +1,14 @@
+curl -s -H "Content-Type: application/json" -H "Authorization Bearer:4/Xabcd-4xabcd-Nabcd" https://speech.googleapis.com/v1/speech:recognize?key=AIabcd -d @sync-request.json
+
+{
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "quero fazer a manutenção de um modem",
+          "confidence": 0.9794002
+        }
+      ]
+    }
+  ]
+}
