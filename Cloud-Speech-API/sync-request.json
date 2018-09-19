@@ -1,0 +1,10 @@
+{"config": {
+      "encoding":"OGG_OPUS",
+      "sampleRateHertz": 8000,
+      "languageCode": "pt-BR",
+      "enableWordTimeOffsets": false
+  },
+  "audio": {
+      "uri":"gs://storagespeech/gravacao.opus"
+  }
+}
