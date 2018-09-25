@@ -1,0 +1,9 @@
+curl -s -H "Content-Type: application/json" -H "Authorization Bearer:4/Abcd-4abcd" 
+https://speech.googleapis.com/v1/speech:longrunningrecognize?key=AIabcd -d @sync-request.json
+
+{
+  "name": "1234567890"
+}
+
+
+GET https://speech.googleapis.com/v1/operations/1234567890?key=AIabcd
