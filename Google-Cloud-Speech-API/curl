@@ -1,4 +1,5 @@
-curl -s -H "Content-Type: application/json" -H "Authorization Bearer:4/Xabcd-4xabcd-Nabcd" https://speech.googleapis.com/v1/speech:recognize?key=AIabcd -d @sync-request.json
+curl -s -H "Content-Type: application/json" -H "Authorization Bearer:4/Xabcd-4xabcd-Nabcd" 
+https://speech.googleapis.com/v1/speech:recognize?key=AIabcd -d @sync-request.json
 
 {
   "results": [
