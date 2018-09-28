@@ -1,10 +1,12 @@
 {"config": {
-      "encoding":"OGG_OPUS",
+      "encoding":"MULAW",
       "sampleRateHertz": 8000,
       "languageCode": "pt-BR",
-      "enableWordTimeOffsets": false
-  },
+      "enableWordTimeOffsets": false,
+    "enableAutomaticPunctuation": false,
+    "useEnhanced": true,
+ "audioChannelCount": 1},
   "audio": {
-      "uri":"gs://storage/gravacao.opus"
+      "uri":"gs://storage/audio.wav"
   }
 }
