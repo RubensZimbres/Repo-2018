@@ -4,6 +4,8 @@
       "languageCode": "pt-BR",
       "enableWordTimeOffsets": false,
     "enableAutomaticPunctuation": false,
+      "enableSpeakerDiarization": true,
+        "diarizationSpeakerCount": 2,
     "useEnhanced": true,
  "audioChannelCount": 1},
   "audio": {
