@@ -1,0 +1,6 @@
+import pandas as pd
+df = pd.DataFrame({"Date": ["2014-03-29", "2014-03-30", "2014-03-31"]})
+df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%Y%m%d")
+print( df )
+
+#SMOTE
