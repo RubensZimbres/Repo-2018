@@ -31,3 +31,10 @@ while True:
     string=measure_temp()[0]
     print(string.split()[8])
     time.sleep(5)
+
+
+############# Raspberry Pi 3:
+temp = subprocess.Popen(shlex.split('/opt/vc/bin/vcgencmd measure_temp'),
+                                stdout=subprocess.PIPE,
+                                bufsize=10, universal_newlines=True)
+float(temp.communicate()[0][5:9])
