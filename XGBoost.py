@@ -55,3 +55,19 @@ print 'Recall (FN):',recall_score(np.array(Y),pred011,average='binary')
 print 'f1:',f1_score(np.array(Y),pred011,average='binary')
 print confusion_matrix(np.array(Y),pred011),'\n'
 
+################################################
+
+
+from xgboost import XGBClassifier
+
+eval_set=eval_set = [(x_train, y_train),(x_test, y_test)]
+
+model=XGBClassifier(max_depth=100, learning_rate=0.7, n_estimators=10, objective='binary:logistic', 
+                    booster='gbtree', n_jobs=64,eval_metric="error")
+
+model=XGBClassifier(max_depth=100, learning_rate=0.7, n_estimators=10, objective='multinomial:softmax', 
+                    booster='gbtree', n_jobs=64,eval_metric="merror")
+
+clf=model.fit(x_train,y_train,eval_set=eval_set, verbose=True)
+
+clf.score(x_train,y_train)
