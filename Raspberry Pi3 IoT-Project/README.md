@@ -423,10 +423,6 @@ Using TensorFlow backend.
 
 Use Temp_pigpio*.py
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/temp_character.png>  
-
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/hex_temp.png>  
-
 ```
 sudo killall pigpiod
 sudo pigpiod
