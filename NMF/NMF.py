@@ -15,11 +15,11 @@ V
 nmf = NMF(3)
 nmf.fit(V)
 
-H = pd.DataFrame(np.round(nmf.components_,3), columns=V.columns)
+H = pd.DataFrame(np.round(nmf.components_,2), columns=V.columns)
 H.index = ['Class1', 'Class2',  'Class3']
 H
 
-W = pd.DataFrame(np.round(nmf.transform(V),3), columns=H.index)
+W = pd.DataFrame(np.round(nmf.transform(V),2), columns=H.index)
 W.index = V.index
 W
 
