@@ -36,7 +36,8 @@ config = types.RecognitionConfig(
     sample_rate_hertz=8000,enable_word_time_offsets= False,
     language_code='pt-BR',
     enable_automatic_punctuation= False,
-    use_enhanced=True)
+    use_enhanced=True,
+    speech_contexts=[speech.types.SpeechContext(phrases=['computador', 'wi-fi'])])
 
 audio=types.RecognitionAudio(uri="gs://storagexxx/Info/1-NotSolved_No_Silence.wav")
 
