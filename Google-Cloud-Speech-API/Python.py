@@ -43,7 +43,7 @@ audio=types.RecognitionAudio(uri="gs://storagexxx/Info/1-NotSolved_No_Silence.wa
 operation = client.long_running_recognize(config, audio)
 
 print('Waiting for operation to complete...')
-response = operation.result(timeout=90)
+response = operation.result(timeout=360)
 response
 
 for result in response.results:
