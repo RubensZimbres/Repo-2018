@@ -37,11 +37,12 @@ config = speech.types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.MULAW,
     sample_rate_hertz=8000,enable_word_time_offsets= False,
     language_code='pt-BR',
-    enable_automatic_punctuation= False,
+    enable_automatic_punctuation= True,
     use_enhanced=True,
     speech_contexts=[speech.types.SpeechContext(phrases=['computador', 'wi-fi'])],
     enable_speaker_diarization=True,
-    diarization_speaker_count=2)
+    diarization_speaker_count=2,
+    audio_channel_count=1)
 
 audio=speech.types.RecognitionAudio(uri="gs://storagespeech/Telco_Clean/1-NaoResolvido_No_Silence.wav")
 
