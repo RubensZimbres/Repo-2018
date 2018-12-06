@@ -29,17 +29,21 @@ blob3=blob.upload_from_filename(filename='1-NotSolved_No_Silence.wav')
 audio = types.RecognitionAudio(content=blob3)
 
 
+from google.cloud import speech_v1p1beta1 as speech
+
 client = speech.SpeechClient()
 
-config = types.RecognitionConfig(
+config = speech.types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.MULAW,
     sample_rate_hertz=8000,enable_word_time_offsets= False,
     language_code='pt-BR',
     enable_automatic_punctuation= False,
     use_enhanced=True,
-    speech_contexts=[speech.types.SpeechContext(phrases=['computador', 'wi-fi'])])
+    speech_contexts=[speech.types.SpeechContext(phrases=['computador', 'wi-fi'])],
+    enable_speaker_diarization=True,
+    diarization_speaker_count=2)
 
-audio=types.RecognitionAudio(uri="gs://storagexxx/Info/1-NotSolved_No_Silence.wav")
+audio=speech.types.RecognitionAudio(uri="gs://storagespeech/Telco_Clean/1-NaoResolvido_No_Silence.wav")
 
 operation = client.long_running_recognize(config, audio)
 
