@@ -48,12 +48,26 @@ audio=speech.types.RecognitionAudio(uri="gs://storagespeech/Telco_Clean/1-NaoRes
 operation = client.long_running_recognize(config, audio)
 
 print('Waiting for operation to complete...')
-response = operation.result(timeout=360)
+response = operation.result(timeout=420)
 response
 
 for result in response.results:
         print(u'Transcript: {}'.format(result.alternatives[0].transcript))
         print('Confidence: {}'.format(result.alternatives[0].confidence))
+
+
 end=time.time()
 
 print((end-start)/60,'minutos')
+
+
+########### SPEAKER DIARIZATION BELOW
+        
+result = response.results[-1]
+
+words_info = result.alternatives[0].words
+
+# Printing out the output:
+for word_info in words_info:
+    print("word: '{}', speaker_tag: {}".format(word_info.word,
+                                               word_info.speaker_tag))
