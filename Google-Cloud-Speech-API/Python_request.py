@@ -42,7 +42,8 @@ config = speech.types.RecognitionConfig(
     speech_contexts=[speech.types.SpeechContext(phrases=['computador', 'wi-fi'])],
     enable_speaker_diarization=True,
     diarization_speaker_count=2,
-    audio_channel_count=1)
+    audio_channel_count=1,
+    profanity_filter=True)
 
 audio=speech.types.RecognitionAudio(uri="gs://storagespeech/Telco_Clean/1-NaoResolvido_No_Silence.wav")
 
