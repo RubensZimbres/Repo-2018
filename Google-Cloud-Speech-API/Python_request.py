@@ -1,4 +1,4 @@
-## ENVIRONMENT VARIABLE -- GOOGLE_APPLICATION_CREDENTIALS="D:\VM\Google Cloud\Speech_API_123456789.json"
+## ENVIRONMENT VARIABLE -- export GOOGLE_APPLICATION_CREDENTIALS="D:\VM\Google Cloud\Speech_API_123456789.json"
 
 import time
 start=time.time()
