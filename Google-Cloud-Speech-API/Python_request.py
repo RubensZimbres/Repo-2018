@@ -35,7 +35,7 @@ client = speech.SpeechClient()
 
 config = speech.types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.MULAW,
-    sample_rate_hertz=8000,enable_word_time_offsets= False,
+    sample_rate_hertz=8000,enable_word_time_offsets= True,
     language_code='pt-BR',
     enable_automatic_punctuation= True,
     use_enhanced=True,
@@ -43,7 +43,8 @@ config = speech.types.RecognitionConfig(
     enable_speaker_diarization=True,
     diarization_speaker_count=2,
     audio_channel_count=1,
-    profanity_filter=True)
+    profanity_filter=True,
+    enable_separate_recognition_per_channel=False)
 
 audio=speech.types.RecognitionAudio(uri="gs://storagespeech/Telco_Clean/1-NaoResolvido_No_Silence.wav")
 
