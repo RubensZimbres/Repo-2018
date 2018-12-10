@@ -1,3 +1,8 @@
+#! pip install boto3==1.9.62
+#! pip install requests --upgrade
+
+
+
 import boto3
 
 if __name__ == "__main__":
