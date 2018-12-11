@@ -15,7 +15,9 @@ KERAS_REST_API_URL = "http://localhost:5000/predict"
 
 payload = {"image": image}
 
-r = requests.post(KERAS_REST_API_URL, files=payload).json()
+r = requests.post(KERAS_REST_API_URL, files=payload)
+
+#.json()
 
 print(r.content)
 
