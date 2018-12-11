@@ -46,7 +46,7 @@ config = speech.types.RecognitionConfig(
     profanity_filter=True,
     enable_separate_recognition_per_channel=False)
 
-audio=speech.types.RecognitionAudio(uri="gs://storagespeech/Telco_Clean/1-NaoResolvido_No_Silence.wav")
+audio=speech.types.RecognitionAudio(uri="gs://storagexxx/Info/1-NotSolved_No_Silence.wav")
 
 operation = client.long_running_recognize(config, audio)
 
