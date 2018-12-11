@@ -17,6 +17,8 @@ payload = {"image": image}
 
 r = requests.post(KERAS_REST_API_URL, files=payload).json()
 
+print(r.content)
+
 if r["success"]:
     for (i, result) in enumerate(r["predictions"]):
         print("{}. {}: {:.4f}".format(i + 1, result["label"],
