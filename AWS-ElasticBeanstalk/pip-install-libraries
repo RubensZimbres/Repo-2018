@@ -10,3 +10,5 @@ commands:
 CTRL + X
 
 $ eb config save
+
+$ eb deploy
