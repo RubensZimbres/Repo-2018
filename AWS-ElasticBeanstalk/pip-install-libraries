@@ -1,0 +1,12 @@
+$ eb config
+
+ADD:
+
+commands:
+  01_install_PIL:
+    command: 'easy_install pillow'
+    command: 'easy_install numpy'
+    
+CTRL + X
+
+$ eb config save
