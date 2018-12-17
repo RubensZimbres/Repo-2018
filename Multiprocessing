@@ -9,7 +9,7 @@ def f(x):
 def mp_handler():
     p = multiprocessing.Pool(64)
     r=p.map(f, data)
-    return (r)
+    return r
     
 if __name__ == '__main__':
     fg.append(mp_handler())
