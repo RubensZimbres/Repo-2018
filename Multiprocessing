@@ -1,0 +1,13 @@
+import multiprocessing
+
+data = range(0,len(np.unique(dataframe['Column'])))
+
+def f(x):
+    return np.where(dataframe['Column']==np.unique(dataframe['Column'])[x])[0]
+
+def handler():
+    p = multiprocessing.Pool(64)
+    p.map(f, data)
+
+if __name__ == '__main__':
+    locais_janela_x=handler()
