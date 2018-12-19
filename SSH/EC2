@@ -2,6 +2,6 @@ $ ssh -i KeyPair.pem ubuntu@ec2-22-345-22-55.compute-1.amazonaws.com
 
 
 
-# Copy all files from EC2 folder to local drive:
+# Copy all files from EC2 folder to local drive: (also, take a snapshot)
 
 $ scp -r -i KeyPair.pem ubuntu@ec2-22-345-22-55.compute-1.amazonaws.com:anaconda3/Dados/. D:/EC2/Dados
