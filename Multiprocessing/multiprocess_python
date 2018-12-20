@@ -1,0 +1,15 @@
+import multiprocessing
+
+fg=[]
+data = range(0,len(np.unique(dataframe['Coluna'])))
+
+def f(x):
+    return np.where(dataframe['Coluna']==np.unique(dataframe['Coluna'])[x])[0]
+
+def mp_handler():
+    p = multiprocessing.Pool(64)
+    r=p.map(f, data)
+    return r
+    
+if __name__ == '__main__':
+    fg.append(mp_handler())
