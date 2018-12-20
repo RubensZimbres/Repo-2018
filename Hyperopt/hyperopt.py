@@ -1,5 +1,5 @@
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
-
+from sklearn.model_selection import cross_val_score
 
 def accuracy(params):
     clf = RandomForestClassifier(**params)
