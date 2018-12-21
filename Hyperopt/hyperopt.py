@@ -28,7 +28,6 @@ def f(params):
     if acc > best:
         best = acc
     print ('Improving:', best, params)
-    print(confusion_matrix(y_test,clf.predict(x_test)),'\n')
     return {'loss': -acc, 'status': STATUS_OK}
 
 trials = Trials()
