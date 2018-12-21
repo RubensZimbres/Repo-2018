@@ -22,7 +22,7 @@ def f(params):
     if acc > best:
         best = acc
     print ('Improving:', best, params)
-    return {'loss': -acc, 'status': STATUS_OK}
+    return {'loss': 1-acc, 'status': STATUS_OK}
 
 trials = Trials()
 best = fmin(f, parameters, algo=tpe.suggest, max_evals=100, trials=trials)
