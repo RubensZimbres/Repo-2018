@@ -1,17 +1,23 @@
+from sklearn.ensemble import RandomForestClassifier
+
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
 from sklearn.model_selection import cross_val_score
+from sklearn.metrics import accuracy_score,precision_score,confusion_matrix,f1_score,recall_score
 
 def accuracy(params):
     clf = RandomForestClassifier(**params)
-    return cross_val_score(clf, x, y).mean()
+    clf.fit(x_train,y_train)
+    return clf.score(x_test, y_test)
+
 
 parameters = {
-    'max_depth': hp.choice('max_depth', range(30,60)),
-    'max_features': hp.choice('max_features', range(3,4)),
-    'n_estimators': hp.choice('n_estimators', range(100,150)),
-    "max_leaf_nodes":hp.choice("max_leaf_nodes",range(3,10)),
-    "min_samples_leaf":hp.choice("min_samples_leaf",range(1,40)),
-    "min_samples_split":hp.choice("min_samples_split",range(2,40)),
+    'max_depth': hp.choice('max_depth', range(80,120)),
+    'max_features': hp.choice('max_features', range(30,x_train.shape[1])),
+    "class_weight":'class_weight', {0:hp.choice(range(.001,.000001)), 1:hp.choice(range(.99,.999999))},
+    'n_estimators': hp.choice('n_estimators', range(30,100)),
+    "max_leaf_nodes":hp.choice("max_leaf_nodes",range(2,8)),
+    "min_samples_leaf":hp.choice("min_samples_leaf",range(1,30)),
+    "min_samples_split":hp.choice("min_samples_split",range(2,100)),
     'criterion': hp.choice('criterion', ["gini", "entropy"])}
 
 
@@ -22,8 +28,10 @@ def f(params):
     if acc > best:
         best = acc
     print ('Improving:', best, params)
-    return {'loss': 1-acc, 'status': STATUS_OK}
+    print(confusion_matrix(y_test,clf.predict(x_test)),'\n')
+    return {'loss': -acc, 'status': STATUS_OK}
 
 trials = Trials()
+
 best = fmin(f, parameters, algo=tpe.suggest, max_evals=100, trials=trials)
 print ('best:',best)
