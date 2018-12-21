@@ -13,7 +13,6 @@ def accuracy(params):
 parameters = {
     'max_depth': hp.choice('max_depth', range(80,120)),
     'max_features': hp.choice('max_features', range(30,x_train.shape[1])),
-    "class_weight":'class_weight', {0:hp.choice(range(.001,.000001)), 1:hp.choice(range(.99,.999999))},
     'n_estimators': hp.choice('n_estimators', range(30,100)),
     "max_leaf_nodes":hp.choice("max_leaf_nodes",range(2,8)),
     "min_samples_leaf":hp.choice("min_samples_leaf",range(1,30)),
