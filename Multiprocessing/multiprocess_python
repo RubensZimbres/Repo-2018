@@ -1,6 +1,6 @@
 import multiprocessing
 
-fg=[]
+output=[]
 data = range(0,len(np.unique(dataframe['Coluna'])))
 
 def f(x):
@@ -12,4 +12,4 @@ def mp_handler():
     return r
     
 if __name__ == '__main__':
-    fg.append(mp_handler())
+    output.append(mp_handler())
