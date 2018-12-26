@@ -14,9 +14,10 @@ eval_set=eval_set = [(x_test, y_test)]
 
 
 parameters = {
-    'max_depth': hp.choice('max_depth', range(80,120)),
+    'max_depth': hp.choice('max_depth', range(40,120)),
     'gamma': hp.choice('gamma', range(0,10)),
     "min_child_weight":hp.choice("min_child_weight",range(0,1)),
+    "num_features":hp.choice("num_features",range(30,x_train.shape[1])),
     "max_delta_step":hp.choice("max_delta_step",range(0,10))}
 
 
