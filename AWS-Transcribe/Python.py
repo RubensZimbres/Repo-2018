@@ -16,7 +16,6 @@ while True:
     status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
     if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
         break
-	print('Not ready yet')
-    time.sleep(5)
-    
+    print('Not ready yet')
+    time.sleep(15)
 print(status)
