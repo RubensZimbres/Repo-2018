@@ -30,3 +30,9 @@ obj = s3.get_object(Bucket='cdf-ok', Key=job_name+'.json')
 jj = json.loads(obj['Body'].read())
 
 print(jj)
+
+for i in range(0,len(j['results']['speaker_labels']['segments'])):
+    print('Speaker:',j['results']['speaker_labels']['segments'][i]['speaker_label'][4:5])
+
+for i in range(0,len(j['results']['items'])):
+    print(j['results']['items'][i]['alternatives'][0]['content'])
