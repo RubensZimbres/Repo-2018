@@ -89,9 +89,7 @@ for (i, rect) in enumerate(rects):
 	for (x, y) in shape:
 		cv2.circle(image, (x, y), 1, (0, 0, 255), -1)
 
-# show the output image with the face detections + facial landmarks
-plt.imshow(image,interpolation='bicubic')
-plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
+plt.axis("off")
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 plt.show()
-
 
