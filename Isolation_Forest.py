@@ -24,11 +24,11 @@ Z = Z.reshape(xx.shape)
 plt.title("IsolationForest")
 plt.contourf(xx, yy, Z, cmap=plt.cm.Blues_r)
 
-b1 = plt.scatter(X_train[:, 0], X_train[:, 1], c='white',
+b1 = plt.scatter(X_train[:, 0], X_train[:, 1], c=y_pred_train,
                  s=20, edgecolor='k')
-b2 = plt.scatter(X_test[:, 0], X_test[:, 1], c='green',
+b2 = plt.scatter(X_test[:, 0], X_test[:, 1], c=y_pred_test,
                  s=20, edgecolor='k')
-c = plt.scatter(X_outliers[:, 0], X_outliers[:, 1], c='red',
+c = plt.scatter(X_outliers[:, 0], X_outliers[:, 1], c=y_pred_outliers,
                 s=20, edgecolor='k')
 plt.axis('tight')
 plt.xlim((-5, 5))
