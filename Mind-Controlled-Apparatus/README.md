@@ -13,3 +13,9 @@
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Mind-Controlled-Apparatus/Pictures/tensorflow.JPG>  
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Mind-Controlled-Apparatus/Pictures/car0.JPG><img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Mind-Controlled-Apparatus/Pictures/car1.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/raw/master/Mind-Controlled-Apparatus/Pics/muse0.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/raw/master/Mind-Controlled-Apparatus/Pics/muse2.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/raw/master/Mind-Controlled-Apparatus/Pics/MRI_reconstruction.png>
