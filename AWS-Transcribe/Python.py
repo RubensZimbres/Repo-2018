@@ -26,7 +26,7 @@ import json
 
 s3=boto3.client('s3')
 
-obj = s3.get_object(Bucket='cdf-ok', Key=job_name+'.json')
+obj = s3.get_object(Bucket='bucket', Key=job_name+'.json')
 j = json.loads(obj['Body'].read())
 
 print(j)
