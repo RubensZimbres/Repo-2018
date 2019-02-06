@@ -26,13 +26,23 @@ import json
 
 s3=boto3.client('s3')
 
-obj = s3.get_object(Bucket='bucket', Key=job_name+'.json')
+obj = s3.get_object(Bucket='cdf-ok', Key=job_name+'.json')
 j = json.loads(obj['Body'].read())
 
 print(j)
 
+a1=[]
 for i in range(0,len(j['results']['speaker_labels']['segments'])):
-    print('Speaker:',j['results']['speaker_labels']['segments'][i]['speaker_label'][4:5])
+    for k in range(0,len(j['results']['speaker_labels']['segments'][i]['items'])):
+        a1.append(j['results']['speaker_labels']['segments'][i]['items'][k]['speaker_label'][4:5])
 
+b1=[]
 for i in range(0,len(j['results']['items'])):
-    print(j['results']['items'][i]['alternatives'][0]['content'])
+    for k in range(0,len(j['results']['items'][i]['alternatives'])):
+        b1.append(j['results']['items'][i]['alternatives'][k]['content'])
+
+len(a1)
+
+len(b1)
+
+len([word.lower() for word in b1 if word.isalpha()])
