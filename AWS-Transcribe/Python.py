@@ -46,3 +46,8 @@ len(a1)
 len(b1)
 
 len([word.lower() for word in b1 if word.isalpha()])
+
+import numpy as np
+np.array(b1)[np.where(np.array(a1)=='0')[0]]
+
+np.array(b1)[np.where(np.array(a1)=='1')[0]]
