@@ -15,7 +15,7 @@ transcribe.start_transcription_job(
     Media={'MediaFileUri': job_uri},
     MediaFormat='wav',
     LanguageCode='pt-BR',
-    OutputBucketName= "cdf-ok",
+    OutputBucketName= "bucket",
     MediaSampleRateHertz=8000,
     Settings={"MaxSpeakerLabels": 2,
       "ShowSpeakerLabels": True})
