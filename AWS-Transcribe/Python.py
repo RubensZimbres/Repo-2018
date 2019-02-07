@@ -4,6 +4,12 @@ import boto3
 transcribe = boto3.client('transcribe')
 job_name = "Name4"
 job_uri = "https://s3.amazonaws.com/bucket/Inform_Clean2.wav"
+
+transcribe.create_vocabulary={
+   "LanguageCode": "pt-BR",
+   "Phrases": [ "internet" ],
+   "VocabularyName": "test"}
+
 transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
     Media={'MediaFileUri': job_uri},
@@ -19,7 +25,7 @@ while True:
     if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
         break
     print('Not ready yet')
-    time.sleep(15)
+    time.sleep(60)
 print(status)
 
 import json
@@ -48,7 +54,6 @@ len(b1)
 len([word.lower() for word in b1 if word.isalpha()])
 
 import numpy as np
-
 np.array([word.lower() for word in b1 if word.isalpha()])[np.where(np.array(a1)=='0')[0]]
 
 np.array([word.lower() for word in b1 if word.isalpha()])[np.where(np.array(a1)=='1')[0]]
