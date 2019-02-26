@@ -65,7 +65,7 @@ In this project I use Raspberry Pi3 running in Ubuntu Core OS and attached a sen
 
 <img src=https://github.com/RubensZimbres/Repo-2018/raw/master/Raspberry%20Pi3%20IoT-Project/Pictures/small_kit.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/temp_sensors_dd.png>  
+<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Raspberry%20Pi3%20IoT-Project/Pictures/sensors_dd.png>  
 
 <b> TENSORFLOW </b> 
  
