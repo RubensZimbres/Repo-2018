@@ -31,5 +31,4 @@ Open and run Boosting.ipynb
 
 <img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/Docker_structure.png>     
   
-<img src=https://github.com/RubensZimbres/Repo-2018/blob/master/AWS%20SageMaker/pics/altert2.png>  
 <b>WARNING: </b> If you are making experiments with SageMaker or even learning how to use it, be aware that <b>each model</b> (with a ml.t2.medium instance) with its corresponding endpoint and trained on a ml.m4.4xlarge instance will cost you an average of 5.00 USD a day. So, never leave 2 or 3 models running overnight otherwise your AWS bill will skyrocket. Also, take care of repositories created and tasks related to them, as well as any CloudWatch report.
