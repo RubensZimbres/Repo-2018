@@ -25,16 +25,24 @@ blob = bucket.get_blob('Info/1-NotSolved_No_Silence.wav')
 
 blob3=blob.upload_from_filename(filename='1-NotSolved_No_Silence.wav')  
 
+###########################
+
+filename1='123451003938384-Original.wav'
+
+blob3=blob.download_to_filename(filename=filename1)  
+
+import subprocess as sub
+p = sub.Popen(['ffmpeg -i /home/rubens/Documents/Python/'+'{} -ac 1 -ab 128k audio_transform_iac_1ab128k_22.wav'.format(filename1)],stdout=sub.PIPE,stderr=sub.PIPE,shell=True)
+output, errors = p.communicate()
 
 audio = types.RecognitionAudio(content=blob3)
-
 
 from google.cloud import speech_v1p1beta1 as speech
 
 client = speech.SpeechClient()
 
 config = speech.types.RecognitionConfig(
-    encoding=enums.RecognitionConfig.AudioEncoding.MULAW,
+    encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
     sample_rate_hertz=8000,enable_word_time_offsets= True,
     language_code='pt-BR',
     enable_automatic_punctuation= True,
@@ -46,7 +54,7 @@ config = speech.types.RecognitionConfig(
     profanity_filter=True,
     enable_separate_recognition_per_channel=False)
 
-audio=speech.types.RecognitionAudio(uri="gs://storagexxx/Info/1-NotSolved_No_Silence.wav")
+audio=speech.types.RecognitionAudio(uri="gs://storagexxx/audio_transform_iac_1ab128k_22.wav")
 
 operation = client.long_running_recognize(config, audio)
 
