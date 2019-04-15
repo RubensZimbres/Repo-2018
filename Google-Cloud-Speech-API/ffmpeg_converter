@@ -7,18 +7,9 @@ ffmpeg -i /home/rubens/audio_test.wav -ac 1 -ab 8k audio_test2.wav
 -ab – Indicates the audio bitrate (8k, 128k, 256k)
 -ar – Set the audio frequency of the output file (22050, 44100, 48000 Hz)
 
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a silenceremove -filter:a dynaudnorm audio_transform_iac_1ab256k_no_silence_compress.wav
-
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a silenceremove -filter:a anequalizer audio_transform_iac_1ab256k_no_silence_anequalizer.wav
-
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -af bass=g=3:f=110:w=0.6 audio_transform_iac_1ab256k_no_silence_anequalizer_bass.wav
-
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a silenceremove audio_transform_iac_1ab128k.wav
-
-
 Ok **
 
 ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k audio_transform_iac_1ab128k.wav
 # encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16
 
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a silenceremove audio_transform_iac_1ab256k_NO_Silence_OK.wav
+ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -af silenceremove=1:0:-50dB audio_transform_iac_1ab256k_NO_Silence_OK.wav
