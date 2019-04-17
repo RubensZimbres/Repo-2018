@@ -15,6 +15,4 @@ ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k audio_transform_iac_1ab128
 
 ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -af silenceremove=1:0:-50dB audio_transform_iac_1ab256k_NO_Silence_OK.wav
 
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a volume=0.5 -filter:a aiir -filter:a equalizer=f=1000:t=q:w=1:g=2,equalizer=f=100:t=q:w=2:g=-5 audio_transform_iac_1ab256k_NO_silence_EQualizer_ALL.wav
-
-ffmpeg -i /home/rubens/Documents/Python/833091003938384-Original.wav -ac 1 -ab 128k -filter:a volume=0.5 -filter:a aiir -filter:a equalizer=f=1000:t=q:w=1:g=2,equalizer=f=100:t=q:w=2:g=-5 -filter:a "aiir=k=1:z=7.957584807809675810E-1 -2.575128568908332300 3.674839853930788710 -2.57512875289799137 7.957586296317130880E-1:p=1 -2.86950072432325953 3.63022088054647218 -2.28075678147272232 6.361362326477423500E-1:f=tf:r=d" audio_transform_iac_1ab256k_NO_silence_EQualizer_ALL_FULL.wav
+ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a volume=0.5 -filter:a equalizer=f=4000:t=q:w=1:g=0.5 audio_transform_iac_1ab256k_NO_silence_EQualizer_ALL_FULL.wav
