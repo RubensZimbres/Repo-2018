@@ -6,6 +6,7 @@ ffmpeg -i /home/rubens/audio_test.wav -ac 1 -ab 8k audio_test2.wav
 -ac – Set the number of audio channels (1,2)
 -ab – Indicates the audio bitrate (8k, 128k, 256k)
 -ar – Set the audio frequency of the output file (22050, 44100, 48000 Hz)
+-filter:a
 
 Ok **
 
