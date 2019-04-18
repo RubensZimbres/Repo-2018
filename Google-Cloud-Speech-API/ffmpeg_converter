@@ -13,6 +13,4 @@ Ok **
 ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k audio_transform_iac_1ab128k.wav
 # encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16
 
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -af silenceremove=1:0:-50dB audio_transform_iac_1ab256k_NO_Silence_OK.wav
-
-ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k -filter:a volume=0.95 -filter:a equalizer=f=4000:t=q:w=1:g=-5 audio_transform_iac_1ab256k_NO_silence_EQualizer_ALL_FULL.wav
+ffmpeg -i /home/rubens/Documents/Python/833091003938384-Original.wav -ac 1 -ab 128k -filter:a volume=0.95 -filter:a equalizer=f=4000:t=h:w=1:g=-5 -filter:a dynaudnorm audio_transform_iac_1ab256k_NO_silence_EQualizer_ALL_FULL_3.wav
