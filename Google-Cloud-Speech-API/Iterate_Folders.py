@@ -1,6 +1,6 @@
 from google.cloud import storage
 
-bucket = storage.Client().get_bucket('bucket-dev')
+bucket = storage.Client().get_bucket('bucket')
 blobs = list(bucket.list_blobs())
 
 for blob in blobs:
