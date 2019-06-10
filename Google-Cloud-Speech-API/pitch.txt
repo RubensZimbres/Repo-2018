@@ -1,0 +1,7 @@
+https://librosa.github.io/librosa/_modules/librosa/core/pitch.html
+
+https://github.com/tyiannak/pyAudioAnalysis/wiki/3.-Feature-Extraction
+
+https://dsp.stackexchange.com/questions/27626/are-there-libraries-for-extraction-of-sound-wave-features
+
+https://stackoverflow.com/questions/20730133/extracting-pitch-features-from-audio-file
