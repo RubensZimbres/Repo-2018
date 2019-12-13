@@ -1,5 +1,8 @@
 Init:
 
+$ sudo apt update
+$ sudo apt install ffmpeg
+
 ffmpeg -i /home/rubens/audio_test.wav -ac 1 -ab 8k audio_test2.wav
 # encoding=enums.RecognitionConfig.AudioEncoding.MULAW
 
