@@ -16,4 +16,11 @@ Ok **
 ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k audio_transform_iac_1ab128k.wav
 # encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16
 
-ffmpeg -i /home/rubens/Documents/Python/833091003938384-Original.wav -ac 2 -ab 128k -filter:a volume=0.95 -filter:a equalizer=f=4000:t=h:w=1:g=-5 -filter:a dynaudnorm audio_transform_iac_1ab256k_NO_silence_EQualizer_ALL_FULL_3.wav
+ffmpeg -i /home/rubens/audio.mp3 -ac 2   
+
+ffmpeg -i /home/rubens/audio.mp3 -ac 2 -ab 128k -filter:a volume=0.95 -filter:a equalizer=f=4000:t=h:w=1:g=-5 -filter:a dynaudnorm audio_norm2.wav  
+
+ffmpeg -i /home/rubens/audio_norm2.wav -map_channel 0.0.0 output_left.wav  
+
+ffmpeg -ss 00:00:00 -to 00:05:00 -i audio-original.mp3 audio-cortado.mp3
+
