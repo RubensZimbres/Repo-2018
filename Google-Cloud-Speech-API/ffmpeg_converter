@@ -11,7 +11,14 @@ ffmpeg -i /home/rubens/audio_test.wav -ac 1 -ab 8k audio_test2.wav
 -ar – Set the audio frequency of the output file (22050, 44100, 48000 Hz)
 -filter:a
 
-Ok **
+THIS **
+
+ffmpeg -i ./convert.wav -ac 2 -ab 128k -filter:a volume=0.95 -filter:a equalizer=f=4000:t=h:w=1:g=-5 -filter:a dynaudnorm audio_norm.wav
+
+ffmpeg -i audio_norm.wav -af silenceremove=1:0:-50dB output.mp3
+
+
+
 
 ffmpeg -i 123451003938384-Original.wav -ac 1 -ab 128k audio_transform_iac_1ab128k.wav
 # encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16
