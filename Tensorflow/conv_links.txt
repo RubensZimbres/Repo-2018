@@ -1,0 +1,3 @@
+https://cs231n.github.io/convolutional-networks/#conv
+
+https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md
