@@ -5,10 +5,6 @@ Codes in Machine Learning, Deep Learning, Reinforcement Learning, Artificial Int
 <b> Welcome to my GitHub repo. </b>
 
 I am a Data Scientist and I code in Python. Here you will find some Machine Learning, Deep Learning, Natural Language Processing, Artificial Intelligence and Computer Vision models I developed.
-
-Data for models available at:
-
-https://drive.google.com/drive/folders/0B0RLknmL54khU2UwX3dnX1E1WHc?usp=sharing  
  
 Keras version used in models: keras==2.0.8
 Tensorflow version used in models: tensorflow==1.7.0  
